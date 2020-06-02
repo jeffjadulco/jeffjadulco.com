@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const Header = ({ siteTitle }) => (
-  <header className="container m-auto max-w-screen-xl h-40 flex items-center text-gray-800">
-    <div className="">
+  <header className="container m-auto px-4 md:px-20 max-w-screen-xl h-40 flex items-center text-gray-800">
+    <div className="mx-auto">
       <svg
         className="h-12 w-12 fill-current"
         xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,7 @@ const Header = ({ siteTitle }) => (
         <path d="M6.563 34.125c23.53 3.938 33.562-3 39.562-12.844.75 9.844-4.125 16.469-6 17.907l.938-5.063c-4.65 3.675-11.25 7.094-13.97 8.344l3-4.407c-5.55 1.65-18-1.937-23.53-3.937z" />
       </svg>
     </div>
-    <nav className="ml-6 flex-grow flex items-stretch text-base antialiased">
+    <nav className="hidden md:flex ml-6 flex-grow items-stretch text-sm antialiased">
       <div className="flex-grow items-center">
         <a className="mr-6" href="">
           BLOG
@@ -41,6 +41,22 @@ const Header = ({ siteTitle }) => (
         </svg>
       </button>
     </nav>
+    <button className="block md:hidden fixed right-0 px-4">
+      <svg
+        className="w-12 h-12 fill-current"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 48 48"
+      >
+        <path
+          d="M10.667 17.333h26.666M10.667 24h26.666M10.667 30.667h26.666"
+          stroke="#000"
+          stroke-width="2"
+          stroke-miterlimit="10"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
   </header>
 )
 
