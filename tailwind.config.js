@@ -11,7 +11,22 @@ module.exports = {
           "Arial",
           "sans-serif",
         ],
-        serif: ["Georgia", "Cambria", '"Times New Roman"', "Times", "serif"],
+        serif: [
+          "Playfair Display",
+          "Georgia",
+          "Cambria",
+          '"Times New Roman"',
+          "Times",
+          "serif",
+        ],
+      },
+      backgroundColor: {
+        primary: "var(--color-bg-primary)",
+        secondary: "var(--color-bg-secondary)",
+      },
+      textColor: {
+        primary: "var(--color-text-primary)",
+        secondary: "var(--color-text-secondary)",
       },
     },
   },

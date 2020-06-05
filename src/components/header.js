@@ -1,9 +1,10 @@
 // import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import ThemeToggle from "./themeToggle"
 
 const Header = ({ siteTitle }) => (
-  <header className="container m-auto px-4 md:px-20 max-w-screen-xl h-40 flex items-center text-gray-800">
+  <header className="container m-auto px-4 md:px-20 max-w-screen-xl h-40 flex items-center">
     <div className="mx-auto">
       <svg
         className="h-12 w-12 fill-current"
@@ -27,33 +28,20 @@ const Header = ({ siteTitle }) => (
           ABOUT
         </a>
       </div>
-      <button>
-        <svg
-          className="w-5 h-5 fill-current"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M10 18.75V1.25a8.75 8.75 0 100 17.5zM10 20a10 10 0 100-20 10 10 0 000 20z"
-          />
-        </svg>
-      </button>
+      <ThemeToggle />
     </nav>
     <button className="block md:hidden fixed right-0 px-4">
       <svg
-        className="w-12 h-12 fill-current"
+        className="w-12 h-12 fill-current stroke-current"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
       >
         <path
           d="M10.667 17.333h26.666M10.667 24h26.666M10.667 30.667h26.666"
-          stroke="#000"
-          stroke-width="2"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </button>

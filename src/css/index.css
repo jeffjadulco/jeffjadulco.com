@@ -1,3 +1,16 @@
+:root {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #edf2f7;
+
+  --color-text-primary: #2d3748;
+  --color-text-secondary: #4a5568;
+}
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+body {
+  @apply text-primary bg-primary;
+  transition: background 350ms ease 0s;
+}
