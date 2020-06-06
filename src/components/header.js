@@ -5,7 +5,7 @@ import ThemeToggle from "./themeToggle"
 
 const Header = ({ siteTitle }) => (
   <header className="container m-auto px-5 md:px-20 max-w-screen-xl h-32">
-    <nav className="mt-auto h-full flex space-x-6 items-center text-sm">
+    <nav className="mt-auto h-full flex space-x-6 items-center justify-center md:justify-start text-sm">
       <Link to="/">
         <svg
           className="h-12 w-12 fill-current"
