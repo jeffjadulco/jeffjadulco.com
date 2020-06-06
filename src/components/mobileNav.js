@@ -42,7 +42,7 @@ const MobileNav = () => {
               setNavShow(!navShow)
             }}
           ></button>
-          <nav className="right-0 h-screen mt-auto py-48 px-8 absolute flex flex-col items-end text-primary">
+          <nav className="right-0 h-screen mt-auto py-48 px-5 absolute flex flex-col items-end text-primary tracking-widest">
             <div className="flex-grow">
               <Link to="/">HOME</Link>
             </div>
