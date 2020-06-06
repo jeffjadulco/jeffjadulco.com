@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import { ThemeProvider } from "../context/themeContext"
+import MobileNav from "./mobileNav"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -26,6 +27,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <ThemeProvider>
+        <MobileNav />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div>
           <main>{children}</main>

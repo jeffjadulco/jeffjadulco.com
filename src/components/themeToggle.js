@@ -1,18 +1,24 @@
 import React from "react"
 import { ThemeContext } from "../context/themeContext"
 
-const ThemeToggle = () => {
+const ThemeToggle = ({ className }) => {
   const { theme, setTheme } = React.useContext(ThemeContext)
 
   const ToggleTheme = _ => {
     setTheme(theme === "light" ? "dark" : "light")
   }
 
+  const getToggleClassName = _ => {
+    return `${className} focus:outline-none ${
+      theme === "light" ? "rotate-0" : "rotate-180"
+    }`
+  }
+
   return (
     <>
-      <button onClick={ToggleTheme}>
+      <button onClick={ToggleTheme} className={getToggleClassName()}>
         <svg
-          className="w-5 h-5 fill-current"
+          className="w-6 h-6 md:w-5 md:h-5 fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
         >
