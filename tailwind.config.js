@@ -27,6 +27,9 @@ module.exports = {
       textColor: {
         primary: "var(--color-text-primary)",
         secondary: "var(--color-text-secondary)",
+        tertiary: "var(--color-text-tertiary)",
+        footerPrimary: "var(--color-text-footer-primary)",
+        footerSecondary: "var(--color-text-footer-secondary)",
       },
     },
   },
