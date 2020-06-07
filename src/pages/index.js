@@ -16,11 +16,12 @@ const IndexPage = () => (
         </p>
       </h1>
       <p className="mt-24 text-secondary font-serif text-xl sm:text-2xl md:text-3xl">
-        I write{" "}
+        {/* I write{" "}
         <Link to="/blog" className=" underline text-primary">
           blogs
         </Link>
-        .<br />I make open source{" "}
+        .<br /> */}
+        I make open source{" "}
         <Link to="/projects" className=" underline text-primary">
           projects
         </Link>

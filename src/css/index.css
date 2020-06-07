@@ -2,15 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
 :root {
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #edf2f7;
-  --color-bg-tertiary: #f7fafc;
+  --color-bg-primary: #2d3748;
+  --color-bg-secondary: #feebc8;
+  --color-bg-tertiary: #353e50;
 
-  --color-text-primary: #2d3748;
-  --color-text-secondary: #4a5568;
-  --color-text-tertiary: #718096;
+  --color-text-primary: #fbd38d;
+  --color-text-secondary: #feebc8;
+  --color-text-tertiary: #fffaf0;
   --color-text-footer-primary: #2d3748;
-  --color-text-footer-secondary: #4a5568;
+  --color-text-footer-secondary: #2d3748;
 }
 
 @import "tailwindcss/base";
