@@ -42,6 +42,13 @@ export const ThemeProvider = ({ children }) => {
       )
 
       root.style.setProperty(
+        "--color-bg-tertiary",
+        isDark
+          ? COLORS.dark.backgroundTertiary
+          : COLORS.light.backgroundTertiary
+      )
+
+      root.style.setProperty(
         "--color-text-primary",
         isDark ? COLORS.dark.textPrimary : COLORS.light.textPrimary
       )

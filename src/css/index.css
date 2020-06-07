@@ -4,6 +4,7 @@
 :root {
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #edf2f7;
+  --color-bg-tertiary: #f7fafc;
 
   --color-text-primary: #2d3748;
   --color-text-secondary: #4a5568;
@@ -18,7 +19,7 @@
 
 body {
   @apply antialiased text-primary bg-primary;
-  transition: background 350ms ease 0s;
+  transition: background 300ms ease 0s;
 }
 
 a,
