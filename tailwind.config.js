@@ -5,11 +5,17 @@ module.exports = {
       fontFamily: {
         sans: [
           "Lato",
-          "Helvetica Neue",
-          "Inter",
-          "Helvetica",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          '"Helvetica Neue"',
           "Arial",
+          '"Noto Sans"',
           "sans-serif",
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+          '"Noto Color Emoji"',
         ],
         serif: [
           "Playfair Display",
