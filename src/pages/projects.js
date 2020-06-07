@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const ProjectList = [
   {
@@ -56,6 +57,7 @@ const ProjectCard = ({ project }) => {
 const Projects = () => {
   return (
     <Layout>
+      <SEO title="Projects" />
       <h1 className="mt-12 mb-2 text-2xl font-serif font-medium text-primary">
         Projects
       </h1>

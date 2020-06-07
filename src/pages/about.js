@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const Heading = ({ children }) => {
   return (
@@ -32,6 +33,7 @@ const ExtLink = ({ children, link }) => {
 const About = _ => {
   return (
     <Layout>
+      <SEO title="About" />
       <div className="container">
         <article>
           <Heading>About Me</Heading>
