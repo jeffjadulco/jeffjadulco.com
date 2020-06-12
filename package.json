@@ -20,6 +20,7 @@
     "react-helmet": "^6.0.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "prettier": "2.0.5",
     "tailwindcss": "^1.4.6"
   },
@@ -29,7 +30,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
