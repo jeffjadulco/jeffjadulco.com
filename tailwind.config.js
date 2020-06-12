@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          "Lato",
+          "Inter",
           "BlinkMacSystemFont",
           '"Segoe UI"',
           "Roboto",
@@ -16,14 +16,6 @@ module.exports = {
           '"Segoe UI Emoji"',
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
-        ],
-        serif: [
-          "Playfair Display",
-          "Georgia",
-          "Cambria",
-          '"Times New Roman"',
-          "Times",
-          "serif",
         ],
       },
       backgroundColor: {

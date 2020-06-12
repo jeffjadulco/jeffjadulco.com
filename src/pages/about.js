@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 
 const Heading = ({ children }) => {
   return (
-    <h1 className="mt-12 mb-2 text-2xl font-serif font-medium text-primary">
+    <h1 className="mt-12 mb-2 text-2xl font-sans font-medium text-primary">
       {children}
     </h1>
   )
@@ -39,9 +39,9 @@ const About = _ => {
           <Heading>About Me</Heading>
           <Paragraph>
             I'm Jeff Jadulco, I work full-time as a game programmer at{" "}
-            <ExtLink link="https://secret6.com/">Secret 6, Inc.</ExtLink>, Inc.
-            In my free time, I study front-end development with React. My goal
-            is to write useful apps and contribute to open source projects.
+            <ExtLink link="https://secret6.com/">Secret 6, Inc</ExtLink>. In my
+            free time, I study front-end development with React. My goal is to
+            write useful apps and contribute to open source projects.
           </Paragraph>
           <Paragraph>
             My current tech stack for game development: <Strong>Unity</Strong>,
