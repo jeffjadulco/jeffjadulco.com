@@ -13,8 +13,18 @@ export const Contact = () => {
           feedback?
         </p>
         <p className="mt-1 text-center text-secondary">
-          You can also reach me around the web: <ExtLink>GitHub</ExtLink>,{" "}
-          <ExtLink>Twitter</ExtLink>, <ExtLink>Instagram</ExtLink>
+          You can also reach me around the web:{" "}
+          <ExtLink link="https://github.com/jeffjadulco" newTab>
+            GitHub
+          </ExtLink>
+          ,{" "}
+          <ExtLink link="https://twitter.com/jeffjadulco" newTab>
+            Twitter
+          </ExtLink>
+          ,{" "}
+          <ExtLink link="https://www.instagram.com/jeffjadulco/" newTab>
+            Instagram
+          </ExtLink>
         </p>
         <div className="mx-auto  pt-10 flex justify-center">
           <Button

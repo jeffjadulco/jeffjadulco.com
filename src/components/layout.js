@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
       <ThemeProvider>
         <MobileNav />
         <Header siteTitle={data.site.siteMetadata.title} />
-        <main className="min-h-screen container m-auto px-5 md:px-20 pb-40 max-w-screen-xl">
+        <main className="min-h-screen container m-auto px-5 md:px-20 pb-32 max-w-screen-xl">
           {children}
         </main>
         <Footer />

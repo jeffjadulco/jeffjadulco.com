@@ -29,12 +29,25 @@ export const Strong = ({ children }) => {
   return <strong className="font-bold text-secondary">{children}</strong>
 }
 
-export const ExtLink = ({ children, link }) => {
-  return (
-    <a href={link} className="font-bold text-secondary">
-      {children}
-    </a>
-  )
+export const ExtLink = ({ children, link, newTab }) => {
+  if (newTab) {
+    return (
+      <a
+        href={link}
+        className="font-bold text-secondary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    )
+  } else {
+    return (
+      <a href={link} className="font-bold text-secondary">
+        {children}
+      </a>
+    )
+  }
 }
 
 export const Button = ({ children, onClick, width }) => {
