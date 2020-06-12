@@ -1,20 +1,20 @@
 import React from "react"
-import { Link } from "gatsby"
+import { NavLink } from "./atoms"
 
 const Footer = _ => {
   return (
-    <footer className="w-full h-48 bg-secondary text-footerSecondary">
+    <footer className="w-full h-48 text-secondary">
       <div className="container h-full m-auto px-5 md:px-20 py-12 max-w-screen-xl">
         <div className="container flex-col justify-between md:space-y-8">
           <nav className="hidden md:flex flex-row items-center space-x-6 justify-center md:justify-end text-sm tracking-widest">
-            <Link to="/">HOME</Link>
-            <Link to="/blog">BLOG</Link>
-            <Link to="/projects">PROJECTS</Link>
-            <Link to="/about">ABOUT</Link>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/projects">Projects</NavLink>
+            <NavLink to="/about">About</NavLink>
           </nav>
           <div className="flex flex-col-reverse md:flex-row md:justify-between space-y-reverse space-y-8 md:space-y-0">
             <span className="text-xs tracking-wider self-center md:self-end">
-              © JEFF JADULCO. ALL RIGHTS RESERVED.
+              © 2020 Jeff Jadulco. All Rights Reserved.
             </span>
             <div className="flex flex-row items-center space-x-4 justify-center md:justify-end">
               <span>

@@ -1,15 +1,25 @@
 @import url("https://rsms.me/inter/inter.css");
 
 :root {
+  --color-bg-accent: #81e6d9;
   --color-bg-primary: #2d3748;
   --color-bg-secondary: #feebc8;
   --color-bg-tertiary: #353e50;
+  --color-bg-accent-hover: #4fd1c5;
 
+  --color-text-accent: #81e6d9;
   --color-text-primary: #fbd38d;
   --color-text-secondary: #feebc8;
   --color-text-tertiary: #fffaf0;
+  --color-text-on-accent: #234e52;
+
   --color-text-footer-primary: #2d3748;
   --color-text-footer-secondary: #2d3748;
+}
+
+.full-width-container {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }
 
 @import "tailwindcss/base";
@@ -19,6 +29,7 @@
 body {
   @apply antialiased text-primary bg-primary;
   transition: background 300ms ease 0s;
+  overflow-x: hidden;
 }
 
 a,

@@ -19,16 +19,24 @@ module.exports = {
         ],
       },
       backgroundColor: {
+        accent: "var(--color-bg-accent)",
         primary: "var(--color-bg-primary)",
         secondary: "var(--color-bg-secondary)",
         tertiary: "var(--color-bg-tertiary)",
+        hover: {
+          accent: "var(--color-bg-accent-hover)",
+        },
       },
       textColor: {
+        accent: "var(--color-text-accent)",
         primary: "var(--color-text-primary)",
         secondary: "var(--color-text-secondary)",
         tertiary: "var(--color-text-tertiary)",
         footerPrimary: "var(--color-text-footer-primary)",
         footerSecondary: "var(--color-text-footer-secondary)",
+        on: {
+          accent: "var(--color-text-on-accent)",
+        },
       },
     },
   },

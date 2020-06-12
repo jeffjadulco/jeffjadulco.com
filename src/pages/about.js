@@ -1,40 +1,14 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
-const Heading = ({ children }) => {
-  return (
-    <h1 className="mt-12 mb-2 text-2xl font-sans font-medium text-primary">
-      {children}
-    </h1>
-  )
-}
-
-const Paragraph = ({ children }) => {
-  return (
-    <p className=" max-w-screen-md mb-4 font-normal text-base leading-relaxed md:leading-normal text-secondary">
-      {children}
-    </p>
-  )
-}
-
-const Strong = ({ children }) => {
-  return <strong className="font-medium text-primary">{children}</strong>
-}
-
-const ExtLink = ({ children, link }) => {
-  return (
-    <a href={link} className="font-medium text-primary">
-      {children}
-    </a>
-  )
-}
+import { Heading, Paragraph, Strong, ExtLink } from "../components/atoms"
+import Contact from "../components/contact"
 
 const About = _ => {
   return (
     <Layout>
       <SEO title="About" />
-      <div className="container">
+      <div className="container mb-40">
         <article>
           <Heading>About Me</Heading>
           <Paragraph>
@@ -91,6 +65,7 @@ const About = _ => {
           </Paragraph>
         </article>
       </div>
+      <Contact />
     </Layout>
   )
 }

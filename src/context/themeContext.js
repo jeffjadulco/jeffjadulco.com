@@ -27,7 +27,11 @@ export const ThemeProvider = ({ initialTheme, children }) => {
     const root = window.document.documentElement
     const isDark = theme === "dark"
 
-    // Apply theme to css variables
+    root.style.setProperty(
+      "--color-bg-accent",
+      isDark ? COLORS.dark.backgroundAccent : COLORS.light.backgroundAccent
+    )
+
     root.style.setProperty(
       "--color-bg-primary",
       isDark ? COLORS.dark.backgroundPrimary : COLORS.light.backgroundPrimary
@@ -46,6 +50,18 @@ export const ThemeProvider = ({ initialTheme, children }) => {
     )
 
     root.style.setProperty(
+      "--color-bg-accent-hover",
+      isDark
+        ? COLORS.dark.backgroundAccentHover
+        : COLORS.light.backgroundAccentHover
+    )
+
+    root.style.setProperty(
+      "--color-text-accent",
+      isDark ? COLORS.dark.textAccent : COLORS.light.textAccent
+    )
+
+    root.style.setProperty(
       "--color-text-primary",
       isDark ? COLORS.dark.textPrimary : COLORS.light.textPrimary
     )
@@ -53,6 +69,11 @@ export const ThemeProvider = ({ initialTheme, children }) => {
     root.style.setProperty(
       "--color-text-secondary",
       isDark ? COLORS.dark.textSecondary : COLORS.light.textSecondary
+    )
+
+    root.style.setProperty(
+      "--color-text-on-accent",
+      isDark ? COLORS.dark.textOnAccent : COLORS.light.textOnAccent
     )
 
     // Save theme to localStorage
