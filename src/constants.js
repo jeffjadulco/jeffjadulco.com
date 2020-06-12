@@ -12,6 +12,9 @@ const COLORS = {
     textFooterPrimary: "#2d3748",
     textFooterSecondary: "#718096",
     textOnAccent: "#F7FAFC",
+    fillPrimary: "#b1d9f6",
+    fillSecondary: "#f7fafc",
+    fillTertiary: "#f7fafc",
   },
   dark: {
     backgroundAccent: "#81E6D9",
@@ -26,6 +29,9 @@ const COLORS = {
     textFooterPrimary: "#2d3748",
     textFooterSecondary: "#2d3748",
     textOnAccent: "#234E52",
+    fillPrimary: "#81E6D9",
+    fillSecondary: "#283141",
+    fillTertiary: "#283141",
   },
 }
 

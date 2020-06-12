@@ -76,6 +76,19 @@ export const ThemeProvider = ({ initialTheme, children }) => {
       isDark ? COLORS.dark.textOnAccent : COLORS.light.textOnAccent
     )
 
+    root.style.setProperty(
+      "--color-fill-primary",
+      isDark ? COLORS.dark.fillPrimary : COLORS.light.fillPrimary
+    )
+    root.style.setProperty(
+      "--color-fill-secondary",
+      isDark ? COLORS.dark.fillSecondary : COLORS.light.fillSecondary
+    )
+    root.style.setProperty(
+      "--color-fill-tertiary",
+      isDark ? COLORS.dark.filltertiary : COLORS.light.filltertiary
+    )
+
     // Save theme to localStorage
     localStorage.setItem("color-theme", isDark ? "dark" : "light")
   }

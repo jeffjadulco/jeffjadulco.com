@@ -1,10 +1,10 @@
 import React from "react"
-import { NavLink } from "./atoms"
+import { NavLink, Blob2 } from "./atoms"
 
 const Footer = _ => {
   return (
-    <footer className="w-full h-48 text-secondary">
-      <div className="container h-full m-auto px-5 md:px-20 py-12 max-w-screen-xl">
+    <footer className="relative w-full h-56 text-secondary overflow-hidden">
+      <div className="container h-full m-auto px-5 md:px-20 pb-12 pt-24 max-w-screen-xl">
         <div className="container flex-col justify-between md:space-y-8">
           <nav className="hidden md:flex flex-row items-center space-x-6 justify-center md:justify-end text-sm tracking-widest">
             <NavLink to="/">Home</NavLink>
@@ -79,6 +79,11 @@ const Footer = _ => {
               </span>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="flex justify-center -ml-32 md:-mr-64">
+        <div className="md:-mr-64 mt-8">
+          <Blob2 />
         </div>
       </div>
     </footer>

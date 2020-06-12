@@ -37,6 +37,11 @@ module.exports = {
         on: {
           accent: "var(--color-text-on-accent)",
         },
+        fill: {
+          primary: "var(--color-fill-primary)",
+          secondary: "var(--color-fill-secondary)",
+          tertiary: "var(--color-fill-tertiary)",
+        },
       },
     },
   },

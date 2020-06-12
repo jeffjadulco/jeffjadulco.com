@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import ThemeToggle from "./themeToggle"
-import { NavLink } from "./atoms"
+import { NavLink, Blob, Blob2 } from "./atoms"
 
 const Header = ({ siteTitle }) => (
   <header className="container m-auto px-5 md:px-20 max-w-screen-xl h-32">
@@ -26,6 +26,9 @@ const Header = ({ siteTitle }) => (
       </span>
       <ThemeToggle className="hidden md:block" />
     </nav>
+    <div className=" -mt-64">
+      <Blob2 />
+    </div>
   </header>
 )
 
