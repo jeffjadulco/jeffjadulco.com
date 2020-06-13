@@ -52,7 +52,7 @@ export const ExtLink = ({ children, link, newTab }) => {
   }
 }
 
-export const Button = ({ children, onClick, width }) => {
+export const Button = ({ children, link, width }) => {
   let padding = "px-4 py-2"
 
   if (width === "wide") {
@@ -66,9 +66,9 @@ export const Button = ({ children, onClick, width }) => {
   const className = `${padding} rounded bg-accent hover:bg-hover-accent text-on-accent`
 
   return (
-    <button className={className} onClick={onClick}>
+    <a className={className} href={link}>
       {children}
-    </button>
+    </a>
   )
 }
 
