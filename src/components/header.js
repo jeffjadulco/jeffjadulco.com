@@ -26,8 +26,12 @@ const Header = ({ siteTitle }) => (
       </span>
       <ThemeToggle className="hidden sm:block" />
     </nav>
-    <div className="hidden sm:block -mt-64">
-      <Blob2 />
+    <div className="absolute md:static top-0 left-0 md:top-auto md:left-auto overflow-x-hidden md:overflow-auto w-screen h-screen">
+      <div>
+        <div className="-mt-64 ">
+          <Blob2 />
+        </div>
+      </div>
     </div>
   </header>
 )
