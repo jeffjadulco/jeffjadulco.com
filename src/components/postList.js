@@ -31,7 +31,7 @@ const PostList = () => {
       <ul className="mt-3 divide-y-2 divide-subtle">
         {MockPosts.map(post => {
           return (
-            <li className="py-3">
+            <li key={post.title} className="py-3">
               <Link to={post.slug}>
                 <div className="group flex justify-between items-end">
                   <div>

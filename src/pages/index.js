@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 import { Blob } from "../components/atoms"
 import Layout from "../components/layout"
@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import PostList from "../components/postList"
 import ProjectList from "../components/projectList"
 import Contact from "../components/contact"
+import Image from "../components/image"
 
 const IndexPage = () => (
   <Layout>
@@ -17,8 +18,13 @@ const IndexPage = () => (
         <br className="mb-6 lg:hidden" /> I’m an experienced game developer with
         deep interest in modern web development.
       </h1>
-      <div className="">
+      <div className="relative">
         <Blob />
+        <div className="absolute w-full h-full top-0 flex items-center justify-center">
+          <div className="h-48 w-48 rounded-full overflow-hidden">
+            <Image />
+          </div>
+        </div>
       </div>
     </div>
     <PostList />

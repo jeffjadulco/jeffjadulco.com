@@ -6,7 +6,10 @@ export const Contact = () => {
     <div className="mt-32 full-width-container bg-tertiary">
       <div className="container max-w-screen-xl mx-auto pt-10 pb-12 text-gray-900">
         <h1 className="text-3xl font-semibold text-center text-primary">
-          Get in touch 👋
+          Get in touch{" "}
+          <span role="img" aria-label="wave">
+            👋
+          </span>
         </h1>
         <p className="mt-4 text-center text-secondary">
           Feel free to email me about anything. Want some advice? Give some

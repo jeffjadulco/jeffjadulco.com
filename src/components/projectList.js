@@ -4,8 +4,7 @@ const MockProjects = [
   {
     slug: "https://jeffjadulco.now.sh/",
     title: "jeffjadulco.com",
-    description:
-      "My personal website made with React and Gatsby. And yes, it is open source :)",
+    description: "My personal website made with React and Gatsby.",
     year: "2020",
   },
   {
@@ -37,7 +36,7 @@ const ProjectList = () => {
       <ul className="mt-3 divide-y-2 divide-subtle">
         {MockProjects.map(project => {
           return (
-            <li className="py-3">
+            <li key={project.title} className="py-3">
               <a href={project.slug} target="_blank" rel="noopener noreferrer">
                 <div className="group flex justify-between items-end">
                   <div>
