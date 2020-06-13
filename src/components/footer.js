@@ -82,7 +82,7 @@ const Footer = _ => {
         </div>
       </div>
       <div className="flex justify-center -ml-32 md:-mr-64">
-        <div className="md:-mr-64 mt-8">
+        <div className="md:-mr-64 mt-8 hidden md:block">
           <Blob2 />
         </div>
       </div>

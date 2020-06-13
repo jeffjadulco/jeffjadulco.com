@@ -26,7 +26,7 @@ const Header = ({ siteTitle }) => (
       </span>
       <ThemeToggle className="hidden md:block" />
     </nav>
-    <div className=" -mt-64">
+    <div className="hidden md:block -mt-64">
       <Blob2 />
     </div>
   </header>
