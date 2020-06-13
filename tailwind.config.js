@@ -46,6 +46,9 @@ module.exports = {
       divideColor: {
         subtle: "var(--color-bg-tertiary)",
       },
+      letterSpacing: {
+        widestest: "0.2em",
+      },
     },
   },
   variants: {

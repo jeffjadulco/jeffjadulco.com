@@ -8,7 +8,7 @@ const About = _ => {
   return (
     <Layout>
       <SEO title="About" />
-      <div className="container mb-24 md:mb-40">
+      <div className="container">
         <article>
           <Heading>About Me</Heading>
           <Paragraph>
