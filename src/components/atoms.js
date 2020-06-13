@@ -4,7 +4,9 @@ import { Link } from "gatsby"
 export const NavLink = ({ to, children }) => {
   return (
     <Link to={to}>
-      <span className="font-normal text-base text-secondary">{children}</span>
+      <span className="font-normal text-base text-secondary hover:text-accent transition duration-150">
+        {children}
+      </span>
     </Link>
   )
 }
@@ -34,7 +36,7 @@ export const ExtLink = ({ children, link, newTab }) => {
     return (
       <a
         href={link}
-        className="font-bold text-secondary"
+        className="font-bold text-secondary hover:text-accent"
         target="_blank"
         rel="noopener noreferrer"
       >

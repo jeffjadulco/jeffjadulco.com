@@ -20,7 +20,7 @@ const Footer = _ => {
               <span>
                 <a href="mailto:jeffjadulco.work@gmail.com">
                   <svg
-                    className="h-8 w-8"
+                    className="h-8 w-8 text-secondary hover:text-accent transition duration-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 30 30"
@@ -32,7 +32,7 @@ const Footer = _ => {
               <span>
                 <a href="https://twitter.com/jeffjadulco">
                   <svg
-                    className="h-8 w-8"
+                    className="h-8 w-8 text-secondary hover:text-accent transition duration-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 30 30"
@@ -44,7 +44,7 @@ const Footer = _ => {
               <span>
                 <a href="https://www.instagram.com/jeffjadulco/">
                   <svg
-                    className="h-8 w-8"
+                    className="h-8 w-8 text-secondary hover:text-accent transition duration-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 32 32"
@@ -56,7 +56,7 @@ const Footer = _ => {
               <span>
                 <a href="https://github.com/jeffjadulco">
                   <svg
-                    className="h-8 w-8"
+                    className="h-8 w-8 text-secondary hover:text-accent transition duration-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 30 30"
@@ -68,7 +68,7 @@ const Footer = _ => {
               <span>
                 <a href="https://www.linkedin.com/in/jeffjadulco/">
                   <svg
-                    className="h-8 w-8"
+                    className="h-8 w-8 text-secondary hover:text-accent transition duration-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 32 32"

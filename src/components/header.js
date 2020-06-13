@@ -9,7 +9,7 @@ const Header = ({ siteTitle }) => (
     <nav className="mt-auto h-full flex space-x-6 items-center justify-center md:justify-start text-sm">
       <Link to="/">
         <svg
-          className="h-12 w-12 fill-current"
+          className="h-12 w-12 fill-current hover:text-accent transition duration-150"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 48 48"
         >
@@ -24,7 +24,7 @@ const Header = ({ siteTitle }) => (
         <NavLink to="/projects">Projects</NavLink>
         <NavLink to="/about">About</NavLink>
       </span>
-      <ThemeToggle className="hidden sm:block" />
+      <ThemeToggle className="hidden sm:block hover:text-accent transition duration-150" />
     </nav>
     <div className="absolute md:static top-0 left-0 md:top-auto md:left-auto overflow-x-hidden md:overflow-auto w-screen h-screen">
       <div>

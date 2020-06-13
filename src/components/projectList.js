@@ -42,7 +42,7 @@ const ProjectList = ({ showHeading }) => {
               <a href={project.slug} target="_blank" rel="noopener noreferrer">
                 <div className="group flex justify-between sm:items-end space-x-3 sm:space-x-0">
                   <div>
-                    <h3 className="text-xl font-semibold group-hover:text-accent">
+                    <h3 className="text-xl font-semibold text-primary group-hover:text-accent">
                       {project.title}
                     </h3>
                     <h4 className="font-medium text-tertiary">
