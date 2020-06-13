@@ -4,9 +4,9 @@ import { NavLink, Blob2 } from "./atoms"
 const Footer = _ => {
   return (
     <footer className="relative w-full h-56 text-secondary overflow-hidden">
-      <div className="container h-full m-auto px-5 md:px-20 pb-12 pt-24 max-w-screen-xl">
+      <div className="container h-full md:max-w-screen-md lg:max-w-screen-xl m-auto px-5 md:px-20 pb-12 pt-24">
         <div className="container flex-col justify-between md:space-y-8">
-          <nav className="hidden md:flex flex-row items-center space-x-6 justify-center md:justify-end text-sm tracking-widest">
+          <nav className="hidden lg:flex flex-row items-center space-x-6 justify-center md:justify-end text-sm tracking-widest">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/blog">Blog</NavLink>
             <NavLink to="/projects">Projects</NavLink>
@@ -82,7 +82,7 @@ const Footer = _ => {
         </div>
       </div>
       <div className="flex justify-center -ml-32 md:-mr-64">
-        <div className="md:-mr-64 mt-8 hidden md:block">
+        <div className="md:-mr-64 mt-8">
           <Blob2 />
         </div>
       </div>

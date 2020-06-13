@@ -2,10 +2,10 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import ThemeToggle from "./themeToggle"
-import { NavLink, Blob, Blob2 } from "./atoms"
+import { NavLink, Blob2 } from "./atoms"
 
 const Header = ({ siteTitle }) => (
-  <header className="container m-auto px-5 md:px-20 max-w-screen-xl h-32">
+  <header className="container m-auto px-5 sm:px-12 md:px-20 max-w-screen-xl h-32">
     <nav className="mt-auto h-full flex space-x-6 items-center justify-center md:justify-start text-sm">
       <Link to="/">
         <svg
@@ -18,15 +18,15 @@ const Header = ({ siteTitle }) => (
           <path d="M6.563 34.125c23.53 3.938 33.562-3 39.562-12.844.75 9.844-4.125 16.469-6 17.907l.938-5.063c-4.65 3.675-11.25 7.094-13.97 8.344l3-4.407c-5.55 1.65-18-1.937-23.53-3.937z" />
         </svg>
       </Link>
-      <span className="hidden md:flex flex-grow items-center space-x-6">
+      <span className="hidden sm:flex flex-grow items-center space-x-6">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/blog">Blog</NavLink>
         <NavLink to="/projects">Projects</NavLink>
         <NavLink to="/about">About</NavLink>
       </span>
-      <ThemeToggle className="hidden md:block" />
+      <ThemeToggle className="hidden sm:block" />
     </nav>
-    <div className="hidden md:block -mt-64">
+    <div className="hidden sm:block -mt-64">
       <Blob2 />
     </div>
   </header>

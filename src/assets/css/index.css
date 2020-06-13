@@ -51,6 +51,10 @@ button {
 }
 
 .blob {
+  z-index: -10;
+}
+
+.blob-bg {
   transform: scale(2.85);
   z-index: -10;
 }
@@ -61,4 +65,8 @@ button {
 
 .blob-rotate {
   animation: rotate 50s linear infinite;
+}
+
+.blob-rotate-faster {
+  animation: rotate 25s linear infinite;
 }

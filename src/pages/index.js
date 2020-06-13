@@ -3,44 +3,20 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { Blob } from "../components/atoms"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <div className="text-secondary tracking-wider">
-      <h1 className="mt-12 max-w-3xl font-sans text-2xl sm:text-3xl md:text-4xl">
-        <p className="text-primary font-medium">
-          Hi, I’m Jeff.
-          <br className="mb-6 md:hidden" /> I’m an experienced game developer
-          with deep interest in modern web development.
-        </p>
+    <div className="mt-12 flex flex-col-reverse lg:flex-row items-center lg:justify-between space-x-6">
+      <h1 className="mt-12 lg:mt-0 max-w-3xl text-3xl sm:text-4xl text-primary font-semibold tracking-wider sm:text-left md:text-center lg:text-left">
+        Hi, I’m Jeff.
+        <br className="mb-6 lg:hidden" /> I’m an experienced game developer with
+        deep interest in modern web development.
       </h1>
-      <p className="mt-24 text-secondary font-sans text-xl sm:text-2xl md:text-3xl">
-        {/* I write{" "}
-        <Link to="/blog" className=" underline text-primary">
-          blogs
-        </Link>
-        .<br /> */}
-        I make open source{" "}
-        <Link to="/projects" className=" underline text-primary">
-          projects
-        </Link>
-        .<br />
-        Read more about me{" "}
-        <Link to="/about/" className=" underline text-primary">
-          here
-        </Link>
-        .
-      </p>
-      <p className="mt-24 text-secondary font-sans text-xl sm:text-2xl md:text-3xl">
-        Contact me at <br />
-        <a
-          href="mailto:jeffjadulco.work@gmail.com"
-          className="underline text-primary"
-        >
-          jeffjadulco.work@gmail.com
-        </a>
-      </p>
+      <div className="">
+        <Blob />
+      </div>
     </div>
   </Layout>
 )

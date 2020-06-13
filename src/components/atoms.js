@@ -73,13 +73,13 @@ export const Button = ({ children, onClick, width }) => {
 export const Blob = _ => {
   return (
     <div>
-      <div className="blob absolute">
+      <div className="relative blob h-48 md:h-56 lg:h-64">
         <svg
-          className="blob-rotate h-64 text-fill-secondary fill-current"
+          className="blob-rotate-faster h-full text-accent fill-current"
+          viewBox="0 0 278 279"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 412.3 354.7"
         >
-          <path d="M320.8 58.4c47.1 38.8 97.8 95 90.8 143s-71.7 87.7-138.3 117.2c-66.5 29.5-134.7 48.7-186.4 26.5C35.3 322.9.3 259.3 0 203.3-.3 147.4 34.1 99.2 71 62.8 107.9 26.3 147.2 1.7 188.7.1c41.4-1.7 84.9 19.6 132.1 58.3z"></path>
+          <path d="M137.896 0.127761C167.59 -0.638578 198.383 1.62824 222.877 18.4301C247.738 35.4836 263.129 63.014 271.706 91.9151C280.118 120.258 280.513 150.661 270.364 178.43C260.457 205.538 239.342 225.92 216.353 243.372C192.903 261.174 167.336 278.631 137.896 278.994C108.28 279.358 81.0666 263.928 58.0226 245.322C35.8955 227.455 20.5343 203.415 11.0775 176.594C1.41508 149.191 -4.23875 119.749 3.91245 91.8587C12.2111 63.4638 31.6331 39.4483 56.0438 22.7357C79.9856 6.34414 108.89 0.876363 137.896 0.127761Z" />
         </svg>
       </div>
     </div>
@@ -89,7 +89,7 @@ export const Blob = _ => {
 export const Blob2 = _ => {
   return (
     <div>
-      <div className="blob absolute">
+      <div className="blob-bg absolute">
         <svg
           className="blob-rotate h-64 text-fill-secondary fill-current"
           viewBox="0 0 715 693"
