@@ -43,8 +43,13 @@ module.exports = {
           tertiary: "var(--color-fill-tertiary)",
         },
       },
+      divideColor: {
+        subtle: "var(--color-bg-tertiary)",
+      },
     },
   },
-  variants: {},
+  variants: {
+    textColor: ["responsive", "hover", "focus", "group-hover"],
+  },
   plugins: [],
 }

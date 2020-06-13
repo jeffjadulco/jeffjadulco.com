@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Blob } from "../components/atoms"
+import PostList from "../components/postList"
 
 const IndexPage = () => (
   <Layout>
@@ -18,6 +19,7 @@ const IndexPage = () => (
         <Blob />
       </div>
     </div>
+    <PostList />
   </Layout>
 )
 

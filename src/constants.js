@@ -25,7 +25,7 @@ const COLORS = {
     textAccent: "#81E6D9",
     textPrimary: "#F7FAFC",
     textSecondary: "#E2E8F0",
-    textTertiary: "#FFFAF0",
+    textTertiary: "#A0AEC0",
     textFooterPrimary: "#2d3748",
     textFooterSecondary: "#2d3748",
     textOnAccent: "#234E52",

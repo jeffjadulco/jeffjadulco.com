@@ -27,7 +27,7 @@
 
 body {
   @apply antialiased text-primary bg-primary;
-  transition: all 300ms ease 0s;
+  transition: background 300ms ease 0s;
   overflow-x: hidden;
 }
 

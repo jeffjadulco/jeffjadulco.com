@@ -70,6 +70,10 @@ export const ThemeProvider = ({ initialTheme, children }) => {
       "--color-text-secondary",
       isDark ? COLORS.dark.textSecondary : COLORS.light.textSecondary
     )
+    root.style.setProperty(
+      "--color-text-tertiary",
+      isDark ? COLORS.dark.textTertiary : COLORS.light.textTertiary
+    )
 
     root.style.setProperty(
       "--color-text-on-accent",

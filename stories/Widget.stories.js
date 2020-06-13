@@ -4,6 +4,7 @@ import Contact from "../src/components/contact"
 import Header from "../src/components/header"
 import Footer from "../src/components/footer"
 import { Blob } from "../src/components/atoms"
+import PostList from "../src/components/postList"
 
 export default {
   title: "Widgets",
@@ -14,3 +15,4 @@ export const ContactWidget = _ => <Contact />
 export const HeaderWidget = _ => <Header />
 export const FooterWidget = _ => <Footer />
 export const BlobWidget = _ => <Blob />
+export const PostListWidget = _ => <PostList />
