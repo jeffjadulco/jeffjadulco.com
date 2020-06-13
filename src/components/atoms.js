@@ -75,7 +75,7 @@ export const Blob = _ => {
     <div>
       <div className="relative blob h-48 md:h-56 lg:h-64">
         <svg
-          className="blob-rotate-faster h-full text-accent fill-current"
+          className="blob-rotate-faster h-full text-fill-primary fill-current"
           viewBox="0 0 278 279"
           xmlns="http://www.w3.org/2000/svg"
         >

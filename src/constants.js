@@ -12,8 +12,8 @@ const COLORS = {
     textFooterPrimary: "#2d3748",
     textFooterSecondary: "#718096",
     textOnAccent: "#F7FAFC",
-    fillPrimary: "#b1d9f6",
-    fillSecondary: "#f7fafc",
+    fillPrimary: "#B1D9F6",
+    fillSecondary: "#edf2f7",
     fillTertiary: "#f7fafc",
   },
   dark: {

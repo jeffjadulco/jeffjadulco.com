@@ -49,6 +49,9 @@ module.exports = {
       letterSpacing: {
         widestest: "0.2em",
       },
+      opacity: {
+        90: ".9",
+      },
     },
   },
   variants: {

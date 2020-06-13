@@ -1,14 +1,23 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PostList from "../components/postList"
+import { Heading } from "../components/atoms"
+import Contact from "../components/contact"
 
 const Blog = () => {
   return (
     <Layout>
       <SEO title="Blog" />
-      <h1 className="mt-12 mb-2 text-2xl font-sans font-medium text-primary">
-        Blog is coming soon!
-      </h1>
+      <Heading>Blog</Heading>
+      <p className="mb-12 text-secondary">
+        Coming soon.{" "}
+        <span role="img" aria-label="sweat smile">
+          😅
+        </span>
+      </p>
+      <PostList />
+      <Contact />
     </Layout>
   )
 }

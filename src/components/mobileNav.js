@@ -47,8 +47,8 @@ const MobileNav = () => {
         )}
       </button>
       {navShow && (
-        <div>
-          <div className="w-full h-screen fixed bg-primary opacity-75"></div>
+        <div className="relative z-10">
+          <div className="w-full h-screen fixed bg-primary opacity-90"></div>
           <button
             type="button"
             className="w-full h-screen fixed cursor-auto"
@@ -56,7 +56,7 @@ const MobileNav = () => {
               setNavShow(!navShow)
             }}
           ></button>
-          <nav className="right-0 h-screen mt-auto py-48 px-5 fixed flex flex-col items-end text-primary tracking-widest">
+          <nav className="right-0 h-screen mt-auto py-48 px-6 fixed flex flex-col items-end font-medium text-primary tracking-widest">
             <div className="flex-grow">
               <Link to="/">HOME</Link>
             </div>

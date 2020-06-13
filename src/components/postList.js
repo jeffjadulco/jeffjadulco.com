@@ -22,27 +22,31 @@ const MockPosts = [
   },
 ]
 
-const PostList = () => {
+const PostList = ({ showHeading }) => {
   return (
-    <section className="mt-64">
-      <h2 className="font-light font-medium text-lg text-accent tracking-widestest">
-        LATEST WRITINGS
-      </h2>
+    <section className="">
+      {showHeading && (
+        <h2 className="mt-64 font-light font-medium text-accent tracking-widestest">
+          LATEST WRITINGS
+        </h2>
+      )}
       <ul className="mt-3 divide-y-2 divide-subtle">
         {MockPosts.map(post => {
           return (
             <li key={post.title} className="py-3">
               <Link to={post.slug}>
-                <div className="group flex justify-between items-end">
+                <div className="group flex flex-col sm:flex-row sm:justify-between sm:items-end">
                   <div>
-                    <h3 className="text-2xl font-semibold group-hover:text-accent">
+                    <h3 className="text-xl font-semibold group-hover:text-accent">
                       {post.title}
                     </h3>
-                    <h4 className="text-lg font-medium text-tertiary">
+                    <h4 className="font-medium text-tertiary">
                       {post.description}
                     </h4>
                   </div>
-                  <span className="text-tertiary">{post.date}</span>
+                  <div className="mt-2 sm:mt-0 text-sm sm:text-base text-accent sm:text-tertiary">
+                    {post.date}
+                  </div>
                 </div>
               </Link>
             </li>

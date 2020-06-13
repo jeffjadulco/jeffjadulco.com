@@ -27,27 +27,31 @@ const MockProjects = [
   },
 ]
 
-const ProjectList = () => {
+const ProjectList = ({ showHeading }) => {
   return (
-    <section className="mt-32">
-      <h2 className="font-light font-medium text-lg text-accent tracking-widestest">
-        PROJECTS
-      </h2>
+    <section className="">
+      {showHeading && (
+        <h2 className="mt-32 font-light font-medium text-accent tracking-widestest">
+          PROJECTS
+        </h2>
+      )}
       <ul className="mt-3 divide-y-2 divide-subtle">
         {MockProjects.map(project => {
           return (
             <li key={project.title} className="py-3">
               <a href={project.slug} target="_blank" rel="noopener noreferrer">
-                <div className="group flex justify-between items-end">
+                <div className="group flex justify-between sm:items-end space-x-3 sm:space-x-0">
                   <div>
-                    <h3 className="text-2xl font-semibold group-hover:text-accent">
+                    <h3 className="text-xl font-semibold group-hover:text-accent">
                       {project.title}
                     </h3>
-                    <h4 className="text-lg font-medium text-tertiary">
+                    <h4 className="font-medium text-tertiary">
                       {project.description}
                     </h4>
                   </div>
-                  <span className="text-tertiary">{project.year}</span>
+                  <span className="text-sm sm:text-base text-accent sm:text-tertiary">
+                    {project.year}
+                  </span>
                 </div>
               </a>
             </li>
