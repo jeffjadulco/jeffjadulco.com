@@ -7,19 +7,35 @@ const Footer = _ => {
       <div className="container h-full md:max-w-screen-md lg:max-w-screen-xl m-auto px-5 md:px-20 pb-12 pt-24">
         <div className="container flex-col justify-between md:space-y-8">
           <nav className="hidden lg:flex flex-row items-center space-x-6 justify-center md:justify-end text-sm tracking-widest">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/blog">Blog</NavLink>
-            <NavLink to="/projects">Projects</NavLink>
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/" title="Home">
+              Home
+            </NavLink>
+            <NavLink to="/blog" title="Blog">
+              Blog
+            </NavLink>
+            <NavLink to="/projects" title="Projects">
+              Projects
+            </NavLink>
+            <NavLink to="/about" title="About">
+              About
+            </NavLink>
           </nav>
           <div className="flex flex-col-reverse md:flex-row md:justify-between space-y-reverse space-y-8 md:space-y-0">
-            <span className="text-xs tracking-wider self-center md:self-end">
+            <span
+              className="text-xs tracking-wider self-center md:self-end"
+              aria-label="Copyright"
+            >
               © 2020 Jeff Jadulco. All Rights Reserved.
             </span>
             <div className="flex flex-row items-center space-x-4 justify-center md:justify-end">
               <span>
-                <a href="mailto:jeffjadulco.work@gmail.com">
+                <a
+                  href="mailto:jeffjadulco.work@gmail.com"
+                  aria-label="Email jeffjadulco.work@gmail.com"
+                  title="Email"
+                >
                   <svg
+                    aria-hidden="true"
                     className="h-8 w-8 text-secondary hover:text-accent transition duration-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +46,13 @@ const Footer = _ => {
                 </a>
               </span>
               <span>
-                <a href="https://github.com/jeffjadulco">
+                <a
+                  href="https://github.com/jeffjadulco"
+                  aria-label="Visit GitHub profile"
+                  title="Visit GitHub profile"
+                >
                   <svg
+                    aria-hidden="true"
                     className="h-8 w-8 text-secondary hover:text-accent transition duration-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
@@ -42,8 +63,13 @@ const Footer = _ => {
                 </a>
               </span>
               <span>
-                <a href="https://www.linkedin.com/in/jeffjadulco/">
+                <a
+                  href="https://www.linkedin.com/in/jeffjadulco/"
+                  aria-label="Visit LinkedIn profile"
+                  title="Visit LinkedIn profile"
+                >
                   <svg
+                    aria-hidden="true"
                     className="h-8 w-8 text-secondary hover:text-accent transition duration-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
@@ -54,8 +80,13 @@ const Footer = _ => {
                 </a>
               </span>
               <span>
-                <a href="https://twitter.com/jeffjadulco">
+                <a
+                  href="https://twitter.com/jeffjadulco"
+                  aria-label="Visit Twitter profile"
+                  title="Visit Twitter profile"
+                >
                   <svg
+                    aria-hidden="true"
                     className="h-8 w-8 text-secondary hover:text-accent transition duration-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
@@ -66,8 +97,13 @@ const Footer = _ => {
                 </a>
               </span>
               <span>
-                <a href="https://www.instagram.com/jeffjadulco/">
+                <a
+                  href="https://www.instagram.com/jeffjadulco/"
+                  aria-label="Visit Instagram profile"
+                  title="Visit Instagram profile"
+                >
                   <svg
+                    aria-hidden="true"
                     className="h-8 w-8 text-secondary hover:text-accent transition duration-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"

@@ -6,9 +6,18 @@ import { NavLink, Blob2 } from "./atoms"
 
 const Header = ({ siteTitle }) => (
   <header className="container m-auto px-5 sm:px-12 md:px-20 max-w-screen-xl h-32">
-    <nav className="mt-auto h-full flex space-x-6 items-center justify-center md:justify-start text-sm">
-      <Link to="/">
+    <nav
+      className="mt-auto h-full flex space-x-6 items-center justify-center md:justify-start text-sm"
+      aria-label="Main Navigation"
+    >
+      <Link
+        to="/"
+        aria-label="Website logo, go back to homepage."
+        title="Website logo, go back to homepage."
+      >
         <svg
+          aria-hidden="true"
+          role="img"
           className="h-12 w-12 fill-current hover:text-accent transition duration-150"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 48 48"
@@ -19,10 +28,18 @@ const Header = ({ siteTitle }) => (
         </svg>
       </Link>
       <span className="hidden sm:flex flex-grow items-center space-x-6">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/blog">Blog</NavLink>
-        <NavLink to="/projects">Projects</NavLink>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/" title="Home">
+          Home
+        </NavLink>
+        <NavLink to="/blog" title="Blog">
+          Blog
+        </NavLink>
+        <NavLink to="/projects" title="Projects">
+          Projects
+        </NavLink>
+        <NavLink to="/about" title="About">
+          About
+        </NavLink>
       </span>
       <ThemeToggle className="hidden sm:block hover:text-accent transition duration-150" />
     </nav>

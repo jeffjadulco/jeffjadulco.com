@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 
-export const NavLink = ({ to, children }) => {
+export const NavLink = ({ to, children, title = "Link" }) => {
   return (
-    <Link to={to}>
+    <Link to={to} title={title}>
       <span className="font-normal text-base text-secondary hover:text-accent transition duration-150">
         {children}
       </span>
@@ -63,7 +63,7 @@ export const Button = ({ children, link, width }) => {
     padding = "px-20 py-2"
   }
 
-  const className = `${padding} rounded bg-accent hover:bg-hover-accent text-on-accent`
+  const className = `${padding} rounded bg-accent hover:bg-hover-accent focus:bg-hover-accent text-on-accent`
 
   return (
     <a className={className} href={link}>
@@ -74,7 +74,7 @@ export const Button = ({ children, link, width }) => {
 
 export const Blob = _ => {
   return (
-    <div>
+    <div aria-hidden="true">
       <div className="relative blob h-48 md:h-56 lg:h-64">
         <svg
           className="blob-rotate-faster h-full text-fill-primary fill-current"
@@ -90,7 +90,7 @@ export const Blob = _ => {
 
 export const Blob2 = _ => {
   return (
-    <div>
+    <div aria-hidden="true">
       <div className="blob-bg absolute">
         <svg
           className="blob-rotate h-64 text-fill-secondary fill-current"

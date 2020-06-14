@@ -4,20 +4,30 @@ import { ThemeContext } from "../context/themeContext"
 const ThemeToggle = ({ className }) => {
   const { theme, setTheme } = React.useContext(ThemeContext)
 
+  function isLight() {
+    return theme === "light"
+  }
+
   const ToggleTheme = _ => {
-    setTheme(theme === "light" ? "dark" : "light")
+    setTheme(isLight() ? "dark" : "light")
   }
 
   const getToggleClassName = _ => {
-    return `${className} focus:outline-none ${
-      theme === "light" ? "rotate-0" : "rotate-180"
-    }`
+    return `${className} ${
+      isLight() ? "rotate-0" : "rotate-180"
+    } focus:outline-none`
   }
 
   return (
     <>
-      <button onClick={ToggleTheme} className={getToggleClassName()}>
+      <button
+        aria-label={isLight() ? "Activate Dark Mode" : "Activate Light Mode"}
+        title={isLight() ? "Activate Dark Mode" : "Activate Light Mode"}
+        onClick={ToggleTheme}
+        className={getToggleClassName()}
+      >
         <svg
+          aria-hidden="true"
           className="w-6 h-6 md:w-5 md:h-5 fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
