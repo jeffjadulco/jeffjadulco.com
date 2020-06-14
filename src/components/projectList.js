@@ -2,7 +2,7 @@ import React from "react"
 
 const MockProjects = [
   {
-    slug: "https://jeffjadulco.now.sh/",
+    slug: "https://jeffjadulco.com/",
     title: "jeffjadulco.com",
     description: "My personal website made with React and Gatsby.",
     year: "2020",
