@@ -12,6 +12,7 @@
     "gatsby-plugin-postcss": "^2.3.2",
     "gatsby-plugin-react-helmet": "^3.3.1",
     "gatsby-plugin-sharp": "^2.6.4",
+    "gatsby-plugin-sitemap": "^2.4.5",
     "gatsby-source-filesystem": "^2.3.4",
     "gatsby-transformer-sharp": "^2.5.2",
     "prop-types": "^15.7.2",

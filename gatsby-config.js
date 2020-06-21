@@ -3,7 +3,7 @@ module.exports = {
     title: `Jeff Jadulco`,
     description: `Jeff Jadulco is a game and javascript developer`,
     author: `Jeff Jadulco`,
-    url: `https://jeffjadulco.com`,
+    siteUrl: `https://jeffjadulco.com`,
     image: `/images/og-card.png`,
     twitterUsername: `@jeffjadulco`,
   },
@@ -31,5 +31,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-sitemap`,
   ],
 }

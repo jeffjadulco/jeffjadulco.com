@@ -19,8 +19,7 @@ function SEO({ description, lang, meta, title }) {
             defaultTitle: title
             defaultDescription: description
             author
-            siteUrl: url
-            defaultImage: image
+            siteUrl
             twitterUsername
           }
         }
@@ -46,7 +45,6 @@ function SEO({ description, lang, meta, title }) {
     title: title || defaultTitle,
     titleTemplate: title ? `${defaultTitle} | %s` : defaultTitle,
     description: description || defaultDescription,
-    // image: `${siteUrl}${defaultImage}`,
     image: `${siteUrl}${image.childImageSharp.fixed.src}`,
     url: `${siteUrl}`,
   }
