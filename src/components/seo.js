@@ -51,6 +51,10 @@ function SEO({ description, lang, meta, title }) {
     url: `${siteUrl}`,
   }
 
+  console.log(
+    `GATSBY_GOOGLE_SITE_VERIFICATION=${process.env.GATSBY_GOOGLE_SITE_VERIFICATION}`
+  )
+
   return (
     <Helmet
       htmlAttributes={{
