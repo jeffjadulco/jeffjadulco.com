@@ -3,6 +3,9 @@ module.exports = {
     title: `Jeff Jadulco`,
     description: `Jeff Jadulco is a game and javascript developer`,
     author: `Jeff Jadulco`,
+    url: `https://jeffjadulco.com`,
+    image: `/images/og-card.png`,
+    twitterUsername: `@jeffjadulco`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -16,36 +16,65 @@ function SEO({ description, lang, meta, title }) {
       query {
         site {
           siteMetadata {
-            title
-            description
+            defaultTitle: title
+            defaultDescription: description
             author
+            siteUrl: url
+            defaultImage: image
+            twitterUsername
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const {
+    defaultTitle,
+    defaultDescription,
+    siteUrl,
+    defaultImage,
+    twitterUsername,
+  } = site.siteMetadata
+
+  const seo = {
+    title: title || defaultTitle,
+    titleTemplate: title ? `${defaultTitle} | %s` : defaultTitle,
+    description: description || defaultDescription,
+    image: `${siteUrl}${defaultImage}`,
+    url: `${siteUrl}`,
+  }
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`${site.siteMetadata.title} | %s`}
+      title={seo.title}
+      titleTemplate={seo.titleTemplate}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: seo.description,
+        },
+        {
+          name: `image`,
+          content: seo.image,
         },
         {
           property: `og:title`,
-          content: title,
+          content: seo.title,
+        },
+        {
+          property: `og:url`,
+          content: seo.url,
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: seo.description,
+        },
+        {
+          property: `og:image`,
+          content: seo.image,
         },
         {
           property: `og:type`,
@@ -53,19 +82,23 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
+        },
+        {
+          name: `twitter:image`,
+          content: seo.image,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: twitterUsername,
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: seo.title,
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: seo.description,
         },
       ].concat(meta)}
     />
