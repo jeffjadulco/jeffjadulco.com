@@ -30,6 +30,12 @@ module.exports = {
         icon: `src/assets/images/logo-512x512.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+      },
+    },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-sitemap`,
     {
@@ -43,7 +49,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        whitelist: ["GATSBY_GOOGLE_SITE_VERIFICATION"],
+        whitelist: [
+          "GATSBY_GOOGLE_SITE_VERIFICATION, GOOGLE_ANALYTICS_TRACKING_ID",
+        ],
       },
     },
   ],
