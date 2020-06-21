@@ -43,7 +43,9 @@ function SEO({ description, lang, meta, title }) {
 
   const seo = {
     title: title || defaultTitle,
-    titleTemplate: title ? `${defaultTitle} | %s` : defaultTitle,
+    titleTemplate: title
+      ? `${defaultTitle} | %s`
+      : `${defaultTitle} | Game and Javascript Developer`,
     description: description || defaultDescription,
     image: `${siteUrl}${image.childImageSharp.fixed.src}`,
     url: `${siteUrl}`,

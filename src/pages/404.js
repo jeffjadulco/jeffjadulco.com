@@ -6,7 +6,7 @@ import { Blob } from "../components/atoms"
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not found" />
+    <SEO title="Page Not Found" />
     <div className="mt-48 flex justify-center">
       <div className="absolute">
         <Blob />
