@@ -32,5 +32,13 @@ module.exports = {
     },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://jeffjadulco.com",
+        sitemap: "https://jeffjadulco.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
   ],
 }
