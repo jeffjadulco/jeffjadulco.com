@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+  const { site, image } = useStaticQuery(
     graphql`
       query {
         site {
@@ -24,6 +24,13 @@ function SEO({ description, lang, meta, title }) {
             twitterUsername
           }
         }
+        image: file(relativePath: { eq: "og-card.png" }) {
+          childImageSharp {
+            fixed(width: 1280) {
+              src
+            }
+          }
+        }
       }
     `
   )
@@ -32,7 +39,6 @@ function SEO({ description, lang, meta, title }) {
     defaultTitle,
     defaultDescription,
     siteUrl,
-    defaultImage,
     twitterUsername,
   } = site.siteMetadata
 
@@ -40,7 +46,8 @@ function SEO({ description, lang, meta, title }) {
     title: title || defaultTitle,
     titleTemplate: title ? `${defaultTitle} | %s` : defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${defaultImage}`,
+    // image: `${siteUrl}${defaultImage}`,
+    image: `${siteUrl}${image.childImageSharp.fixed.src}`,
     url: `${siteUrl}`,
   }
 
@@ -101,7 +108,16 @@ function SEO({ description, lang, meta, title }) {
           content: seo.description,
         },
       ].concat(meta)}
-    />
+    >
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Website",
+          url: seo.url,
+          name: seo.title,
+        })}
+      </script>
+    </Helmet>
   )
 }
 
@@ -115,7 +131,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 }
 
 export default SEO
