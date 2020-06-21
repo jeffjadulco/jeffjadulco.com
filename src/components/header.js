@@ -1,10 +1,9 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 import ThemeToggle from "./themeToggle"
 import { NavLink, Blob2 } from "./atoms"
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <header className="container m-auto px-5 sm:px-12 md:px-20 max-w-screen-xl h-32">
     <nav
       className="mt-auto h-full flex space-x-6 items-center justify-center md:justify-start text-sm"
@@ -52,13 +51,5 @@ const Header = ({ siteTitle }) => (
     </div>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
