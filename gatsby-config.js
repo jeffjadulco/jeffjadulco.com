@@ -40,5 +40,11 @@ module.exports = {
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        whitelist: ["GATSBY_GOOGLE_SITE_VERIFICATION"],
+      },
+    },
   ],
 }

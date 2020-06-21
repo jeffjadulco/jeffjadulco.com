@@ -9,7 +9,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import SiteConfig from "../../data/siteConfig"
 
 function SEO({ description, lang, meta, title }) {
   const { site, image } = useStaticQuery(
@@ -110,7 +109,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `google-site-verification`,
-          content: SiteConfig.GOOGLE_SITE_VERIFICATION,
+          content: process.env.GATSBY_GOOGLE_SITE_VERIFICATION,
         },
       ].concat(meta)}
     >
