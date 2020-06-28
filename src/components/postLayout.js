@@ -6,17 +6,28 @@ import { Link } from "gatsby"
 import Layout from "./layout"
 import SEO from "./seo"
 import Contact from "./contact"
+import { Heading, Paragraph, BlogTitle, BlogTitleInfo } from "./atoms"
 
-const shortcodes = { Link }
+const shortcodes = {
+  h2: Heading,
+  p: Paragraph,
+  Link,
+}
 
 const PostLayout = ({ data: { mdx } }) => {
   return (
     <Layout>
       <SEO />
-      <MDXProvider components={shortcodes}>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-      </MDXProvider>
-      <Contact />
+      <article>
+        <div className="mb-12">
+          <BlogTitle>{mdx.frontmatter.title}</BlogTitle>
+          <BlogTitleInfo date={mdx.frontmatter.date} />
+        </div>
+        <MDXProvider components={shortcodes}>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </MDXProvider>
+        <Contact />
+      </article>
     </Layout>
   )
 }
@@ -28,6 +39,7 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        date(formatString: "MMMM Do YYYY")
       }
     }
   }

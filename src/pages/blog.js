@@ -11,10 +11,8 @@ const Blog = () => {
       <SEO title="Blog" />
       <Heading>Blog</Heading>
       <p className="mb-12 text-secondary">
-        Coming soon.{" "}
-        <span role="img" aria-label="sweat smile">
-          😅
-        </span>
+        I write about things I learn in web development and also stuff that I
+        find interesting that you might enjoy.
       </p>
       <PostList />
       <Contact />

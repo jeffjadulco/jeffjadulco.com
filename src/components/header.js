@@ -44,7 +44,7 @@ const Header = () => (
     </nav>
     <div className="absolute md:static top-0 left-0 md:top-auto md:left-auto overflow-x-hidden md:overflow-auto w-screen h-screen">
       <div>
-        <div className="-mt-64 ">
+        <div className=" -mt-84 ">
           <Blob2 />
         </div>
       </div>
