@@ -1,5 +1,5 @@
 import React from "react"
-import { NavLink, Blob2 } from "./atoms"
+import { NavLink, BlobFooter } from "./atoms"
 
 const Footer = _ => {
   return (
@@ -125,9 +125,9 @@ const Footer = _ => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center -ml-32 md:-mr-64">
-        <div className="md:-mr-64 mt-8">
-          <Blob2 />
+      <div className="container md:max-w-screen-md lg:max-w-screen-xl m-auto px-5 md:px-20 flex justify-center md:justify-end">
+        <div className="mt-16">
+          <BlobFooter />
         </div>
       </div>
     </footer>

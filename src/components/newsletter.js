@@ -5,16 +5,18 @@ export const Newsletter = () => {
   return (
     <div className="mt-32 full-width-container bg-tertiary">
       <div className="container max-w-screen-xl mx-auto pt-10 pb-12 text-gray-900">
-        <h1 className="text-3xl font-semibold text-center text-primary">
+        <h1 className="px-4 text-3xl font-semibold text-center text-primary">
           Subscribe to my Newsletter{" "}
           <span role="img" aria-label="wave">
             💌
           </span>
         </h1>
-        <p className="mt-4 text-center text-secondary">
-          I post about front-end web development, productivity, and other interesting things. 
+        <p className="px-4 mx-auto mt-4 text-center text-secondary break-all">
+          I post about front-end web development,
+          <br className="md:hidden" />
+           productivity, and other interesting things. 
         </p>
-        <p className="mt-1 text-center text-secondary">
+        <p className="mt-0 md:mt-1 text-center text-secondary">
           No spam and feel free to unsubscribe any time.
         </p>
         <div className="mx-auto  pt-10 flex justify-center">

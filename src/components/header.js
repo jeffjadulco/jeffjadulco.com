@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 import ThemeToggle from "./themeToggle"
-import { NavLink, Blob2 } from "./atoms"
+import { NavLink, BlobHeader } from "./atoms"
 
 const Header = () => (
   <header className="container m-auto px-5 sm:px-12 md:px-20 max-w-screen-xl h-32">
@@ -38,10 +38,10 @@ const Header = () => (
       </span>
       <ThemeToggle className="hidden sm:block hover:text-accent transition duration-150" />
     </nav>
-    <div className="absolute md:static top-0 left-0 md:top-auto md:left-auto overflow-x-hidden md:overflow-auto w-screen h-screen">
+    <div className="static top-0 left-auto sm:top-auto sm:left-auto overflow-x-hidden sm:overflow-auto w-screen h-screen">
       <div>
-        <div className=" -mt-84 ">
-          <Blob2 />
+        <div className="-mt-120 ml-8">
+          <BlobHeader />
         </div>
       </div>
     </div>
