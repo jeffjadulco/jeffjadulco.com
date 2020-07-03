@@ -1,5 +1,5 @@
 import React from "react"
-import { NavLink, Blob2 } from "./atoms"
+import { NavLink, BlobFooter } from "./atoms"
 
 const Footer = _ => {
   return (
@@ -30,8 +30,8 @@ const Footer = _ => {
             <div className="flex flex-row items-center space-x-4 justify-center md:justify-end">
               <span>
                 <a
-                  href="mailto:jeffjadulco.work@gmail.com"
-                  aria-label="Email jeffjadulco.work@gmail.com"
+                  href="mailto:hey@jeffjadulco.com"
+                  aria-label="Email hey@jeffjadulco.com"
                   title="Email"
                 >
                   <svg
@@ -50,6 +50,8 @@ const Footer = _ => {
                   href="https://github.com/jeffjadulco"
                   aria-label="Visit GitHub profile"
                   title="Visit GitHub profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <svg
                     aria-hidden="true"
@@ -62,11 +64,13 @@ const Footer = _ => {
                   </svg>
                 </a>
               </span>
-              <span>
+              {/* <span>
                 <a
                   href="https://www.linkedin.com/in/jeffjadulco/"
                   aria-label="Visit LinkedIn profile"
                   title="Visit LinkedIn profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <svg
                     aria-hidden="true"
@@ -78,12 +82,14 @@ const Footer = _ => {
                     <path d="M27.5 3.5h-23c-.553 0-1 .447-1 1v23c0 .553.447 1 1 1h23c.553 0 1-.447 1-1v-23c0-.553-.447-1-1-1zM10.916 24.803h-3.71V12.872h3.71v11.931zM9.062 11.241a2.15 2.15 0 110-4.301 2.15 2.15 0 010 4.3zm15.741 13.562h-3.706V19c0-1.384-.025-3.162-1.928-3.162-1.928 0-2.225 1.506-2.225 3.062v5.903H13.24V12.872h3.556v1.631h.05c.494-.937 1.703-1.928 3.51-1.928 3.756 0 4.446 2.472 4.446 5.684v6.544z" />
                   </svg>
                 </a>
-              </span>
+              </span> */}
               <span>
                 <a
                   href="https://twitter.com/jeffjadulco"
                   aria-label="Visit Twitter profile"
                   title="Visit Twitter profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <svg
                     aria-hidden="true"
@@ -101,6 +107,8 @@ const Footer = _ => {
                   href="https://www.instagram.com/jeffjadulco/"
                   aria-label="Visit Instagram profile"
                   title="Visit Instagram profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <svg
                     aria-hidden="true"
@@ -117,9 +125,9 @@ const Footer = _ => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center -ml-32 md:-mr-64">
-        <div className="md:-mr-64 mt-8">
-          <Blob2 />
+      <div className="container md:max-w-screen-md lg:max-w-screen-xl m-auto px-5 md:px-20 flex justify-center md:justify-end">
+        <div className="mt-16">
+          <BlobFooter />
         </div>
       </div>
     </footer>

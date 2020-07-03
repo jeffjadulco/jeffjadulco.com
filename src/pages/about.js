@@ -1,7 +1,12 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Heading, Paragraph, Strong, ExtLink } from "../components/atoms"
+import {
+  Heading,
+  Paragraph,
+  ExtLink,
+  InlinePageLink,
+} from "../components/atoms"
 import Contact from "../components/contact"
 
 const About = _ => {
@@ -17,14 +22,6 @@ const About = _ => {
             free time, I study front-end development with React. My goal is to
             write useful apps and contribute to open source projects.
           </Paragraph>
-          <Paragraph>
-            My current tech stack for game development: <Strong>Unity</Strong>,
-            <Strong>Unreal Engine</Strong>, and <Strong>Phaser</Strong>
-          </Paragraph>
-          <Paragraph>
-            For front-end development: <Strong>React</Strong>,{" "}
-            <Strong>Gatsby</Strong>, <Strong>tailwindcss</Strong>
-          </Paragraph>
           <Heading>Why make this website?</Heading>
           <Paragraph>
             I made this website to learn what actually goes into web
@@ -38,9 +35,16 @@ const About = _ => {
           </Paragraph>
           <Heading>Why write a blog?</Heading>
           <Paragraph>
-            Since I’m still a web development beginner, this is a good
-            opportunity for me to document my learning and share my process out
-            there. This is also a perfect time to practice technical writing.
+            My{" "}
+            <InlinePageLink to="/blog/welcome">first blog post</InlinePageLink>{" "}
+            explained it. I'd be happy if you read them :)
+          </Paragraph>
+          <Heading>What are my tech stack?</Heading>
+          <Paragraph>
+            Game development: <>Unity</>, <>Unreal Engine</>, and <>Phaser</>
+          </Paragraph>
+          <Paragraph>
+            Front-end development: <>React</>, <>Gatsby</>, <>tailwindcss</>
           </Paragraph>
           <Heading>What else?</Heading>
           <Paragraph>

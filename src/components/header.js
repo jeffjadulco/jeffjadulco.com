@@ -1,19 +1,15 @@
 import { Link } from "gatsby"
 import React from "react"
 import ThemeToggle from "./themeToggle"
-import { NavLink, Blob2 } from "./atoms"
+import { NavLink, BlobHeader } from "./atoms"
 
 const Header = () => (
-  <header className="container m-auto px-5 sm:px-12 md:px-20 max-w-screen-xl h-32">
+  <header className="container m-auto px-5 sm:px-12 md:px-20 max-w-screen-xl h-32 overflow-hidden">
     <nav
       className="mt-auto h-full flex space-x-6 items-center justify-center md:justify-start text-sm"
       aria-label="Main Navigation"
     >
-      <Link
-        to="/"
-        aria-label="Website logo, go back to homepage."
-        title="Website logo, go back to homepage."
-      >
+      <Link to="/" aria-label="Website logo, go back to homepage.">
         <svg
           aria-hidden="true"
           role="img"
@@ -42,11 +38,10 @@ const Header = () => (
       </span>
       <ThemeToggle className="hidden sm:block hover:text-accent transition duration-150" />
     </nav>
-    <div className="absolute md:static top-0 left-0 md:top-auto md:left-auto overflow-x-hidden md:overflow-auto w-screen h-screen">
-      <div>
-        <div className="-mt-64 ">
-          <Blob2 />
-        </div>
+
+    <div className="hidden sm:block">
+      <div className="-mt-120 sm:-mt-120 ml-4">
+        <BlobHeader />
       </div>
     </div>
   </header>

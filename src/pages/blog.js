@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostList from "../components/postList"
 import { Heading } from "../components/atoms"
-import Contact from "../components/contact"
+import Newsletter from "../components/newsletter"
 
 const Blog = () => {
   return (
@@ -11,13 +11,11 @@ const Blog = () => {
       <SEO title="Blog" />
       <Heading>Blog</Heading>
       <p className="mb-12 text-secondary">
-        Coming soon.{" "}
-        <span role="img" aria-label="sweat smile">
-          😅
-        </span>
+        I write about things I learn in web development and also stuff that I
+        find interesting.
       </p>
       <PostList />
-      <Contact />
+      <Newsletter />
     </Layout>
   )
 }

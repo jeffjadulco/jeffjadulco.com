@@ -13,16 +13,16 @@ import Header from "./header"
 import MobileNav from "./mobileNav"
 import Footer from "./footer"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, footer = true }) => {
   return (
     <>
       <ThemeProvider>
         <MobileNav />
         <Header />
-        <main className="min-h-screen container m-auto px-5 sm:px-12 md:px-20 pb-24 max-w-screen-xl">
+        <main className="min-h-screen container m-auto px-5 mt-16 sm:px-12 md:px-20 pb-24 max-w-screen-xl">
           {children}
         </main>
-        <Footer />
+        {footer && <Footer />}
       </ThemeProvider>
     </>
   )

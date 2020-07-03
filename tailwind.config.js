@@ -2,6 +2,14 @@ module.exports = {
   purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
   theme: {
     extend: {
+      margin: {
+        "-72": "-18rem",
+        "-80": "-20rem",
+        "-84": "-21rem",
+        "-88": "-22rem",
+        "-96": "-24rem",
+        "-120": "-30rem",
+      },
       fontFamily: {
         sans: [
           "Inter",

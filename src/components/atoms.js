@@ -11,11 +11,27 @@ export const NavLink = ({ to, children, title = "Link" }) => {
   )
 }
 
+export const BlogTitle = ({ children }) => {
+  return <h1 className="text-4xl font-bold text-accent">{children}</h1>
+}
+
+export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
+  return (
+    <div className="text-sm text-tertiary">
+      <span>
+        <time datetime={datetime}>{date}</time>
+      </span>
+      <span> • </span>
+      <span>{timeToRead} minute read</span>
+    </div>
+  )
+}
+
 export const Heading = ({ children }) => {
   return (
-    <h1 className="mt-12 mb-2 text-2xl font-semibold text-accent">
+    <h2 className="mt-12 mb-3 text-2xl font-semibold text-accent">
       {children}
-    </h1>
+    </h2>
   )
 }
 
@@ -27,8 +43,18 @@ export const Paragraph = ({ children }) => {
   )
 }
 
+export const InlinePageLink = ({ to, children, title = "Link" }) => {
+  return (
+    <Link to={to} title={title}>
+      <span className="font-medium text-base text-accent hover:text-accent hover:underline">
+        {children}
+      </span>
+    </Link>
+  )
+}
+
 export const Strong = ({ children }) => {
-  return <strong className="font-bold text-secondary">{children}</strong>
+  return <strong className="font-semibold text-accent">{children}</strong>
 }
 
 export const ExtLink = ({ children, link, newTab }) => {
@@ -36,7 +62,7 @@ export const ExtLink = ({ children, link, newTab }) => {
     return (
       <a
         href={link}
-        className="font-bold text-secondary hover:text-accent"
+        className="font-medium text-accent hover:text-accent hover:underline"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -45,7 +71,12 @@ export const ExtLink = ({ children, link, newTab }) => {
     )
   } else {
     return (
-      <a href={link} className="font-bold text-secondary">
+      <a
+        href={link}
+        className="font-medium text-accent hover:text-accent hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {children}
       </a>
     )
@@ -66,7 +97,12 @@ export const Button = ({ children, link, width }) => {
   const className = `${padding} rounded bg-accent hover:bg-hover-accent focus:bg-hover-accent text-on-accent`
 
   return (
-    <a className={className} href={link}>
+    <a
+      className={className}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {children}
     </a>
   )
@@ -88,10 +124,26 @@ export const Blob = _ => {
   )
 }
 
-export const Blob2 = _ => {
+export const BlobHeader = _ => {
   return (
     <div aria-hidden="true">
       <div className="blob-bg absolute">
+        <svg
+          className="block m-auto blob-rotate h-64 text-fill-secondary fill-current"
+          viewBox="0 0 715 693"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M359.408 0.499261C434.083 0.69572 509.059 15.4608 570.136 58.4268C631.828 101.825 675.247 166.543 697.772 238.528C720.119 309.946 720.46 387.141 695.015 457.515C670.121 526.365 618.875 581.064 558.794 622.901C499.694 664.055 431.329 687.499 359.408 691.212C284.339 695.087 205.553 688.115 144.481 644.291C83.2293 600.338 54.1113 526.936 30.6392 455.293C7.11277 383.484 -10.9409 307.559 10.4113 235.074C32.1072 161.421 84.1477 100.148 147.872 57.3159C209.988 15.5657 284.566 0.302364 359.408 0.499261Z" />
+        </svg>
+      </div>
+    </div>
+  )
+}
+
+export const BlobFooter = _ => {
+  return (
+    <div aria-hidden="true">
+      <div className="blob-bg">
         <svg
           className="blob-rotate h-64 text-fill-secondary fill-current"
           viewBox="0 0 715 693"

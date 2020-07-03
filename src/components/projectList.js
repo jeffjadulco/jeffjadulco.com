@@ -31,16 +31,16 @@ const ProjectList = ({ showHeading }) => {
   return (
     <section className="">
       {showHeading && (
-        <h2 className="mt-32 font-light font-semibold text-accent tracking-widestest">
+        <h2 className="mt-32 font-normal text-accent tracking-widestest">
           PROJECTS
         </h2>
       )}
-      <ul className="mt-3 divide-y-2 divide-subtle">
+      <ul className="mt-3 divide-y divide-subtle">
         {MockProjects.map(project => {
           return (
             <li key={project.title} className="py-3">
               <a href={project.slug} target="_blank" rel="noopener noreferrer">
-                <div className="group flex justify-between sm:items-end space-x-3 sm:space-x-0">
+                <div className="-mx-6 -my-3 px-6 py-3 group flex justify-between sm:items-end space-x-3 sm:space-x-0 hover:bg-tertiary">
                   <div>
                     <h3 className="text-xl font-semibold text-primary group-hover:text-accent">
                       {project.title}

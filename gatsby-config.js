@@ -51,6 +51,14 @@ module.exports = {
         host: "https://jeffjadulco.com",
         sitemap: "https://jeffjadulco.com/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
+        env: {
+          development: {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+          },
+          production: {
+            policy: [{ userAgent: "*", allow: "/" }],
+          },
+        },
       },
     },
     {
