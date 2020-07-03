@@ -43,6 +43,7 @@ module.exports = {
         icon: `src/assets/images/logo-512x512.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-offline`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-sitemap`,
     {
