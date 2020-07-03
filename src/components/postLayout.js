@@ -6,11 +6,12 @@ import { Link } from "gatsby"
 import Layout from "./layout"
 import SEO from "./seo"
 import Contact from "./contact"
-import { Heading, Paragraph, BlogTitle, BlogTitleInfo } from "./atoms"
+import { Heading, Paragraph, BlogTitle, BlogTitleInfo, ExtLink } from "./atoms"
 
 const shortcodes = {
   h2: Heading,
   p: Paragraph,
+  ExtLink,
   Link,
 }
 

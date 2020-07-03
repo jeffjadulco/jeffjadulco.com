@@ -49,7 +49,7 @@ export const ExtLink = ({ children, link, newTab }) => {
     return (
       <a
         href={link}
-        className="font-bold text-secondary hover:text-accent"
+        className="font-semibold text-secondary hover:text-accent"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -58,7 +58,10 @@ export const ExtLink = ({ children, link, newTab }) => {
     )
   } else {
     return (
-      <a href={link} className="font-bold text-secondary">
+      <a
+        href={link}
+        className="font-semibold text-secondary  hover:text-accent"
+      >
         {children}
       </a>
     )
