@@ -4,7 +4,7 @@ import ThemeToggle from "./themeToggle"
 import { NavLink, BlobHeader } from "./atoms"
 
 const Header = () => (
-  <header className="container m-auto px-5 sm:px-12 md:px-20 max-w-screen-xl h-32 overflow-x-hidden">
+  <header className="container m-auto px-5 sm:px-12 md:px-20 max-w-screen-xl h-32 overflow-hidden">
     <nav
       className="mt-auto h-full flex space-x-6 items-center justify-center md:justify-start text-sm"
       aria-label="Main Navigation"
@@ -39,8 +39,8 @@ const Header = () => (
       <ThemeToggle className="hidden sm:block hover:text-accent transition duration-150" />
     </nav>
 
-    <div className="absolute sm:static top-0 left-0  sm:top-auto sm:left-auto overflow-x-hidden sm:overflow-auto w-screen h-screen">
-      <div className="-mt-80 sm:-mt-120">
+    <div className="">
+      <div className="-mt-120 sm:-mt-120 ml-4">
         <BlobHeader />
       </div>
     </div>
