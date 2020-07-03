@@ -26,7 +26,7 @@ export const BlogTitleInfo = ({ timeToRead, date }) => {
 
 export const Heading = ({ children }) => {
   return (
-    <h2 className="mt-12 mb-3 text-3xl font-semibold text-accent">
+    <h2 className="mt-12 mb-3 text-2xl font-semibold text-accent">
       {children}
     </h2>
   )
@@ -34,7 +34,7 @@ export const Heading = ({ children }) => {
 
 export const Paragraph = ({ children }) => {
   return (
-    <p className=" max-w-screen-md mb-4 font-normal text-lg leading-relaxed md:leading-normal text-secondary">
+    <p className=" max-w-screen-md mb-4 font-normal text-base leading-relaxed md:leading-normal text-secondary">
       {children}
     </p>
   )
