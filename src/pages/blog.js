@@ -12,7 +12,7 @@ const Blog = () => {
       <Heading>Blog</Heading>
       <p className="mb-12 text-secondary">
         I write about things I learn in web development and also stuff that I
-        find interesting that you might enjoy.
+        find interesting.
       </p>
       <PostList />
       <Contact />

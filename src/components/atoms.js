@@ -40,8 +40,18 @@ export const Paragraph = ({ children }) => {
   )
 }
 
+export const InlinePageLink = ({ to, children, title = "Link" }) => {
+  return (
+    <Link to={to} title={title}>
+      <span className="font-semibold text-base text-secondary hover:text-accent">
+        {children}
+      </span>
+    </Link>
+  )
+}
+
 export const Strong = ({ children }) => {
-  return <strong className="font-bold text-secondary">{children}</strong>
+  return <strong className="font-semibold text-secondary">{children}</strong>
 }
 
 export const ExtLink = ({ children, link, newTab }) => {

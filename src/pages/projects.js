@@ -11,8 +11,7 @@ const Projects = () => {
       <SEO title="Projects" />
       <Heading>Projects</Heading>
       <p className="mb-12 text-secondary">
-        Collection of web and game development side projects. I make side
-        projects <span className="italic">occasionally</span>.
+        Collection of web and game development side projects.
       </p>
       <ProjectList />
       <Contact />
