@@ -5,8 +5,8 @@ import SEO from "../components/seo"
 import { Blob } from "../components/atoms"
 
 const NotFoundPage = () => (
-  <Layout>
-    <SEO title="Page Not Found" />
+  <Layout footer={false}>
+    {/* <SEO title="Page Not Found" /> */}
     <div className="mt-48 flex justify-center">
       <div className="absolute">
         <Blob />
