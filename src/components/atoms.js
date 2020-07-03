@@ -129,7 +129,7 @@ export const BlobHeader = _ => {
     <div aria-hidden="true">
       <div className="blob-bg absolute">
         <svg
-          className="blob-rotate h-64 text-fill-secondary fill-current"
+          className="block m-auto blob-rotate h-64 text-fill-secondary fill-current"
           viewBox="0 0 715 693"
           xmlns="http://www.w3.org/2000/svg"
         >
