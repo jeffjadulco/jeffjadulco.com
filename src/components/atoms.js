@@ -15,10 +15,12 @@ export const BlogTitle = ({ children }) => {
   return <h1 className="text-4xl font-bold text-accent">{children}</h1>
 }
 
-export const BlogTitleInfo = ({ timeToRead, date }) => {
+export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
   return (
     <div className="text-sm text-tertiary">
-      <span>{date}</span>
+      <span>
+        <time datetime={datetime}>{date}</time>
+      </span>
       <span> • </span>
       <span>{timeToRead} minute read</span>
     </div>
@@ -72,6 +74,8 @@ export const ExtLink = ({ children, link, newTab }) => {
       <a
         href={link}
         className="font-medium text-accent hover:text-accent hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {children}
       </a>
@@ -93,7 +97,12 @@ export const Button = ({ children, link, width }) => {
   const className = `${padding} rounded bg-accent hover:bg-hover-accent focus:bg-hover-accent text-on-accent`
 
   return (
-    <a className={className} href={link}>
+    <a
+      className={className}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {children}
     </a>
   )

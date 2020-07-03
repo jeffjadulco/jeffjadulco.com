@@ -5,8 +5,8 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
 import Layout from "./layout"
 import SEO from "./seo"
-import Contact from "./contact"
 import { Heading, Paragraph, BlogTitle, BlogTitleInfo, ExtLink } from "./atoms"
+import Newsletter from "./newsletter"
 
 const shortcodes = {
   h2: Heading,
@@ -23,6 +23,7 @@ const PostLayout = ({ data: { mdx } }) => {
         <div className="mt-12 mb-12">
           <BlogTitleInfo
             date={mdx.frontmatter.date}
+            datetime={mdx.frontmatter.datetime}
             timeToRead={mdx.timeToRead}
           />
           <BlogTitle>{mdx.frontmatter.title}</BlogTitle>
@@ -30,7 +31,7 @@ const PostLayout = ({ data: { mdx } }) => {
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </MDXProvider>
-        <Contact />
+        <Newsletter />
       </article>
     </Layout>
   )
@@ -44,6 +45,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM Do YYYY")
+        datetime: date
         description
       }
       excerpt(pruneLength: 140)

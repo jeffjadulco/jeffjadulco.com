@@ -9,11 +9,7 @@ const Header = () => (
       className="mt-auto h-full flex space-x-6 items-center justify-center md:justify-start text-sm"
       aria-label="Main Navigation"
     >
-      <Link
-        to="/"
-        aria-label="Website logo, go back to homepage."
-        title="Website logo, go back to homepage."
-      >
+      <Link to="/" aria-label="Website logo, go back to homepage.">
         <svg
           aria-hidden="true"
           role="img"
