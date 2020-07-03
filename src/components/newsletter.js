@@ -1,5 +1,5 @@
 import React from "react"
-import { ExtLink, Button } from "./atoms"
+import { Button } from "./atoms"
 
 export const Newsletter = () => {
   return (
@@ -7,7 +7,7 @@ export const Newsletter = () => {
       <div className="container max-w-screen-xl mx-auto pt-10 pb-12 text-gray-900">
         <h1 className="px-4 text-3xl font-semibold text-center text-primary">
           Subscribe to my Newsletter{" "}
-          <span role="img" aria-label="wave">
+          <span role="img" aria-label="letter with love">
             💌
           </span>
         </h1>
@@ -26,7 +26,13 @@ export const Newsletter = () => {
           >
             <span className=" text-2xl font-semibold text-on-accent">
               Subscribe{" "}
-              <span className="hover:text-opacity-0 text-opacity-100">😀</span>
+              <span
+                role="img"
+                aria-label="smile emoji"
+                className="hover:text-opacity-0 text-opacity-100"
+              >
+                😀
+              </span>
             </span>
           </Button>
         </div>

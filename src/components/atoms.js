@@ -143,7 +143,7 @@ export const BlobHeader = _ => {
 export const BlobFooter = _ => {
   return (
     <div aria-hidden="true">
-      <div className="blob-bg">
+      <div className="blob-bg relative">
         <svg
           className="blob-rotate h-64 text-fill-secondary fill-current"
           viewBox="0 0 715 693"
