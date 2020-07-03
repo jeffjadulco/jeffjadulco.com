@@ -40,7 +40,7 @@ const ProjectList = ({ showHeading }) => {
           return (
             <li key={project.title} className="py-3">
               <a href={project.slug} target="_blank" rel="noopener noreferrer">
-                <div className="-mx-6 -my-3 px-6 py-3 group flex justify-between sm:items-end space-x-3 sm:space-x-0 hover:bg-tertiary">
+                <div className="-mx-5 -my-3 px-5 py-3 group flex justify-between sm:items-end space-x-3 sm:space-x-0 hover:bg-tertiary">
                   <div>
                     <h3 className="text-xl font-semibold text-primary group-hover:text-accent">
                       {project.title}
