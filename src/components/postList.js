@@ -6,7 +6,7 @@ const Post = ({ post }) => {
   return (
     <li className="py-3">
       <Link to={post.slug}>
-        <div className="group flex flex-col sm:flex-row sm:justify-between sm:items-end">
+        <div className="-mx-6 -my-3 px-6 py-3 group flex flex-col sm:flex-row sm:justify-between sm:items-end hover:bg-tertiary">
           <div>
             <h3 className="text-xl font-semibold group-hover:text-accent">
               {post.title}
@@ -54,7 +54,7 @@ const PostList = ({ showHeading }) => {
           LATEST WRITINGS
         </h2>
       )}
-      <ul className="mt-3 divide-y-2 divide-subtle">
+      <ul className="mt-3 divide-y divide-subtle">
         {data.allMdx.edges.map(({ node }) => {
           const post = {
             slug: node.fields.slug,
