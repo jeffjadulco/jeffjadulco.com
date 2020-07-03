@@ -4,7 +4,6 @@ import SEO from "../components/seo"
 import {
   Heading,
   Paragraph,
-  Strong,
   ExtLink,
   InlinePageLink,
 } from "../components/atoms"

@@ -10,8 +10,8 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
-  const { site, image } = useStaticQuery(
+function SEO({ description, lang, meta, title, blog }) {
+  const { site, image, blogImage } = useStaticQuery(
     graphql`
       query {
         site {
@@ -24,6 +24,13 @@ function SEO({ description, lang, meta, title }) {
           }
         }
         image: file(relativePath: { eq: "og-card.png" }) {
+          childImageSharp {
+            fixed(width: 1280) {
+              src
+            }
+          }
+        }
+        blogImage: file(relativePath: { eq: "og-card-blog.png" }) {
           childImageSharp {
             fixed(width: 1280) {
               src
@@ -44,16 +51,16 @@ function SEO({ description, lang, meta, title }) {
   const seo = {
     title: title || defaultTitle,
     titleTemplate: title
-      ? `${defaultTitle} | %s`
+      ? `%s | ${defaultTitle}`
       : `${defaultTitle} | Game and Javascript Developer`,
     description: description || defaultDescription,
-    image: `${siteUrl}${image.childImageSharp.fixed.src}`,
+    image: `${siteUrl}${
+      blog
+        ? blogImage.childImageSharp.fixed.src
+        : image.childImageSharp.fixed.src
+    }`,
     url: `${siteUrl}`,
   }
-
-  console.log(
-    `GATSBY_GOOGLE_SITE_VERIFICATION=${process.env.GATSBY_GOOGLE_SITE_VERIFICATION}`
-  )
 
   return (
     <Helmet
@@ -110,10 +117,6 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:description`,
           content: seo.description,
-        },
-        {
-          name: `google-site-verification`,
-          content: process.env.GATSBY_GOOGLE_SITE_VERIFICATION,
         },
       ].concat(meta)}
     >

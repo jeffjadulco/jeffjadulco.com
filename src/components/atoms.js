@@ -12,14 +12,15 @@ export const NavLink = ({ to, children, title = "Link" }) => {
 }
 
 export const BlogTitle = ({ children }) => {
-  return <h1 className="mt-12 text-4xl font-bold text-accent">{children}</h1>
+  return <h1 className="text-4xl font-bold text-accent">{children}</h1>
 }
 
 export const BlogTitleInfo = ({ timeToRead, date }) => {
   return (
-    <div className="text-sm text-secondary">
-      <span>{timeToRead}</span>
+    <div className="text-sm text-tertiary">
       <span>{date}</span>
+      <span> • </span>
+      <span>{timeToRead} minute read</span>
     </div>
   )
 }
