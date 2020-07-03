@@ -21,6 +21,11 @@
   --color-fill-tertiary: #283141;
 }
 
+::selection {
+  background: var(--color-text-accent);
+  color: var(--color-bg-primary);
+}
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
