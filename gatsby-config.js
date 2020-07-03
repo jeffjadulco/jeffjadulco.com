@@ -8,6 +8,12 @@ module.exports = {
     twitterUsername: `@jeffjadulco`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -35,12 +41,6 @@ module.exports = {
         theme_color: `#81E6D9`,
         display: `minimal-ui`,
         icon: `src/assets/images/logo-512x512.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
       },
     },
     `gatsby-plugin-postcss`,
