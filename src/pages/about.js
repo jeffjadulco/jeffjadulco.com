@@ -37,7 +37,7 @@ const About = _ => {
           <Paragraph>
             My{" "}
             <InlinePageLink to="/blog/welcome">first blog post</InlinePageLink>{" "}
-            explained it. I'd be happy if you read them :)
+            explained it. I'd be happy if you read it :)
           </Paragraph>
           <Heading>What are my tech stack?</Heading>
           <Paragraph>
