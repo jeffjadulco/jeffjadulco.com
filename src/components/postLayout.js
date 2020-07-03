@@ -18,7 +18,7 @@ const shortcodes = {
 const PostLayout = ({ data: { mdx } }) => {
   return (
     <Layout>
-      <SEO title={mdx.frontmatter.title} description={mdx.excerpt} />
+      <SEO blog title={mdx.frontmatter.title} description={mdx.excerpt} />
       <article>
         <div className="mt-12 mb-12">
           <BlogTitleInfo
