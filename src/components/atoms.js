@@ -44,7 +44,7 @@ export const Paragraph = ({ children }) => {
 export const InlinePageLink = ({ to, children, title = "Link" }) => {
   return (
     <Link to={to} title={title}>
-      <span className="font-semibold text-base text-secondary hover:text-accent">
+      <span className="font-medium text-base text-accent hover:text-accent hover:underline">
         {children}
       </span>
     </Link>
@@ -52,7 +52,7 @@ export const InlinePageLink = ({ to, children, title = "Link" }) => {
 }
 
 export const Strong = ({ children }) => {
-  return <strong className="font-semibold text-secondary">{children}</strong>
+  return <strong className="font-semibold text-accent">{children}</strong>
 }
 
 export const ExtLink = ({ children, link, newTab }) => {
@@ -60,7 +60,7 @@ export const ExtLink = ({ children, link, newTab }) => {
     return (
       <a
         href={link}
-        className="font-semibold text-secondary hover:text-accent"
+        className="font-medium text-accent hover:text-accent hover:underline"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -71,7 +71,7 @@ export const ExtLink = ({ children, link, newTab }) => {
     return (
       <a
         href={link}
-        className="font-semibold text-secondary  hover:text-accent"
+        className="font-medium text-accent hover:text-accent hover:underline"
       >
         {children}
       </a>
