@@ -8,7 +8,7 @@ const MockProjects = [
     year: "2020",
   },
   {
-    slug: "https://github.com/jeffjadulco/training-react-todo-app",
+    slug: "https://jeffjads-todo-app-react.netlify.app/",
     title: "to do app",
     description: "My first time with React",
     year: "2020",
