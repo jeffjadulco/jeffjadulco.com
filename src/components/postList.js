@@ -6,7 +6,7 @@ const Post = ({ post }) => {
   return (
     <li className="py-3">
       <Link to={post.slug}>
-        <div className="-mx-6 -my-3 px-6 py-3 group flex flex-col sm:flex-row sm:justify-between sm:items-end hover:bg-tertiary">
+        <div className="-mx-5 -my-3 px-5 py-3 group flex flex-col sm:flex-row sm:justify-between sm:items-end hover:bg-tertiary">
           <div>
             <h3 className="text-xl font-semibold group-hover:text-accent">
               {post.title}

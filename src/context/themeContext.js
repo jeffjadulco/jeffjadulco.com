@@ -9,7 +9,6 @@ const getInitialTheme = _ => {
     }
 
     const userMedia = window.matchMedia("(prefers-color-scheme: dark)")
-    console.log(userMedia)
     if (userMedia.matches) {
       return "dark"
     }
