@@ -19,20 +19,23 @@ const PostLayout = ({ data: { mdx } }) => {
   return (
     <Layout>
       <SEO blog title={mdx.frontmatter.title} description={mdx.excerpt} />
-      <article>
-        <div className="mt-12 mb-12">
-          <BlogTitleInfo
-            date={mdx.frontmatter.date}
-            datetime={mdx.frontmatter.datetime}
-            timeToRead={mdx.timeToRead}
-          />
-          <BlogTitle>{mdx.frontmatter.title}</BlogTitle>
-        </div>
-        <MDXProvider components={shortcodes}>
-          <MDXRenderer>{mdx.body}</MDXRenderer>
-        </MDXProvider>
-        <Newsletter />
-      </article>
+      <div className="grid grid-cols-4 col-gap-4 mt-12 mb-12">
+        <article className="col-span-3">
+          <div className="">
+            <BlogTitleInfo
+              date={mdx.frontmatter.date}
+              datetime={mdx.frontmatter.datetime}
+              timeToRead={mdx.timeToRead}
+            />
+            <BlogTitle>{mdx.frontmatter.title}</BlogTitle>
+          </div>
+          <MDXProvider components={shortcodes}>
+            <MDXRenderer>{mdx.body}</MDXRenderer>
+          </MDXProvider>
+        </article>
+        <aside className="sticky col-span-1">TOC</aside>
+      </div>
+      <Newsletter />
     </Layout>
   )
 }
