@@ -1,2 +1,2 @@
 import "./src/assets/css/index.css"
-require("prismjs/themes/prism-tomorrow.css")
+require("./src/assets/css/code.css")

@@ -69,10 +69,41 @@ module.exports = {
         90: ".9",
       },
     },
+    typography: {
+      default: {
+        css: {
+          color: "var(--color-text-tertiary)",
+          a: {
+            color: "var(--color-text-tertiary)",
+            "&:hover": {
+              color: "var(--color-text-accent)",
+            },
+          },
+          h1: {
+            color: "var(--color-text-accent)",
+          },
+          h2: {
+            color: "var(--color-text-secondary)",
+          },
+          h3: {
+            color: "var(--color-text-secondary)",
+          },
+          h4: {
+            color: "var(--color-text-secondary)",
+          },
+          blockquote: {
+            color: "var(--color-text-tertiary)",
+          },
+          strong: {
+            color: "var(--color-text-tertiary)",
+          },
+        },
+      },
+    },
   },
   variants: {
     textColor: ["responsive", "hover", "focus", "group-hover"],
     borderWidth: ["responsive", "hover", "focus"],
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 }

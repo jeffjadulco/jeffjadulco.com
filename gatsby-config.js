@@ -29,6 +29,7 @@ module.exports = {
         path: `${__dirname}/content/blog`,
       },
     },
+    "gatsby-image",
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -87,12 +88,13 @@ module.exports = {
               elements: [`h2`, `h3`],
             },
           },
-          // "gatsby-remark-autolink-headers",
-          "gatsby-remark-prismjs",
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {},
+          },
         ],
       },
     },
     "gatsby-remark-autolink-headers",
-    "gatsby-remark-prismjs",
   ],
 }

@@ -72,3 +72,8 @@ body {
 .blob-rotate-faster {
   animation: rotate 25s linear infinite;
 }
+
+a.anchor {
+  fill: var(--color-text-accent);
+  top: 0.5rem !important;
+}

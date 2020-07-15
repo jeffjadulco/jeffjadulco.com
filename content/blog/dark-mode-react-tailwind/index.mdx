@@ -8,11 +8,11 @@ description: Add dark mode using CSS variables and Context API
 
 ## Introduction
 
-Did you know that dark mode is the first feature I added in my webiste? That's how badly I wanted to have it. I'm sure there are plugins and libraries available to use but I want to implement it myself in order to learn more about React and CSS.
+Did you know that **dark mode** is the first feature I added in my webiste? That's how badly I wanted to have it. I'm sure there are plugins and libraries available to use but I want to implement it myself in order to learn more about React and CSS.
 
 I really didn't know how to do it at first since I'm using Tailwind for my styling. Good thing I came across this beautiful article by Josh Comeau: [The Quest for The Perfect Dark Mode](https://joshwcomeau.com/gatsby/dark-mode/). Two things became clear to me, CSS variables and the prefers color scheme media query for the initial theme. In this tutorial, I will walk you through my process on how I implemented dark mode in a React + Tailwind project.
 
-> This tutorial assumes that you have a basic understanding of CSS variables and React's Context API
+> This tutorial assumes that you have a basic understanding of CSS variables and React's Context API.
 
 > You can find the source in [GitHub](https://github.com/jeffjadulco/dark-mode-react-tailwind) and the demo [here](https://awesome-heyrovsky-f51f39.netlify.app/).
 
@@ -29,7 +29,7 @@ This part is pretty straight-forward, we'll just declare all our variables in ou
 
 In my website I tried to stick with three to five colors: primary, secondary, and accent, both for background and text. This will differ based on your design, but in my case, I already know what colors I need because I designed my website in Figma beforehand.
 
-[https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6umesgU3tEZgkQm9Hrw2PO%2Fjeffjadulco.com%3Fnode-id%3D155%253A211](https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6umesgU3tEZgkQm9Hrw2PO%2Fjeffjadulco.com%3Fnode-id%3D155%253A211)
+<!-- [https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6umesgU3tEZgkQm9Hrw2PO%2Fjeffjadulco.com%3Fnode-id%3D155%253A211](https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6umesgU3tEZgkQm9Hrw2PO%2Fjeffjadulco.com%3Fnode-id%3D155%253A211) -->
 
 Add `.light` and `.dark` CSS classes and assign the colors for each variables. Then use the `@apply` directive in the root selector to apply a default theme for your page.
 
@@ -85,7 +85,7 @@ module.exports = {
 
 These extensions will now be included in Tailwind utility classes
 
-![tailwind intellisense](./images/oCVsUuUj46.gif)
+![tailwind intellisense](/images/oCVsUuUj46.gif)
 
 > Do you want that sweet, sweet, Tailwind intellisense? Install this [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss).
 
@@ -218,4 +218,4 @@ export const Toggle = () => {
 
 And there you have it! The toggle here is not a fancy one but you can do the same logic using a `button` or other components.
 
-![final dark mode output](./images/KrnD22TTfH.gif)
+![final dark mode output](/images/KrnD22TTfH.gif)

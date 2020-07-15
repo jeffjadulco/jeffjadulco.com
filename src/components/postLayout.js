@@ -5,12 +5,20 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
 import Layout from "./layout"
 import SEO from "./seo"
-import { Heading, Paragraph, BlogTitle, BlogTitleInfo, ExtLink } from "./atoms"
+import {
+  Heading,
+  Paragraph,
+  BlogTitle,
+  BlogTitleInfo,
+  ExtLink,
+  SubHeading,
+} from "./atoms"
 import Newsletter from "./newsletter"
 
 const shortcodes = {
-  h2: Heading,
-  p: Paragraph,
+  // h2: Heading,
+  // h3: SubHeading,
+  // p: Paragraph,
   ExtLink,
   Link,
 }
@@ -19,8 +27,9 @@ const PostLayout = ({ data: { mdx } }) => {
   return (
     <Layout>
       <SEO blog title={mdx.frontmatter.title} description={mdx.excerpt} />
-      <div className="grid grid-cols-4 col-gap-4 mt-12 mb-12">
-        <article className="col-span-3">
+      <div className="md:grid grid-cols-4 col-gap-4 mt-12 mb-12">
+        <aside className="sticky top-0 order-last">TOC</aside>
+        <article className="prose col-span-3">
           <div className="">
             <BlogTitleInfo
               date={mdx.frontmatter.date}
@@ -33,7 +42,6 @@ const PostLayout = ({ data: { mdx } }) => {
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
         </article>
-        <aside className="sticky col-span-1">TOC</aside>
       </div>
       <Newsletter />
     </Layout>

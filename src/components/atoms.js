@@ -29,7 +29,15 @@ export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
 
 export const Heading = ({ children }) => {
   return (
-    <h2 className="mt-12 mb-3 text-2xl font-semibold text-accent">
+    <h2 className="relative mt-12 mb-3 text-2xl font-semibold text-accent">
+      {children}
+    </h2>
+  )
+}
+
+export const SubHeading = ({ children }) => {
+  return (
+    <h2 className="relative mt-6 mb-2 text-lg font-semibold text-primary">
       {children}
     </h2>
   )
