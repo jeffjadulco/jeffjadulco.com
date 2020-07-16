@@ -1,10 +1,43 @@
 @import url("https://rsms.me/inter/inter.css");
 
 :root {
+  @apply light;
+}
+
+::-moz-selection {
+  background: var(--color-bg-accent);
+  color: var(--color-text-on-accent);
+}
+
+::selection {
+  background: var(--color-bg-accent);
+  color: var(--color-text-on-accent);
+}
+
+.light {
+  --color-bg-accent: #63b3ed;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #edf2f7;
+  --color-bg-accent-hover: #4299e1;
+
+  --color-text-accent: #2b6cb0;
+  --color-text-primary: #2d3748;
+  --color-text-secondary: #4a5568;
+  --color-text-tertiary: #4a5568;
+  --color-text-on-accent: #f7fafc;
+
+  --color-text-footer-primary: #2d3748;
+  --color-text-footer-secondary: #718096;
+
+  --color-fill-primary: #b1d9f6;
+  --color-fill-secondary: #edf2f7;
+  --color-fill-tertiary: #f7fafc;
+}
+
+.dark {
   --color-bg-accent: #81e6d9;
   --color-bg-primary: #2d3748;
-  --color-bg-secondary: #feebc8;
-  --color-bg-tertiary: #283141;
+  --color-bg-secondary: #283141;
   --color-bg-accent-hover: #4fd1c5;
 
   --color-text-accent: #81e6d9;
@@ -19,11 +52,6 @@
   --color-fill-primary: #81e6d9;
   --color-fill-secondary: #283141;
   --color-fill-tertiary: #283141;
-}
-
-::selection {
-  background: var(--color-text-accent);
-  color: var(--color-bg-primary);
 }
 
 @import "tailwindcss/base";
@@ -61,10 +89,6 @@ body {
   z-index: -10;
 }
 
-.blob-footer {
-  /* transform: translateX(100em); */
-}
-
 .blob-rotate {
   animation: rotate 50s linear infinite;
 }
@@ -75,5 +99,5 @@ body {
 
 a.anchor {
   fill: var(--color-text-accent);
-  top: 0.5rem !important;
+  top: 0.65rem !important;
 }

@@ -38,7 +38,6 @@ module.exports = {
         accent: "var(--color-bg-accent)",
         primary: "var(--color-bg-primary)",
         secondary: "var(--color-bg-secondary)",
-        tertiary: "var(--color-bg-tertiary)",
         hover: {
           accent: "var(--color-bg-accent-hover)",
         },
@@ -60,7 +59,7 @@ module.exports = {
         },
       },
       divideColor: {
-        subtle: "var(--color-bg-tertiary)",
+        subtle: "var(--color-bg-secondary)",
       },
       letterSpacing: {
         widestest: "0.2em",
