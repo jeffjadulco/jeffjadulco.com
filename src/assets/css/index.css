@@ -102,3 +102,7 @@ a.anchor {
   fill: var(--color-text-accent);
   top: 0.65rem !important;
 }
+
+aside.sticky {
+  top: 4rem;
+}
