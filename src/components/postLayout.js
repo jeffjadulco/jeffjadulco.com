@@ -18,8 +18,8 @@ const PostLayout = ({ data: { mdx } }) => {
   return (
     <Layout>
       <SEO blog title={mdx.frontmatter.title} description={mdx.excerpt} />
-      <div className="flex justify-between mt-12 mb-12">
-        <article className="prose prose-sm sm:prose md:prose-lg min-w-0 max-w-none col-span-3">
+      <div className="flex justify-between mt-12 mb-12 relative">
+        <article className="prose prose-sm sm:prose md:prose-lg min-w-0 max-w-none">
           <div className="">
             <BlogTitleInfo
               date={mdx.frontmatter.date}
@@ -33,7 +33,7 @@ const PostLayout = ({ data: { mdx } }) => {
           </MDXProvider>
         </article>
         {mdx.tableOfContents && (
-          <aside className="sticky top-0 hidden lg:block max-w-xs ml-6 bg-secondary">
+          <aside className="sticky top-0 hidden lg:block max-w-xs ml-6 mt-6">
             <TOC items={mdx.tableOfContents.items} />
           </aside>
         )}

@@ -79,16 +79,16 @@ module.exports = {
             },
           },
           h1: {
-            color: "var(--color-text-accent)",
+            color: "var(--color-text-primary)",
           },
           h2: {
-            color: "var(--color-text-secondary)",
+            color: "var(--color-text-accent)",
           },
           h3: {
-            color: "var(--color-text-secondary)",
+            color: "var(--color-text-accent)",
           },
           h4: {
-            color: "var(--color-text-secondary)",
+            color: "var(--color-text-accent)",
           },
           blockquote: {
             color: "var(--color-text-tertiary)",
