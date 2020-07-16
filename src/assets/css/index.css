@@ -1,6 +1,7 @@
 @import url("https://rsms.me/inter/inter.css");
 
 :root {
+  scroll-behavior: smooth;
   @apply light;
 }
 
