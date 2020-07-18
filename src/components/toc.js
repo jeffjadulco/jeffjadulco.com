@@ -25,7 +25,6 @@ const getTocEntries = items => {
   let entries = []
   items.forEach(item => {
     item.url && entries.push(item.url)
-    // if (item.items) entries = entries.concat(getTocEntries(item.items))
     item.items && entries.push(...getTocEntries(item.items))
   })
   return entries
