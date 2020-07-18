@@ -1,7 +1,6 @@
 @import url("https://rsms.me/inter/inter.css");
 
 :root {
-  scroll-behavior: smooth;
   @apply dark;
 }
 
@@ -53,12 +52,6 @@
   --color-fill-primary: #81e6d9;
   --color-fill-secondary: #283141;
   --color-fill-tertiary: #283141;
-}
-
-@media (prefers-reduced-motion) {
-  :root {
-    scroll-behavior: auto;
-  }
 }
 
 @import "tailwindcss/base";

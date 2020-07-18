@@ -19,7 +19,7 @@ const PostLayout = ({ data: { mdx } }) => {
     <Layout>
       <SEO blog title={mdx.frontmatter.title} description={mdx.excerpt} />
       <div className="flex justify-between mt-12 mb-12 relative">
-        <article className="prose prose-sm sm:prose md:prose-lg min-w-0 max-w-none">
+        <article className="prose sm:prose md:prose-lg min-w-0 max-w-none">
           <div className="">
             <BlogTitleInfo
               date={mdx.frontmatter.date}
