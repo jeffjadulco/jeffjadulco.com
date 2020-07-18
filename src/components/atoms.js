@@ -19,7 +19,7 @@ export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
   return (
     <div className="text-sm text-tertiary">
       <span>
-        <time datetime={datetime}>{date}</time>
+        <time dateTime={datetime}>{date}</time>
       </span>
       <span> • </span>
       <span>{timeToRead} minute read</span>

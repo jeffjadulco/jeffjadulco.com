@@ -6,7 +6,7 @@ module.exports = {
       "./src/**/*.ts",
       "./src/**/*.tsx",
     ],
-    whitelist: ["markdown"],
+    whitelist: ["markdown", "ml-3"], // ml-3 for toc depth
   },
   theme: {
     extend: {

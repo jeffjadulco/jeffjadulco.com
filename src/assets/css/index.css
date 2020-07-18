@@ -2,7 +2,7 @@
 
 :root {
   scroll-behavior: smooth;
-  @apply light;
+  @apply dark;
 }
 
 ::-moz-selection {
@@ -53,6 +53,12 @@
   --color-fill-primary: #81e6d9;
   --color-fill-secondary: #283141;
   --color-fill-tertiary: #283141;
+}
+
+@media (prefers-reduced-motion) {
+  :root {
+    scroll-behavior: auto;
+  }
 }
 
 @import "tailwindcss/base";
