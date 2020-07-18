@@ -32,7 +32,7 @@ const PostLayout = ({ data: { mdx } }) => {
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
         </article>
-        {mdx.tableOfContents && (
+        {mdx.tableOfContents && mdx.frontmatter.toc === true && (
           <aside className="sticky hidden lg:block max-w-xs ml-6 mt-6 h-screen">
             <TOC items={mdx.tableOfContents.items} />
           </aside>
@@ -53,6 +53,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM Do YYYY")
         datetime: date
         description
+        toc
       }
       excerpt(pruneLength: 140)
       tableOfContents
