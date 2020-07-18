@@ -13,12 +13,12 @@ import Header from "./header"
 import MobileNav from "./mobileNav"
 import Footer from "./footer"
 
-const Layout = ({ children, footer = true }) => {
+const Layout = ({ children, activePage, footer = true }) => {
   return (
     <>
       <ThemeProvider>
         <MobileNav />
-        <Header />
+        <Header activePage={activePage} />
         <main className="min-h-screen container m-auto px-5 mt-16 sm:px-12 md:px-20 pb-24 max-w-screen-xl">
           {children}
         </main>

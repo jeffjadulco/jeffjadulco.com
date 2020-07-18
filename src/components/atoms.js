@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
 
-export const NavLink = ({ to, children, title = "Link" }) => {
+export const NavLink = ({ to, children, title = "Link", selected = false }) => {
+  const textColor = selected ? "text-accent" : "text-secondary"
+  const style = `font-normal text-base hover:text-accent transition duration-150 ${textColor}`
   return (
     <Link to={to} title={title}>
-      <span className="font-normal text-base text-secondary hover:text-accent transition duration-150">
-        {children}
-      </span>
+      <span className={style}>{children}</span>
     </Link>
   )
 }

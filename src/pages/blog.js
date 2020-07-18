@@ -7,7 +7,7 @@ import Newsletter from "../components/newsletter"
 
 const Blog = () => {
   return (
-    <Layout>
+    <Layout activePage="blog">
       <SEO title="Blog" />
       <Heading>Blog</Heading>
       <p className="mb-12 text-secondary">
