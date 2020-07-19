@@ -17,7 +17,7 @@ export const BlogTitle = ({ children }) => {
 
 export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
   return (
-    <div className="text-sm text-tertiary">
+    <div className="text-sm text-tertiary tracking-normal">
       <span>
         <time dateTime={datetime}>{date}</time>
       </span>
