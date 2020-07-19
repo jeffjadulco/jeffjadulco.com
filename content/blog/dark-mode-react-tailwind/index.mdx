@@ -8,14 +8,20 @@ toc: true
 ---
 
 ## Introduction
+Dark mode is the first feature I added in my website. I really didn't know how to do it at first, especially I'm using Tailwind for my styling. I'm sure there are plugins available to use but I want to implement it myself in order to learn more about React and CSS.
 
-Did you know that **dark mode** is the first feature I added in my webiste? That's how badly I wanted to have it. I'm sure there are plugins and libraries available to use but I want to implement it myself in order to learn more about React and CSS.
+Good thing I came across this beautiful article by Josh Comeau: [The Quest for the Perfect Dark Mode](https://joshwcomeau.com/gatsby/dark-mode/). Two things became clear to me:
 
-I really didn't know how to do it at first since I'm using Tailwind for my styling. Good thing I came across this beautiful article by Josh Comeau: [The Quest for The Perfect Dark Mode](https://joshwcomeau.com/gatsby/dark-mode/). Two things became clear to me, CSS variables and the prefers color scheme media query for the initial theme. In this tutorial, I will walk you through my process on how I implemented dark mode in a React + Tailwind project.
+1. CSS variables
+2. prefers-color-scheme media query
 
-> This tutorial assumes that you have a basic understanding of CSS variables and React's Context API.
+In this post, I will walk you through my process on how I implemented dark mode in a Gatsby + Tailwind CSS project.
 
-> You can find the source in [GitHub](https://github.com/jeffjadulco/dark-mode-react-tailwind) and the demo [here](https://awesome-heyrovsky-f51f39.netlify.app/).
+> 💡 This tutorial assumes that you have a basic understanding of CSS variables and React's Context API.
+
+> 🧾 This project uses Tailwind, follow their [official documentation](https://tailwindcss.com/docs/installation) to know how to install and setup Tailwind
+
+> 🚀 You can find the source in [GitHub](https://github.com/jeffjadulco/dark-mode-react-tailwind) and the demo [here](https://awesome-heyrovsky-f51f39.netlify.app/).
 
 ## Adding our CSS variables
 
@@ -28,7 +34,7 @@ This part is pretty straight-forward, we'll just declare all our variables in ou
 @import "tailwindcss/utilities";
 ```
 
-In my website I tried to stick with three to five colors: primary, secondary, and accent, both for background and text. This will differ based on your design, but in my case, I already know what colors I need because I designed my website in Figma beforehand.
+In my website I tried to stick with three to five colors: primary, secondary, and accent both for background and texts. This will differ based on your design, but in my case, I already know what colors I need because I designed my website in Figma beforehand.
 
 <!-- [https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6umesgU3tEZgkQm9Hrw2PO%2Fjeffjadulco.com%3Fnode-id%3D155%253A211](https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6umesgU3tEZgkQm9Hrw2PO%2Fjeffjadulco.com%3Fnode-id%3D155%253A211) -->
 
@@ -58,6 +64,10 @@ Add `.light` and `.dark` CSS classes and assign the colors for each variables. T
 }
 ```
 
+<!-- NOTE: Double check with project first if using @apply and tailwind utilities works with variables -->
+
+Alternatively, you can also use `@apply` directive to use Tailwind classes for the CSS variables
+
 ## Extending TailwindCSS
 
 In order to use the variables we created, we must extent the tailwind configuration.
@@ -82,17 +92,17 @@ module.exports = {
 }
 ```
 
-> Remember to put them inside the `extend` object. If not, you'll be overriding the default Tailwind configuration
+> ☝ Remember to put them inside the `extend` object. If not, you'll be overriding the default Tailwind configuration
 
-These extensions will now be included in Tailwind utility classes
+These extensions will now be included in Tailwind classes
 
 ![tailwind intellisense](/images/oCVsUuUj46.gif)
 
-> Do you want that sweet, sweet, Tailwind intellisense? Install this [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss).
+> 🚀 Do you want that sweet, sweet, Tailwind intellisense? Install this [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss).
 
 ## Adding a toggle
 
-Before we add a way for the user to toggle the theme between light or dark, we must first prepare our React context and provider.
+Before we create a way for the user to toggle the theme between light or dark theme, we must first prepare our React context and provider.
 
 ### Getting the initial theme
 
@@ -112,6 +122,7 @@ const getInitialTheme = _ => {
     }
   }
 
+  // If you want to use light theme as the default, return "light" instead
   return "dark"
 }
 ```
@@ -120,11 +131,11 @@ We are doing multiple things here: first we check if we already have a stored va
 
 ### Creating our context
 
-If you have no idea what a `context` is in React, please read their [documentation](https://reactjs.org/docs/context.html). We are using the Context API to pass our theme data without having to pass the prop down manually in every component.
+If you have no idea what a context is in React, please read their [documentation](https://reactjs.org/docs/context.html). We are using the Context API to pass our theme data without having to pass the prop down manually in every component.
 
-1. Create a state for the theme and pass the `getInitialTheme` function that we made earlier as the initial state value.
+1. Create a state for the theme and pass the `getInitialTheme` function that we wrote earlier as the initial state value.
 2. Create another function called `rawSetTheme` that will apply the `.light` or `.dark` class in the root element and save the theme in the `localStorage`
-3. Create an effect that will call the `rawSetTheme` whenever the value of `theme` changes.
+3. Create a side effect that will call the `rawSetTheme` whenever the value of `theme` changes.
 
 ```jsx
 // themeContext.js
@@ -165,7 +176,7 @@ export const ThemeProvider = ({ initialTheme, children }) => {
 
 ### Using the context provider
 
-In order for the components to use the `themeContext` let's make the `ThemeProvider` as the Higher Order Component (HOC).
+For our components to use the `themeContext` let's make the `ThemeProvider` as the Higher Order Component (HOC).
 
 ```jsx
 // layout.js
@@ -188,7 +199,7 @@ const Layout = ({ children }) => {
 
 Create a toggle component that will let the user switch the theme.
 
-1. Use the `ThemeContext` using `React.useContext` to get the `theme` and `setTheme` function.
+1. Use the `ThemeContext` to get the `theme` and `setTheme`.
 2. Set the checkbox `checked` attribute when the `theme` is equal to `dark`
 3. Call the `setTheme` on the `onChange` event.
 
@@ -217,6 +228,12 @@ export const Toggle = () => {
 }
 ```
 
-And there you have it! The toggle here is not a fancy one but you can do the same logic using a `button` or other components.
+## Yay!
+
+And there you have it! Our toggle is not a fancy one but you can do the same logic using a `button` or other components.
 
 ![final dark mode output](/images/KrnD22TTfH.gif)
+
+## Improvements
+
+This solution isn't perfect and there's a small caveat with this: **page load flicker**. Josh made a great write up about how he solved it in the same [article](https://joshwcomeau.com/gatsby/dark-mode/).
