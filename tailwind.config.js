@@ -98,6 +98,25 @@ module.exports = {
           strong: {
             color: "var(--color-text-tertiary)",
           },
+          blockquote: {
+            borderLeftWidth: "0.25rem",
+            borderLeftColor: "var(--color-text-accent)",
+          },
+          "blockquote p:first-of-type::before": {
+            content: "",
+          },
+          "blockquote p:last-of-type::after": {
+            content: "",
+          },
+          code: {
+            color: "var(--color-text-tertiary)",
+          },
+          "code::before": {
+            content: "",
+          },
+          "code::after": {
+            content: "",
+          },
         },
       },
     },
