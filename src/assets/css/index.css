@@ -1,6 +1,7 @@
 @import url("https://rsms.me/inter/inter.css");
 
 :root {
+  scroll-behavior: auto;
   @apply dark;
 }
 
@@ -128,4 +129,10 @@ a.anchor {
 
 aside.sticky {
   top: 4rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    scroll-behavior: smooth;
+  }
 }

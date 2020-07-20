@@ -1,6 +1,5 @@
 import React from "react"
 import useIntersectNode from "../hooks/useIntersectionObserver"
-import { useEffect } from "react"
 
 const TocEntry = ({ items, active, depth = 0 }) => {
   return items.map(item => {
@@ -31,20 +30,24 @@ const getTocEntries = items => {
 }
 
 const TOC = ({ items }) => {
+  const itemsWithIntroduction = [...items]
+  itemsWithIntroduction.unshift({
+    title: "Introduction",
+    url: "#title",
+  })
+
   const [activeNode] = useIntersectNode(
-    getTocEntries(items),
+    getTocEntries(itemsWithIntroduction),
     `0% 0% -55% 0%`,
     1
   )
-
-  useEffect(_ => {})
 
   return (
     <nav className="toc text-tertiary">
       <h2 className="mb-2 font-normal text-accent tracking-widestest">
         TABLE OF CONTENTS
       </h2>
-      <TocEntry items={items} active={activeNode} />
+      <TocEntry items={itemsWithIntroduction} active={activeNode} />
     </nav>
   )
 }

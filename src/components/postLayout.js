@@ -33,7 +33,7 @@ const PostLayout = ({ data: { mdx } }) => {
           </MDXProvider>
         </article>
         {mdx.tableOfContents && mdx.frontmatter.toc === true && (
-          <aside className="sticky hidden lg:block max-w-xs ml-6 mt-6 h-screen">
+          <aside className="sticky hidden lg:block max-w-xs ml-6 mt-8 h-screen">
             <TOC items={mdx.tableOfContents.items} />
           </aside>
         )}

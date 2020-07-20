@@ -12,12 +12,16 @@ export const NavLink = ({ to, children, title = "Link", selected = false }) => {
 }
 
 export const BlogTitle = ({ children }) => {
-  return <h1 className="text-4xl font-bold text-accent">{children}</h1>
+  return (
+    <h1 id="title" className="text-4xl font-bold text-accent">
+      {children}
+    </h1>
+  )
 }
 
 export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
   return (
-    <div className="text-sm text-tertiary tracking-normal">
+    <div className="mb-2 text-sm text-tertiary tracking-normal">
       <span>
         <time dateTime={datetime}>{date}</time>
       </span>
