@@ -5,12 +5,15 @@
  * Ported for PrismJS by Albert Vallverdu [@byverdu]
  */
 
+@import "./index.css";
+
 code[class*="language-"],
 pre[class*="language-"] {
-  color: #f8f8f2;
+  color: var(--color-code-text);
   background: none;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  /* text-shadow: 0 0.5px rgba(0, 0, 0, 0.3); */
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -36,7 +39,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #283141;
+  background: var(--color-code-background);
 }
 
 /* Inline code */
@@ -50,11 +53,11 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #6272a4;
+  color: var(--color-code-comment);
 }
 
 .token.punctuation {
-  color: #f8f8f2;
+  color: var(--color-code-punctuation);
 }
 
 .namespace {
@@ -66,12 +69,12 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #ff79c6;
+  color: var(--color-code-const);
 }
 
 .token.boolean,
 .token.number {
-  color: #bd93f9;
+  color: var(--color-code-bool);
 }
 
 .token.selector,
@@ -80,7 +83,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #50fa7b;
+  color: var(--color-code-string);
 }
 
 .token.operator,
@@ -89,23 +92,23 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-  color: #f8f8f2;
+  color: var(--color-code-var);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.function,
 .token.class-name {
-  color: #f1fa8c;
+  color: var(--color-code-func);
 }
 
 .token.keyword {
-  color: #8be9fd;
+  color: var(--color-code-keyword);
 }
 
 .token.regex,
 .token.important {
-  color: #ffb86c;
+  color: var(--color-code-regex);
 }
 
 .token.important,

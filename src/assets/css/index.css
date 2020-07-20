@@ -32,6 +32,18 @@
   --color-fill-primary: #b1d9f6;
   --color-fill-secondary: #edf2f7;
   --color-fill-tertiary: #f7fafc;
+
+  --color-code-background: #edf2f7;
+  --color-code-text: #2d3748;
+  --color-code-comment: #718096;
+  --color-code-punctuation: #39adb5;
+  --color-code-const: #7c4dff;
+  --color-code-bool: #7c4dff;
+  --color-code-string: #f6a434;
+  --color-code-var: #e53935;
+  --color-code-func: #3d5afe;
+  --color-code-keyword: #7c4dff;
+  --color-code-regex: #6182b8;
 }
 
 .dark {
@@ -52,6 +64,18 @@
   --color-fill-primary: #81e6d9;
   --color-fill-secondary: #283141;
   --color-fill-tertiary: #283141;
+
+  --color-code-background: #283141;
+  --color-code-text: #edf2f7;
+  --color-code-comment: #718096;
+  --color-code-punctuation: #edf2f7;
+  --color-code-const: #ff79c6;
+  --color-code-bool: #bd93f9;
+  --color-code-string: #50fa7b;
+  --color-code-var: #f8f8f2;
+  --color-code-func: #f1fa8c;
+  --color-code-keyword: #8be9fd;
+  --color-code-regex: #ffb86c;
 }
 
 @import "tailwindcss/base";
