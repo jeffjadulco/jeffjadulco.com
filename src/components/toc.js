@@ -33,7 +33,7 @@ const TOC = ({ items }) => {
   const itemsWithIntroduction = [...items]
   itemsWithIntroduction.unshift({
     title: "Introduction",
-    url: "#title",
+    url: "#introduction",
   })
 
   const [activeNode] = useIntersectNode(
