@@ -7,7 +7,7 @@ import Contact from "../components/contact"
 
 const Projects = () => {
   return (
-    <Layout>
+    <Layout activePage="projects">
       <SEO title="Projects" />
       <Heading>Projects</Heading>
       <p className="mb-12 text-secondary">

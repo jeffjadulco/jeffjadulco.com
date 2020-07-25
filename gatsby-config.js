@@ -3,7 +3,10 @@ module.exports = {
     title: `Jeff Jadulco`,
     description: `Jeff Jadulco is a game and javascript developer`,
     author: `Jeff Jadulco`,
-    siteUrl: `https://jeffjadulco.com`,
+    siteUrl:
+      process.env.DEV_ENV === 1
+        ? `https://dev.jeffjadulco.com`
+        : `https://jeffjadulco.com`,
     image: `/images/og-card.png`,
     twitterUsername: `@jeffjadulco`,
   },
@@ -29,6 +32,7 @@ module.exports = {
         path: `${__dirname}/content/blog`,
       },
     },
+    "gatsby-image",
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -66,7 +70,7 @@ module.exports = {
       resolve: `gatsby-plugin-env-variables`,
       options: {
         whitelist: [
-          "GATSBY_GOOGLE_SITE_VERIFICATION, GOOGLE_ANALYTICS_TRACKING_ID",
+          "GATSBY_GOOGLE_SITE_VERIFICATION, GOOGLE_ANALYTICS_TRACKING_ID, DEV_ENV",
         ],
       },
     },
@@ -81,8 +85,19 @@ module.exports = {
               maxWidth: 590,
             },
           },
+          {
+            resolve: "gatsby-remark-autolink-headers",
+            options: {
+              elements: [`h2`, `h3`],
+            },
+          },
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {},
+          },
         ],
       },
     },
+    "gatsby-remark-autolink-headers",
   ],
 }

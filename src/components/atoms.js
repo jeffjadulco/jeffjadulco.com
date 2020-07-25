@@ -1,25 +1,29 @@
 import React from "react"
 import { Link } from "gatsby"
 
-export const NavLink = ({ to, children, title = "Link" }) => {
+export const NavLink = ({ to, children, title = "Link", selected = false }) => {
+  const textColor = selected ? "text-accent" : "text-secondary"
+  const style = `font-normal text-base hover:text-accent transition duration-150 ${textColor}`
   return (
     <Link to={to} title={title}>
-      <span className="font-normal text-base text-secondary hover:text-accent transition duration-150">
-        {children}
-      </span>
+      <span className={style}>{children}</span>
     </Link>
   )
 }
 
 export const BlogTitle = ({ children }) => {
-  return <h1 className="text-4xl font-bold text-accent">{children}</h1>
+  return (
+    <h1 id="introduction" className="text-4xl font-bold text-accent">
+      {children}
+    </h1>
+  )
 }
 
 export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
   return (
-    <div className="text-sm text-tertiary">
+    <div className="mb-2 text-sm text-tertiary tracking-normal">
       <span>
-        <time datetime={datetime}>{date}</time>
+        <time dateTime={datetime}>{date}</time>
       </span>
       <span> • </span>
       <span>{timeToRead} minute read</span>
@@ -29,7 +33,15 @@ export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
 
 export const Heading = ({ children }) => {
   return (
-    <h2 className="mt-12 mb-3 text-2xl font-semibold text-accent">
+    <h2 className="relative mt-12 mb-3 text-2xl font-semibold text-accent">
+      {children}
+    </h2>
+  )
+}
+
+export const SubHeading = ({ children }) => {
+  return (
+    <h2 className="relative mt-6 mb-2 text-lg font-semibold text-primary">
       {children}
     </h2>
   )
@@ -105,6 +117,14 @@ export const Button = ({ children, link, width }) => {
     >
       {children}
     </a>
+  )
+}
+
+export const Callout = ({ children }) => {
+  return (
+    <aside className="bg-secondary border-l-2 border-accent pl-5 pr-3 py-2 rounded-r text-base">
+      {children}
+    </aside>
   )
 }
 

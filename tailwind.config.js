@@ -1,5 +1,15 @@
 module.exports = {
-  purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
+  purge: {
+    content: [
+      "./src/**/*.js",
+      "./src/**/*.jsx",
+      "./src/**/*.ts",
+      "./src/**/*.tsx",
+    ],
+    options: {
+      whitelist: ["ml-3"], // ml-3 for toc depth
+    },
+  },
   theme: {
     extend: {
       margin: {
@@ -30,7 +40,6 @@ module.exports = {
         accent: "var(--color-bg-accent)",
         primary: "var(--color-bg-primary)",
         secondary: "var(--color-bg-secondary)",
-        tertiary: "var(--color-bg-tertiary)",
         hover: {
           accent: "var(--color-bg-accent-hover)",
         },
@@ -52,7 +61,10 @@ module.exports = {
         },
       },
       divideColor: {
-        subtle: "var(--color-bg-tertiary)",
+        subtle: "var(--color-bg-secondary)",
+      },
+      borderColor: {
+        accent: "var(--color-text-accent)",
       },
       letterSpacing: {
         widestest: "0.2em",
@@ -61,10 +73,61 @@ module.exports = {
         90: ".9",
       },
     },
+    typography: {
+      default: {
+        css: {
+          color: "var(--color-text-tertiary)",
+          a: {
+            color: "var(--color-text-tertiary)",
+            "&:hover": {
+              color: "var(--color-text-accent)",
+            },
+          },
+          h1: {
+            color: "var(--color-text-primary)",
+          },
+          h2: {
+            color: "var(--color-text-accent)",
+          },
+          h3: {
+            color: "var(--color-text-accent)",
+          },
+          h4: {
+            color: "var(--color-text-accent)",
+          },
+          blockquote: {
+            color: "var(--color-text-tertiary)",
+          },
+          strong: {
+            color: "var(--color-text-tertiary)",
+          },
+          blockquote: {
+            borderLeftWidth: "0.25rem",
+            borderLeftColor: "var(--color-text-accent)",
+          },
+          "blockquote p:first-of-type::before": {
+            content: "",
+          },
+          "blockquote p:last-of-type::after": {
+            content: "",
+          },
+          code: {
+            color: "var(--color-text-tertiary)",
+            fontWeight: "500",
+          },
+          "code::before": {
+            content: "",
+          },
+          "code::after": {
+            content: "",
+          },
+        },
+      },
+    },
   },
   variants: {
     textColor: ["responsive", "hover", "focus", "group-hover"],
     borderWidth: ["responsive", "hover", "focus"],
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 }

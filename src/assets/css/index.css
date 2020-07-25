@@ -1,10 +1,56 @@
 @import url("https://rsms.me/inter/inter.css");
 
 :root {
+  scroll-behavior: auto;
+  @apply dark;
+}
+
+::-moz-selection {
+  background: var(--color-bg-accent);
+  color: var(--color-text-on-accent);
+}
+
+::selection {
+  background: var(--color-bg-accent);
+  color: var(--color-text-on-accent);
+}
+
+.light {
+  --color-bg-accent: #63b3ed;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #edf2f7;
+  --color-bg-accent-hover: #4299e1;
+
+  --color-text-accent: #2b6cb0;
+  --color-text-primary: #2d3748;
+  --color-text-secondary: #4a5568;
+  --color-text-tertiary: #4a5568;
+  --color-text-on-accent: #f7fafc;
+
+  --color-text-footer-primary: #2d3748;
+  --color-text-footer-secondary: #718096;
+
+  --color-fill-primary: #b1d9f6;
+  --color-fill-secondary: #edf2f7;
+  --color-fill-tertiary: #f7fafc;
+
+  --color-code-background: #edf2f7;
+  --color-code-text: #2d3748;
+  --color-code-comment: #718096;
+  --color-code-punctuation: #39adb5;
+  --color-code-const: #7c4dff;
+  --color-code-bool: #7c4dff;
+  --color-code-string: #f6a434;
+  --color-code-var: #e53935;
+  --color-code-func: #3d5afe;
+  --color-code-keyword: #7c4dff;
+  --color-code-regex: #6182b8;
+}
+
+.dark {
   --color-bg-accent: #81e6d9;
   --color-bg-primary: #2d3748;
-  --color-bg-secondary: #feebc8;
-  --color-bg-tertiary: #283141;
+  --color-bg-secondary: #283141;
   --color-bg-accent-hover: #4fd1c5;
 
   --color-text-accent: #81e6d9;
@@ -19,11 +65,18 @@
   --color-fill-primary: #81e6d9;
   --color-fill-secondary: #283141;
   --color-fill-tertiary: #283141;
-}
 
-::selection {
-  background: var(--color-text-accent);
-  color: var(--color-bg-primary);
+  --color-code-background: #283141;
+  --color-code-text: #edf2f7;
+  --color-code-comment: #718096;
+  --color-code-punctuation: #edf2f7;
+  --color-code-const: #ff79c6;
+  --color-code-bool: #bd93f9;
+  --color-code-string: #50fa7b;
+  --color-code-var: #f8f8f2;
+  --color-code-func: #f1fa8c;
+  --color-code-keyword: #8be9fd;
+  --color-code-regex: #ffb86c;
 }
 
 @import "tailwindcss/base";
@@ -61,14 +114,25 @@ body {
   z-index: -10;
 }
 
-.blob-footer {
-  /* transform: translateX(100em); */
-}
-
 .blob-rotate {
   animation: rotate 50s linear infinite;
 }
 
 .blob-rotate-faster {
   animation: rotate 25s linear infinite;
+}
+
+a.anchor {
+  fill: var(--color-text-accent);
+  top: 0.65rem !important;
+}
+
+aside.sticky {
+  top: 4rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    scroll-behavior: smooth;
+  }
 }

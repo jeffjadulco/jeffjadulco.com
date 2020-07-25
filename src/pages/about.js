@@ -11,7 +11,7 @@ import Contact from "../components/contact"
 
 const About = _ => {
   return (
-    <Layout>
+    <Layout activePage="about">
       <SEO title="About" />
       <div className="container">
         <article>

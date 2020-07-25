@@ -3,7 +3,7 @@ import { Button } from "./atoms"
 
 export const Newsletter = () => {
   return (
-    <div className="mt-32 full-width-container bg-tertiary">
+    <div className="mt-32 full-width-container bg-secondary">
       <div className="container max-w-screen-xl mx-auto pt-10 pb-12 text-gray-900">
         <h1 className="px-4 text-3xl font-semibold text-center text-primary">
           Subscribe to my Newsletter{" "}
