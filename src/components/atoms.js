@@ -120,6 +120,14 @@ export const Button = ({ children, link, width }) => {
   )
 }
 
+export const Callout = ({ children }) => {
+  return (
+    <aside className="bg-secondary border-l-2 border-accent pl-5 pr-3 py-2 rounded-r text-base">
+      {children}
+    </aside>
+  )
+}
+
 export const Blob = _ => {
   return (
     <div aria-hidden="true">

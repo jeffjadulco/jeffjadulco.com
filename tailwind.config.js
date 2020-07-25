@@ -63,6 +63,9 @@ module.exports = {
       divideColor: {
         subtle: "var(--color-bg-secondary)",
       },
+      borderColor: {
+        accent: "var(--color-text-accent)",
+      },
       letterSpacing: {
         widestest: "0.2em",
       },
@@ -110,6 +113,7 @@ module.exports = {
           },
           code: {
             color: "var(--color-text-tertiary)",
+            fontWeight: "500",
           },
           "code::before": {
             content: "",
