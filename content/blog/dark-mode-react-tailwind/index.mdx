@@ -1,6 +1,6 @@
 ---
 title: How to Dark Mode in React and Tailwind CSS
-date: 2020-07-19
+date: 2020-07-26
 published: true
 tags: ["gatsby", "css"]
 description: Add dark mode using CSS variables and Context API
@@ -12,12 +12,9 @@ import { Callout } from "../../../src/components/atoms.js"
 
 Dark mode is the first feature I added in my website. I really didn't know how to do it at first, especially I'm using Tailwind for my styling. I'm sure there are plugins available to use but I want to implement it myself in order to learn more about React and CSS.
 
-Good thing I came across this beautiful article by Josh Comeau: [The Quest for the Perfect Dark Mode](https://joshwcomeau.com/gatsby/dark-mode/). Two things became clear to me:
+Good thing I came across this beautiful article by Josh Comeau: [The Quest for the Perfect Dark Mode](https://joshwcomeau.com/gatsby/dark-mode/). Two things became clear to me: **CSS variables** and **prefers-color-scheme media query**.
 
-1. CSS variables
-2. prefers-color-scheme media query
-
-In this post, I will walk you through my process on how I implemented dark mode in a Gatsby + Tailwind CSS project.
+In this post, I will walk you through my process on how to implement dark mode in a Gatsby and Tailwind CSS project.
 
 <Callout>
 
@@ -31,16 +28,9 @@ In this post, I will walk you through my process on how I implemented dark mode 
 
 ## Adding our CSS variables
 
-This part is pretty straight-forward, we'll just declare all our variables in our css file. If you don't know which file is it, it's where you put the tailwind imports.
+First, let's declare all our css variables in our main css file. If you don't know which file is it, it's where you put the tailwind imports.
 
-```css
-/* index.css */
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-```
-
-In my website I tried to stick with three to five colors: primary, secondary, and accent both for background and texts. This will differ based on your design, but in my case, I already know what colors I need because I designed my website in Figma beforehand.
+In my website I tried to stick with five colors: _primary_, _secondary_, and _accent_, for both background and texts. This will differ based on your design, but in my case, I already know what colors I need because I designed my website in Figma beforehand.
 
 ![color palette](palette.png)
 
@@ -68,15 +58,15 @@ Add `.light` and `.dark` CSS classes and assign the colors for each variables. T
   --color-text-secondary: #4a5568;
   --color-text-accent: #2b6cb0;
 }
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 ```
-
-<!-- NOTE: Double check with project first if using @apply and tailwind utilities works with variables -->
-
-Alternatively, you can also use `@apply` directive to use Tailwind classes for the CSS variables
 
 ## Extending TailwindCSS
 
-In order to use the variables we created, we must extent the tailwind configuration.
+In order to use the css variables we created, we must extent the tailwind configuration.
 
 ```jsx
 // tailwind.config.js
@@ -109,18 +99,15 @@ These extensions will now be included in Tailwind classes
 
 ![tailwind intellisense](/images/oCVsUuUj46.gif)
 
-<!--
 <Callout>
-  🚀 Do you want that sweet, sweet, Tailwind intellisense?
 
-Install this [VS CodeExtension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss).
+🚀 Install this [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) for that sweet, sweet, Tailwind intellisense.
 
 </Callout>
- -->
 
 ## Adding a toggle
 
-Before we create a way for the user to toggle the theme between light or dark theme, we must first prepare our React context and provider.
+Before we create a way for the user to toggle the theme between light or dark theme, we must first prepare our React context.
 
 ### Getting the initial theme
 
@@ -145,13 +132,15 @@ const getInitialTheme = _ => {
 }
 ```
 
-We are doing multiple things here: first we check if we already have a stored value in the `localStorage`. If not, we check the media query if the user prefers a dark or light color scheme using `prefers-color-scheme` media query.
+We are doing multiple things here: first we check if we already have a stored value in the `localStorage`. If not, we check the media query if the user browser prefers a dark or light color scheme using `prefers-color-scheme` media query.
 
 ### Creating our context
 
 If you have no idea what a context is in React, please read their [documentation](https://reactjs.org/docs/context.html). We are using the Context API to pass our theme data without having to pass the prop down manually in every component.
 
-1. Create a state for the theme and pass the `getInitialTheme` function that we wrote earlier as the initial state value.
+Our theme context must do the following:
+
+1. Create a state for the theme and pass the `getInitialTheme` function that we wrote earlier to get the initial state value.
 2. Create another function called `rawSetTheme` that will apply the `.light` or `.dark` class in the root element and save the theme in the `localStorage`
 3. Create a side effect that will call the `rawSetTheme` whenever the value of `theme` changes.
 
@@ -194,7 +183,7 @@ export const ThemeProvider = ({ initialTheme, children }) => {
 
 ### Using the context provider
 
-For our components to use the `themeContext` let's make the `ThemeProvider` as the Higher Order Component (HOC).
+For our components to use the context, let's make the `ThemeProvider` as the Higher Order Component (HOC).
 
 ```jsx
 // layout.js
@@ -203,22 +192,20 @@ import { ThemeProvider } from "./themeContext"
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <ThemeProvider>
-        <Header />
-        <main>{children}</main>
-      </ThemeProvider>
-    </>
+    <ThemeProvider>
+      <Header />
+      <main>{children}</main>
+    </ThemeProvider>
   )
 }
 ```
 
 ### Adding the toggle functionality
 
-Create a toggle component that will let the user switch the theme.
+Now that we have our context ready, let's create a toggle component that will let the user switch the theme.
 
 1. Use the `ThemeContext` to get the `theme` and `setTheme`.
-2. Set the checkbox `checked` attribute when the `theme` is equal to `dark`
+2. Set the checkbox' `checked` attribute to true when the `theme` is equal to `dark`
 3. Call the `setTheme` on the `onChange` event.
 
 ```jsx
@@ -232,26 +219,22 @@ export const Toggle = () => {
   }
 
   return (
-    <>
-      <label>
-        <input
-          type="checkbox"
-          checked={isDark()}
-          onChange={e => setTheme(e.target.checked ? "dark" : "light")}
-        ></input>
-        Dark Mode
-      </label>
-    </>
+    <label>
+      <input
+        type="checkbox"
+        checked={isDark()}
+        onChange={e => setTheme(e.target.checked ? "dark" : "light")}
+      ></input>
+      Dark Mode
+    </label>
   )
 }
 ```
 
 ## Yay!
 
-And there you have it! Our toggle is not a fancy one but you can do the same logic using a `button` or other components.
+And there you have it! Our toggle is not a fancy one but you can do the same logic using a button or other components.
 
 ![final dark mode output](/images/KrnD22TTfH.gif)
-
-## Improvements
 
 This solution isn't perfect and there's a small caveat with this: **page load flicker**. Josh made a great write up about how he solved it in the same [article](https://joshwcomeau.com/gatsby/dark-mode/).

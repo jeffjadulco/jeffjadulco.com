@@ -70,7 +70,7 @@ module.exports = {
       resolve: `gatsby-plugin-env-variables`,
       options: {
         whitelist: [
-          "GATSBY_GOOGLE_SITE_VERIFICATION, GOOGLE_ANALYTICS_TRACKING_ID",
+          "GATSBY_GOOGLE_SITE_VERIFICATION, GOOGLE_ANALYTICS_TRACKING_ID, DEV_ENV",
         ],
       },
     },
