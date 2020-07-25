@@ -3,7 +3,10 @@ module.exports = {
     title: `Jeff Jadulco`,
     description: `Jeff Jadulco is a game and javascript developer`,
     author: `Jeff Jadulco`,
-    siteUrl: `https://jeffjadulco.com`,
+    siteUrl:
+      process.env.DEV_ENV === 1
+        ? `https://dev.jeffjadulco.com`
+        : `https://jeffjadulco.com`,
     image: `/images/og-card.png`,
     twitterUsername: `@jeffjadulco`,
   },

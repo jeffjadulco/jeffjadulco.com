@@ -14,10 +14,15 @@ const shortcodes = {
   Link,
 }
 
-const PostLayout = ({ data: { mdx } }) => {
+const PostLayout = ({ data: { mdx, ogImage } }) => {
   return (
     <Layout activePage="blog">
-      <SEO blog title={mdx.frontmatter.title} description={mdx.excerpt} />
+      <SEO
+        blog
+        title={mdx.frontmatter.title}
+        description={mdx.excerpt}
+        ogImage={ogImage && ogImage.childImageSharp.fixed.src}
+      />
       <div className="flex justify-between mt-12 mb-12 relative">
         <article className="prose sm:prose md:prose-lg min-w-0 max-w-none tracking-normal md:tracking-tight">
           <div className="">
@@ -44,7 +49,7 @@ const PostLayout = ({ data: { mdx } }) => {
 }
 
 export const pageQuery = graphql`
-  query blogPostQuery($id: String) {
+  query blogPostQuery($id: String, $ogImageSlug: String) {
     mdx(id: { eq: $id }) {
       id
       body
@@ -58,6 +63,13 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 140)
       tableOfContents
       timeToRead
+    }
+    ogImage: file(relativePath: { eq: $ogImageSlug }) {
+      childImageSharp {
+        fixed(width: 1280) {
+          src
+        }
+      }
     }
   }
 `

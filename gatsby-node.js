@@ -27,6 +27,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
+            frontmatter {
+              seoImage
+            }
           }
         }
       }
@@ -40,12 +43,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const posts = result.data.allMdx.edges
 
   posts.forEach(({ node }, index) => {
-    console.log(`🍕 Dynamically creating page for ${node.fields.slug}`)
+    console.log(
+      `🍕 Dynamically creating page for ${node.fields.slug} with og-image ${node.frontmatter.seoImage}`
+    )
 
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/components/postLayout.js`),
-      context: { id: node.id },
+      context: { id: node.id, ogImageSlug: node.frontmatter.seoImage },
     })
   })
 }
