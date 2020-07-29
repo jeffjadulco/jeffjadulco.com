@@ -24,7 +24,7 @@ const PostLayout = ({ data: { mdx, ogImage } }) => {
         ogImage={ogImage && ogImage.childImageSharp.fixed.src}
       />
       <div className="flex justify-between mt-12 mb-12 relative">
-        <article className="prose sm:prose md:prose-lg min-w-0 max-w-none tracking-normal md:tracking-tight">
+        <article className="prose sm:prose md:prose-lg min-w-0 max-w-none tracking-normal">
           <div className="">
             <BlogTitleInfo
               date={mdx.frontmatter.date}
