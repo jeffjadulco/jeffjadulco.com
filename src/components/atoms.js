@@ -13,7 +13,10 @@ export const NavLink = ({ to, children, title = "Link", selected = false }) => {
 
 export const BlogTitle = ({ children }) => {
   return (
-    <h1 id="introduction" className="text-4xl font-bold text-accent">
+    <h1
+      id="introduction"
+      className="text-4xl font-bold text-accent tracking-tight"
+    >
       {children}
     </h1>
   )
