@@ -36,7 +36,7 @@ export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
 
 export const Heading = ({ children }) => {
   return (
-    <h2 className="relative mt-12 mb-3 text-2xl font-semibold text-accent">
+    <h2 className="relative mt-12 mb-3 text-2xl font-bold text-accent">
       {children}
     </h2>
   )
@@ -52,7 +52,7 @@ export const SubHeading = ({ children }) => {
 
 export const Paragraph = ({ children }) => {
   return (
-    <p className=" max-w-screen-md mb-4 font-normal text-base leading-relaxed md:leading-normal text-secondary">
+    <p className=" max-w-screen-md mb-4 font-normal text-base leading-relaxed md:leading-normal text-tertiary">
       {children}
     </p>
   )
@@ -61,9 +61,9 @@ export const Paragraph = ({ children }) => {
 export const InlinePageLink = ({ to, children, title = "Link" }) => {
   return (
     <Link to={to} title={title}>
-      <span className="font-medium text-base text-accent hover:text-accent hover:underline">
+      <a className="font-medium text-base text-accent hover:text-accent hover:underline">
         {children}
-      </span>
+      </a>
     </Link>
   )
 }
@@ -98,6 +98,24 @@ export const ExtLink = ({ children, link, newTab }) => {
   }
 }
 
+export const ProjectLink = ({ label, url }) => {
+  return (
+    <span className="font-medium text-tertiary hover:text-accent">
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        {label}
+        <svg
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          className="inline-block w-4 h-4 mb-1"
+        >
+          <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+          <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+        </svg>
+      </a>
+    </span>
+  )
+}
+
 export const Button = ({ children, link, width }) => {
   let padding = "px-4 py-2"
 
@@ -109,7 +127,7 @@ export const Button = ({ children, link, width }) => {
     padding = "px-20 py-2"
   }
 
-  const className = `${padding} rounded bg-accent hover:bg-hover-accent focus:bg-hover-accent text-on-accent`
+  const className = `${padding} rounded accent-gradient text-on-accent`
 
   return (
     <a

@@ -1,31 +1,5 @@
 import React from "react"
-
-const MockProjects = [
-  {
-    slug: "https://jeffjadulco.com/",
-    title: "jeffjadulco.com",
-    description: "My personal website made with React and Gatsby.",
-    year: "2020",
-  },
-  {
-    slug: "https://jeffjads-todo-app-react.netlify.app/",
-    title: "to do app",
-    description: "My first time with React",
-    year: "2020",
-  },
-  {
-    slug: "https://github.com/jeffjadulco/unity-guid-regenerator",
-    title: "unity-guid-regenerator",
-    description: "An editor tool I made to regenerate GUID of Unity assets",
-    year: "2020",
-  },
-  {
-    slug: "https://globalgamejam.org/2016/games/abducktion",
-    title: "Abducktion",
-    description: "Global Game Jam 2016 entry. Made with friends.",
-    year: "2016",
-  },
-]
+import projects from "../data/projects"
 
 const ProjectList = ({ showHeading }) => {
   return (
@@ -36,7 +10,7 @@ const ProjectList = ({ showHeading }) => {
         </h2>
       )}
       <ul className="mt-3 divide-y divide-subtle">
-        {MockProjects.map(project => {
+        {projects.map(project => {
           return (
             <li key={project.title} className="py-3">
               <a href={project.slug} target="_blank" rel="noopener noreferrer">

@@ -27,12 +27,11 @@
   --color-text-tertiary: #4a5568;
   --color-text-on-accent: #f7fafc;
 
-  --color-text-footer-primary: #2d3748;
-  --color-text-footer-secondary: #718096;
-
   --color-fill-primary: #b1d9f6;
   --color-fill-secondary: #edf2f7;
-  --color-fill-tertiary: #f7fafc;
+
+  --color-gradient-accent1: rgba(49, 130, 206, 1);
+  --color-gradient-accent2: rgba(79, 209, 197, 1);
 
   --color-code-background: #edf2f7;
   --color-code-text: #2d3748;
@@ -49,24 +48,23 @@
 
 .dark {
   --color-bg-accent: #81e6d9;
-  --color-bg-primary: #2d3748;
-  --color-bg-secondary: #283141;
+  --color-bg-primary: #1a202c;
+  --color-bg-secondary: #161b25;
   --color-bg-accent-hover: #4fd1c5;
 
   --color-text-accent: #81e6d9;
   --color-text-primary: #f7fafc;
   --color-text-secondary: #e2e8f0;
   --color-text-tertiary: #a0aec0;
-  --color-text-on-accent: #234e52;
-
-  --color-text-footer-primary: #2d3748;
-  --color-text-footer-secondary: #2d3748;
+  --color-text-on-accent: #1a202c;
 
   --color-fill-primary: #81e6d9;
-  --color-fill-secondary: #283141;
-  --color-fill-tertiary: #283141;
+  --color-fill-secondary: #161b25;
 
-  --color-code-background: #283141;
+  --color-gradient-accent1: rgba(49, 130, 206, 1);
+  --color-gradient-accent2: rgba(79, 209, 197, 1);
+
+  --color-code-background: #161b25;
   --color-code-text: #edf2f7;
   --color-code-comment: #718096;
   --color-code-punctuation: #edf2f7;
@@ -135,4 +133,29 @@ aside.sticky {
   :root {
     scroll-behavior: smooth;
   }
+}
+
+.accent-gradient {
+  background: var(--color-bg-accent);
+  background: -moz-linear-gradient(
+    45deg,
+    var(--color-gradient-accent2) 0%,
+    var(--color-gradient-accent1) 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    var(--color-gradient-accent2) 0%,
+    var(--color-gradient-accent1) 100%
+  );
+  background: linear-gradient(
+    45deg,
+    var(--color-gradient-accent2) 0%,
+    var(--color-gradient-accent1) 100%
+  );
+  background-size: 200%;
+  transition: background-position 0.5s ease-out;
+}
+
+.accent-gradient:hover {
+  background-position: right center;
 }

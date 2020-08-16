@@ -49,15 +49,12 @@ module.exports = {
         primary: "var(--color-text-primary)",
         secondary: "var(--color-text-secondary)",
         tertiary: "var(--color-text-tertiary)",
-        footerPrimary: "var(--color-text-footer-primary)",
-        footerSecondary: "var(--color-text-footer-secondary)",
         on: {
           accent: "var(--color-text-on-accent)",
         },
         fill: {
           primary: "var(--color-fill-primary)",
           secondary: "var(--color-fill-secondary)",
-          tertiary: "var(--color-fill-tertiary)",
         },
       },
       divideColor: {

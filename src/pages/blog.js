@@ -10,7 +10,7 @@ const Blog = () => {
     <Layout activePage="blog">
       <SEO title="Blog" />
       <Heading>Blog</Heading>
-      <p className="mb-12 text-secondary">
+      <p className="-mt-3 mb-12 text-tertiary">
         I write about things I learn in web development and also stuff that I
         find interesting.
       </p>
