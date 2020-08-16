@@ -1,9 +1,9 @@
 import React from "react"
-import { NavLink, BlobFooter } from "./atoms"
+import { NavLink } from "./atoms"
 
 const Footer = _ => {
   return (
-    <footer className="relative w-full h-56 text-secondary overflow-hidden">
+    <footer className="relative w-full h-56 text-secondary overflow-hidden bg-secondary">
       <div className="container h-full md:max-w-screen-md lg:max-w-screen-xl m-auto px-5 md:px-20 pb-12 pt-24">
         <div className="container flex-col justify-between md:space-y-8">
           <nav className="hidden lg:flex flex-row items-center space-x-6 justify-center md:justify-end text-sm">
@@ -123,11 +123,6 @@ const Footer = _ => {
               </span>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="container md:max-w-screen-md lg:max-w-screen-xl m-auto px-5 md:px-20 flex justify-center md:justify-end">
-        <div className="mt-16">
-          <BlobFooter />
         </div>
       </div>
     </footer>
