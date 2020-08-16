@@ -10,12 +10,12 @@ const ProjectGrid = ({ showHeading }) => {
           PROJECTS
         </h2>
       )}
-      <ul className="mt-3 -mx-5 grid md:grid-cols-2 md:row-gap-8">
+      <ul className="mt-3 -mx-5 grid md:grid-cols-2 gap-6 md:gap-6">
         {projects.map(project => {
           return (
             <li
               key={project.title}
-              className="py-3 px-5 relative group hover:bg-secondary"
+              className="py-5 px-6 relative group md:bg-secondary hover:bg-secondary"
             >
               <div className="flex justify-between space-x-3 sm:space-x-0 pb-10">
                 <div>
@@ -31,7 +31,7 @@ const ProjectGrid = ({ showHeading }) => {
                   <h4 className="font-base text-tertiary pr-3">
                     {project.description}
                   </h4>
-                  <div className="flex items-center justify-start space-x-4 absolute bottom-0 mb-3">
+                  <div className="flex items-center justify-start space-x-4 absolute bottom-0 mb-5">
                     {project.links.map(link => {
                       return (
                         <ProjectLink
