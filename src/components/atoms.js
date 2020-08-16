@@ -52,7 +52,7 @@ export const SubHeading = ({ children }) => {
 
 export const Paragraph = ({ children }) => {
   return (
-    <p className=" max-w-screen-md mb-4 font-normal text-base leading-relaxed md:leading-normal text-secondary">
+    <p className=" max-w-screen-md mb-4 font-normal text-base leading-relaxed md:leading-normal text-tertiary">
       {children}
     </p>
   )
@@ -61,9 +61,9 @@ export const Paragraph = ({ children }) => {
 export const InlinePageLink = ({ to, children, title = "Link" }) => {
   return (
     <Link to={to} title={title}>
-      <span className="font-medium text-base text-accent hover:text-accent hover:underline">
+      <a className="font-medium text-base text-accent hover:text-accent hover:underline">
         {children}
-      </span>
+      </a>
     </Link>
   )
 }
