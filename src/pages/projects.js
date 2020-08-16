@@ -1,9 +1,9 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ProjectList from "../components/projectList"
 import { Heading } from "../components/atoms"
 import Contact from "../components/contact"
+import ProjectGrid from "../components/projectGrid"
 
 const Projects = () => {
   return (
@@ -13,7 +13,7 @@ const Projects = () => {
       <p className="mb-12 text-secondary">
         Collection of web and game development side projects.
       </p>
-      <ProjectList />
+      <ProjectGrid />
       <Contact />
     </Layout>
   )
