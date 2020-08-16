@@ -127,7 +127,7 @@ export const Button = ({ children, link, width }) => {
     padding = "px-20 py-2"
   }
 
-  const className = `${padding} rounded bg-accent hover:bg-hover-accent focus:bg-hover-accent text-on-accent`
+  const className = `${padding} rounded accent-gradient text-on-accent`
 
   return (
     <a
