@@ -48,7 +48,7 @@ const About = _ => {
               /r/animalsbeingderps
             </ExtLink>
             ). I also love watching{" "}
-            <ExtLink link="https://letterboxd.com/jeffjads/">movies</ExtLink>{" "}
+            <ExtLink link="https://letterboxd.com/jeffjadulco/">movies</ExtLink>{" "}
             and listening to{" "}
             <ExtLink link="https://open.spotify.com/user/jeffjads">
               awesome music
