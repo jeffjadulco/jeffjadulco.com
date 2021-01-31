@@ -1,5 +1,21 @@
 export default [
   {
+    slug: "https://hn.jeffjadulco.com/",
+    title: "hn",
+    description: "My personal Hacker News reader",
+    year: "2021",
+    links: [
+      {
+        label: "GitHub",
+        url: "https://github.com/jeffjadulco/hn",
+      },
+      {
+        label: "Website",
+        url: "https://hn.jeffjadulco.com/",
+      },
+    ],
+  },
+  {
     slug: "https://jeffjadulco.com/",
     title: "jeffjadulco.com",
     description: "My personal website made with React and Gatsby.",
@@ -13,22 +29,6 @@ export default [
         label: "Figma",
         url:
           "https://www.figma.com/file/6umesgU3tEZgkQm9Hrw2PO/jeffjadulco.com?node-id=121%3A3",
-      },
-    ],
-  },
-  {
-    slug: "https://jeffjads-todo-app-react.netlify.app/",
-    title: "to do app",
-    description: "My first time with React",
-    year: "2020",
-    links: [
-      {
-        label: "GitHub",
-        url: "https://github.com/jeffjadulco/training-react-todo-app",
-      },
-      {
-        label: "Demo",
-        url: "https://jeffjads-todo-app-react.netlify.app/",
       },
     ],
   },

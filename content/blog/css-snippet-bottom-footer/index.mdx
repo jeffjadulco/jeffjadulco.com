@@ -1,0 +1,68 @@
+---
+title: "CSS Snippet: Stay at the bottom, footer!"
+date: 2021-01-31
+published: true
+tags: ["css"]
+description: CSS trick to keep the footer at the bottom
+toc: false
+seoImage: "og-card-blog-bottom-footer.png"
+---
+
+import { Callout } from "../../../src/components/atoms.js"
+import { ExtLink } from "../../../src/components/atoms.js"
+
+![Footer issue](footer-gap.png)
+
+I experienced this footer problem before in this site, but I got away with it because there are no pages that have no content to make this happen 😆. But in this <ExtLink link="https://hn.jeffjadulco.com">side project</ExtLink> of mine (which is a Hacker News reader), there are times when a post don't have no comments yet, and I have no control over it.
+
+I've looked for solutions over the internet and this is the most clever solution I saw: using `flexbox`.
+
+```html
+<html>
+  <body>
+    <header>Header</header>
+    <main>Content</main>
+    <footer>Footer</footer>
+  </body>
+</html>
+```
+
+```css
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+main {
+	flex-grow: 1
+}
+```
+
+I love this solution because it's so simple and it tells us what it does.
+
+<Callout>
+
+💡 The whole body is a flexbox which has a minimum height of whatever the browser's height is.
+
+💡 The main content's height grows to occupy the remaining space. Pushing the footer to the bottom of the page.
+
+</Callout>
+
+![Footer issue fixed](footer-fixed.png)
+
+And... that's it! Now the footer stays at the bottom whenever there are no or few contents in the page.
+
+You can easily do it on Tailwind too!
+
+```html
+<div class="min-h-screen flex flex-col">
+  <header>Header</header>
+  <main class="flex-grow">Main Content</main>
+  <footer>Footer</footer>
+</div>
+```
+
+I've also made a simple example using CodeSandbox and Tailwind Play.
+- <ExtLink link="https://codesandbox.io/s/hopeful-lichterman-g8dkb?file=/index.html" newTab>CodeSandbox sample</ExtLink>
+- <ExtLink link="https://play.tailwindcss.com/pymHJ6XIPU" newTab>Tailwind Play sample</ExtLink>
