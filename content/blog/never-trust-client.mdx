@@ -1,0 +1,119 @@
+---
+title: Never Trust the Client
+publishedAt: '2021-05-22'
+isPublished: true
+tags: ['webdev']
+description: A postmortem on a recent engineering mistake I made at work
+toc: true
+---
+
+Here's a somewhat big mistake that I did at work: I accidentally overwritten a whole table column of users data. 😱
+
+## Context
+
+I was doing a small refactor on a proprietary CMS, which is written in React, which then communicates to a MySQL database instance via a REST API.
+
+As a typical CMS application, it creates, reads, updates, and deletes (CRUD) records on the database.
+
+The app was originally written 3 years ago and so most of the components are still using the good ol' [class components](https://reactjs.org/docs/components-and-props.html#function-and-class-components). My main goal was to use modern React features such as [hooks](https://reactjs.org/docs/hooks-intro.html) and [Context API](https://reactjs.org/docs/context.html). I managed to migrate some of them with no problems. Until… I made a mistake.
+
+## What went wrong?
+
+The API was designed and written to handle generic requests so that the caller can specify the action (create, read, update, or delete), table name and columns, and query conditions in just one endpoint. The request looks like this:
+
+```js
+fetch("https://endpoint.com/user", {
+  method: "POST",
+  body: JSON.stringify({
+	  action: "create | read | update | delete",
+	  table: "users",
+	  column: "*",
+	  data: {},
+	  where: {...conditions}
+	})
+}
+```
+
+This looks like a code smell already right? Let's continue.
+
+For confidentiality, let's say I have a UserBio component and its role is to take an input and update the user's bio. I was able to convert this component from class to a functional component.
+
+But this is where I messed up. Take a look a the code below:
+
+```js
+const [userBio, setUserBio] = useState("")
+
+const getUserBioInput = () => {
+  // perform validation and other string operations here
+	return userBio;
+}
+
+const updateUserBio = () => {
+fetch("https://endpoint.com/user", {
+  method: "POST",
+  body: JSON.stringify({
+	  action: "update",
+	  table: "users",
+	  column: "bio"
+	  data: getUserBioInput
+	})
+}
+```
+
+I made several mistakes here and it still frustrates me thinking about it.
+
+The request body is missing something… the `where` property! In MySQL, if an `UPDATE` statement does not contain a `WHERE` clause, it will modify ALL rows in the table. Horrifying!
+
+And if that isn't enough, notice that I didn't call the `getUserBioInput` function, but I assigned it directly to the `data` property! So when it was stringified, it looks like this:
+
+```js
+'data:`()=>{return userBio}`'
+```
+
+After I performed a test when I noticed something wrong, the bio looks weird. I thought it was the client rendering a stringified function but no.
+
+I looked at the database and now all rows in the user's bio is equal to that stringified function!
+
+This was the time when my face turned red and my heart started beating faster.
+
+## How was the issue resolved?
+
+I immediately messaged my colleague and explained what happened. The solution was to create a new database instance from the last database snapshot. Fortunately, we have automated daily backups.
+
+Another fortunate thing is that the app is not "live" yet. We have real users data from previous closed and open beta tests but luckily not right now, so doing an immediate database restoration and important data loss is not a big issue.
+
+For the client side, I fixed the code so it now includes the `where` property and the function `getUserBioInput` is actually being called.
+
+It's all good now right? Yes, but no, we can do better.
+
+## What can we do better?
+
+First of all, it was my mistake and I should have been more careful especially this component does a thing that affects database records.
+
+But I also think there are some parts about the API design that can be improved to avoid issues like this in the future.
+
+Remember the code smell earlier? The API was designed to handle generic requests in just one endpoint. Of course there are other endpoints but they are mostly for more complex and non-standard requests. So if the client wants to perform a simple read or a standard update, then just use that generic endpoint.
+
+I don't have a contact to the original author but I guess their goal for designing it that way is **_convenience_**. This might be a good solution considering a database with many tables and many access points. But giving the client too much freedom like this, then it's only a matter of time before accidents like this will happen again.
+
+An ideal scenario is to have an endpoint like this: `PATCH https://endpoint.com/user/{user_id}` where `user_id` is required.
+
+However, writing separate endpoints for each operation might be too much and time consuming so I think the best short term improvement that can be done here is to impose stricter rules when receiving update and delete requests. The client's request should be validated that it only execute update and delete queries when `where` clause is specified, otherwise, return an error response.
+
+Another improvement is to setup a local database instance so that when developing locally, it doesn't need to communicate with the production database, thus avoiding local testing accidents. This led me to creating a [docker compose template](https://github.com/jeffjadulco/seeded-mysql-docker-compose) to create a dockerized seeded MySQL instance that can be used for local testing.
+
+What happened in the client side were all human mistakes. My mistakes. But if I were to rewrite the application from start, I would use TypeScript. If it was written in TypeScript, then the issue about not having the `where` property and passing a function instead of an `Object` would be detected early. Using an [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) is also a good improvement and will help prevent mistakes like this in the long run.
+
+## Final thoughts
+
+Trusting the client is almost never good. This principle is important not only for web development but in other disciplines as well.
+
+In game development for example, a multiplayer game should not trust the client. The client sends the player's input and it is the server's job to calculate and broadcast the latest game state to all clients.
+
+Mistakes like this are bad but we can also get some good things out of it. It exposes opportunities for improvements not only for the people involved but also for the existing systems.
+
+As for me, it's an experience that will help me to be a better programmer.
+
+---
+
+_Thanks to [@goofydelinquent](https://twitter.com/goofydelinquent/). Our conversation led me to some ideas and improvements in this post._
