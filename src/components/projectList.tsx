@@ -1,7 +1,6 @@
-import React from "react"
 import projects from "../data/projects"
 
-const ProjectList = ({ showHeading }) => {
+const ProjectList = ({ showHeading }: { showHeading: boolean }) => {
   return (
     <section className="">
       {showHeading && (

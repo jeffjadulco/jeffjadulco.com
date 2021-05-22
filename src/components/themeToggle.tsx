@@ -1,34 +1,34 @@
-import React from "react"
-import { ThemeContext } from "../context/themeContext"
-import { trackCustomEvent } from "gatsby-plugin-google-analytics"
+import React from 'react'
+import { ThemeContext } from '../context/themeContext'
+// import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
-const ThemeToggle = ({ className }) => {
+const ThemeToggle = ({ className }: { className?: string }) => {
   const { theme, setTheme } = React.useContext(ThemeContext)
 
   function isLight() {
-    return theme === "light"
+    return theme === 'light'
   }
 
   const ToggleTheme = _ => {
-    setTheme(isLight() ? "dark" : "light")
-    trackCustomEvent({
-      category: "Dark Mode Toggle",
-      action: "Click",
-      label: "Dark Mode",
-    })
+    setTheme(isLight() ? 'dark' : 'light')
+    // trackCustomEvent({
+    //   category: "Dark Mode Toggle",
+    //   action: "Click",
+    //   label: "Dark Mode",
+    // })
   }
 
-  const getToggleClassName = _ => {
+  const getToggleClassName = () => {
     return `${className} ${
-      isLight() ? "rotate-0" : "rotate-180"
+      isLight() ? 'rotate-0' : 'rotate-180'
     } focus:outline-none`
   }
 
   return (
     <>
       <button
-        aria-label={isLight() ? "Activate Dark Mode" : "Activate Light Mode"}
-        title={isLight() ? "Activate Dark Mode" : "Activate Light Mode"}
+        aria-label={isLight() ? 'Activate Dark Mode' : 'Activate Light Mode'}
+        title={isLight() ? 'Activate Dark Mode' : 'Activate Light Mode'}
         onClick={ToggleTheme}
         className={getToggleClassName()}
       >

@@ -1,4 +1,3 @@
-import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Heading } from "../components/atoms"
@@ -9,7 +8,7 @@ import skills from "../data/skills"
 
 const Projects = () => {
   return (
-    <Layout activePage="projects">
+    <Layout>
       <SEO title="Projects" />
       <Heading>Projects</Heading>
       <p className="-mt-3 mb-8 text-tertiary">

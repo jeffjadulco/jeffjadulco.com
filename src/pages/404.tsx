@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 
-import Layout from "../components/layout"
-import { Blob } from "../components/atoms"
+import Layout from '../components/layout'
+import { Blob } from '../components/atoms'
 
 const NotFoundPage = () => (
   <Layout footer={false}>

@@ -1,12 +1,12 @@
 import React from "react"
-import { Link } from "gatsby"
+import Link from "next/link"
 
 export const NavLink = ({ to, children, title = "Link", selected = false }) => {
   const textColor = selected ? "text-accent" : "text-secondary"
   const style = `font-normal text-base hover:text-accent transition duration-150 ${textColor}`
   return (
-    <Link to={to} title={title}>
-      <span className={style}>{children}</span>
+    <Link href={to}>
+      <a className={style}>{children}</a>
     </Link>
   )
 }
@@ -29,7 +29,7 @@ export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
         <time dateTime={datetime}>{date}</time>
       </span>
       <span> • </span>
-      <span>{timeToRead} minute read</span>
+      <span>{timeToRead}</span>
     </div>
   )
 }
@@ -60,7 +60,7 @@ export const Paragraph = ({ children }) => {
 
 export const InlinePageLink = ({ to, children, title = "Link" }) => {
   return (
-    <Link to={to} title={title}>
+    <Link href={to}>
       <a className="font-medium text-base text-accent hover:text-accent hover:underline">
         {children}
       </a>
@@ -72,7 +72,15 @@ export const Strong = ({ children }) => {
   return <strong className="font-semibold text-accent">{children}</strong>
 }
 
-export const ExtLink = ({ children, link, newTab }) => {
+export const ExtLink = ({
+  children,
+  link,
+  newTab = false,
+}: {
+  children: React.ReactNode
+  link: string
+  newTab?: boolean
+}) => {
   if (newTab) {
     return (
       <a

@@ -1,23 +1,20 @@
-import { Link } from "gatsby"
-import React from "react"
-import ThemeToggle from "./themeToggle"
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import ThemeToggle from './themeToggle'
 
 const MobileNav = () => {
-  const [navShow, setNavShow] = React.useState(false)
+  const [navShow, setNavShow] = useState(false)
 
-  React.useEffect(
-    _ => {
-      const body = document.body
-      if (typeof body !== "undefined") {
-        if (navShow) {
-          body.style.setProperty("overflow", "hidden")
-        } else {
-          body.style.removeProperty("overflow")
-        }
+  useEffect(() => {
+    const body = document.body
+    if (typeof body !== 'undefined') {
+      if (navShow) {
+        body.style.setProperty('overflow', 'hidden')
+      } else {
+        body.style.removeProperty('overflow')
       }
-    },
-    [navShow]
-  )
+    }
+  }, [navShow])
 
   return (
     <div className="sm:hidden text-xl" aria-hidden={!navShow}>
@@ -58,16 +55,24 @@ const MobileNav = () => {
           ></button>
           <nav className="right-0 h-screen mt-auto py-48 px-6 fixed flex flex-col items-end font-medium text-primary tracking-widest">
             <div className="flex-grow">
-              <Link to="/">HOME</Link>
+              <Link href="/">
+                <a>HOME</a>
+              </Link>
             </div>
             <div className="flex-grow">
-              <Link to="/blog">BLOG</Link>
+              <Link href="/blog">
+                <a>BLOG</a>
+              </Link>
             </div>
             <div className="flex-grow">
-              <Link to="/projects">PROJECTS</Link>
+              <Link href="/projects">
+                <a>PROJECTS</a>
+              </Link>
             </div>
             <div className="flex-grow">
-              <Link to="/about">ABOUT</Link>
+              <Link href="/about">
+                <a>ABOUT</a>
+              </Link>
             </div>
             <ThemeToggle />
           </nav>

@@ -1,11 +1,11 @@
-import React from "react"
-import { Heading } from "./atoms"
+import React from 'react'
+import { Heading } from './atoms'
 
 const SkillGrid = ({
-  heading = "",
-  description = "",
+  heading = '',
+  description = '',
   categories = [],
-  className = "",
+  className = '',
 }) => {
   return (
     <section className={`${className} mb-4`}>
@@ -21,7 +21,11 @@ const SkillGrid = ({
                 </h3>
                 <ul className="mt-1 space-y-2">
                   {category.skills.map(skill => {
-                    return <li className="text-tertiary">{skill}</li>
+                    return (
+                      <li key={skill} className="text-tertiary">
+                        {skill}
+                      </li>
+                    )
                   })}
                 </ul>
               </div>

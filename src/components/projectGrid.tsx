@@ -2,7 +2,7 @@ import React from "react"
 import projects from "../data/projects"
 import { ProjectLink } from "./atoms"
 
-const ProjectGrid = ({ showHeading }) => {
+const ProjectGrid = ({ showHeading = false }: { showHeading?: boolean }) => {
   return (
     <section className="">
       {showHeading && (
