@@ -1,4 +1,7 @@
 module.exports = {
+  future: {
+    webpack5: true,
+  },
   async headers() {
     return [
       {
@@ -11,6 +14,10 @@ module.exports = {
             value:
               'camera=(), microphone=(), geolocation=(), interest-cohort=()',
           },
+          {
+            key: 'Content-Security-Policy',
+            value: ContentSecurityPolicy.replace(/\n/g, ''),
+          },
         ],
       },
     ]
@@ -22,3 +29,14 @@ module.exports = {
     return config
   },
 }
+
+// https://securityheaders.com
+const ContentSecurityPolicy = `
+  default-src 'self';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://gc.zgo.at http://gc.zgo.at;
+  style-src 'self' 'unsafe-inline';
+  img-src * blob: data: https://jeffjadulco.goatcounter.com/count;
+  media-src 'none';
+  connect-src *;
+  font-src 'self';
+`

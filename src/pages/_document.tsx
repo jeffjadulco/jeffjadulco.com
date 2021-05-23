@@ -24,6 +24,13 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {/* ANALYTICS */}
+          <script
+            data-goatcounter={`https://${process.env.NEXT_PUBLIC_GOAT_COUNTER_CODE}.goatcounter.com/count`}
+            data-goatcounter-settings='{"allow_local": true}'
+            async={true}
+            src="//gc.zgo.at/count.js"
+          ></script>
         </body>
       </Html>
     )

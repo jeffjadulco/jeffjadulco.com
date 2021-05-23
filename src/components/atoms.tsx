@@ -1,8 +1,8 @@
-import React from "react"
-import Link from "next/link"
+import React from 'react'
+import Link from 'next/link'
 
-export const NavLink = ({ to, children, title = "Link", selected = false }) => {
-  const textColor = selected ? "text-accent" : "text-secondary"
+export const NavLink = ({ to, children, title = 'Link', selected = false }) => {
+  const textColor = selected ? 'text-accent' : 'text-secondary'
   const style = `font-normal text-base hover:text-accent transition duration-150 ${textColor}`
   return (
     <Link href={to}>
@@ -58,7 +58,7 @@ export const Paragraph = ({ children }) => {
   )
 }
 
-export const InlinePageLink = ({ to, children, title = "Link" }) => {
+export const InlinePageLink = ({ to, children, title = 'Link' }) => {
   return (
     <Link href={to}>
       <a className="font-medium text-base text-accent hover:text-accent hover:underline">
@@ -124,21 +124,22 @@ export const ProjectLink = ({ label, url }) => {
   )
 }
 
-export const Button = ({ children, link, width }) => {
-  let padding = "px-4 py-2"
+export const Button = ({ children, link, width, ...props }) => {
+  let padding = 'px-4 py-2'
 
-  if (width === "wide") {
-    padding = "px-8 py-2"
-  } else if (width === "wider") {
-    padding = "px-16 py-2"
-  } else if (width === "widest") {
-    padding = "px-20 py-2"
+  if (width === 'wide') {
+    padding = 'px-8 py-2'
+  } else if (width === 'wider') {
+    padding = 'px-16 py-2'
+  } else if (width === 'widest') {
+    padding = 'px-20 py-2'
   }
 
   const className = `${padding} rounded accent-gradient text-on-accent`
 
   return (
     <a
+      {...props}
       className={className}
       href={link}
       target="_blank"

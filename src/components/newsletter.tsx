@@ -1,12 +1,11 @@
-import React from "react"
-import { Button } from "./atoms"
+import { Button } from './atoms'
 
 export const Newsletter = () => {
   return (
     <div className="mt-32 full-width-container bg-secondary">
       <div className="container max-w-screen-xl mx-auto pt-16 text-gray-900">
         <h1 className="px-4 text-3xl font-semibold text-center text-primary">
-          Subscribe to my Newsletter{" "}
+          Subscribe to my Newsletter{' '}
           <span role="img" aria-label="letter with love">
             💌
           </span>
@@ -23,9 +22,10 @@ export const Newsletter = () => {
           <Button
             width="widest"
             link="https://jeffjadulco.substack.com/welcome"
+            data-goatcounter-click="newsletter"
           >
             <span className=" text-2xl font-semibold text-on-accent">
-              Subscribe{" "}
+              Subscribe{' '}
               <span
                 role="img"
                 aria-label="smile emoji"

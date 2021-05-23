@@ -1,6 +1,5 @@
 import classnames from 'classnames'
 import { useDarkMode } from '@/hooks/useDarkMode'
-// import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 const ThemeToggle = ({ className }: { className?: string }) => {
   const [isDark, setIsDark] = useDarkMode()
@@ -17,6 +16,7 @@ const ThemeToggle = ({ className }: { className?: string }) => {
           'rotate-180': isDark,
           'rotate-0': !isDark,
         })}
+        data-goatcounter-click="toggle"
       >
         <svg
           aria-hidden="true"
