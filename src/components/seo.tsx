@@ -1,5 +1,5 @@
-import Head from "next/head"
-import { siteMetadata } from "../config"
+import Head from 'next/head'
+import { siteMetadata } from '../config'
 
 type SEOProps = {
   title?: string
@@ -21,8 +21,8 @@ function SEO({ title, description, blog, ogImage }: SEOProps) {
   const seo = {
     title: title || defaultTitle,
     titleTemplate: title
-      ? `%s | ${defaultTitle}`
-      : `${defaultTitle} | Game and Javascript Developer`,
+      ? `${title} | ${defaultTitle}`
+      : `${defaultTitle} | Game and Web Developer`,
     description: description || defaultDescription,
     image: `${siteUrl}${blog ? ogImage : image}`,
     url: `${siteUrl}`,
@@ -30,7 +30,7 @@ function SEO({ title, description, blog, ogImage }: SEOProps) {
 
   return (
     <Head>
-      <title>{seo.title}</title>
+      <title>{seo.titleTemplate}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <meta property="og:type" content="website" />
@@ -45,8 +45,8 @@ function SEO({ title, description, blog, ogImage }: SEOProps) {
       <meta property="twitter:description" content={seo.description} />
       <script type="application/ld+json">
         {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Website",
+          '@context': 'https://schema.org',
+          '@type': 'Website',
           url: seo.url,
           name: seo.title,
         })}

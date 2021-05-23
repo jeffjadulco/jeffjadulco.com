@@ -11,7 +11,6 @@ export function useSafeLocalStorage(key, initialValue) {
   })
 
   const setValue = value => {
-    console.log('setValue', value)
     try {
       window.localStorage.setItem(key, value)
       setValueProxy(value)
