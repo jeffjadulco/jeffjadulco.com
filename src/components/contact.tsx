@@ -1,6 +1,8 @@
 import { ExtLink, Button } from './atoms'
+import { useAnalyticsEvent } from '@/hooks/useAnalytics'
 
 export const Contact = () => {
+  const { trackCustomEvent } = useAnalyticsEvent()
   return (
     <div className="mt-32 full-width-container bg-secondary">
       <div className="container max-w-screen-xl mx-auto pt-16 text-gray-900">
@@ -32,7 +34,9 @@ export const Contact = () => {
           <Button
             width="widest"
             link="mailto:hey@jeffjadulco.com"
-            data-goatcounter-click="email"
+            onClick={() => {
+              trackCustomEvent({ eventName: 'click-contact' })
+            }}
           >
             <span className=" text-2xl font-semibold text-on-accent">
               Say hello

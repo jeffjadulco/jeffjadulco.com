@@ -1,6 +1,8 @@
 import { Button } from './atoms'
+import { useAnalyticsEvent } from '@/hooks/useAnalytics'
 
 export const Newsletter = () => {
+  const { trackCustomEvent } = useAnalyticsEvent()
   return (
     <div className="mt-32 full-width-container bg-secondary">
       <div className="container max-w-screen-xl mx-auto pt-16 text-gray-900">
@@ -22,7 +24,9 @@ export const Newsletter = () => {
           <Button
             width="widest"
             link="https://jeffjadulco.substack.com/welcome"
-            data-goatcounter-click="newsletter"
+            onClick={() => {
+              trackCustomEvent({ eventName: 'click-newsletter' })
+            }}
           >
             <span className=" text-2xl font-semibold text-on-accent">
               Subscribe{' '}

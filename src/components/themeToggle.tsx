@@ -1,8 +1,10 @@
 import classnames from 'classnames'
 import { useDarkMode } from '@/hooks/useDarkMode'
+import { useAnalyticsEvent } from '@/hooks/useAnalytics'
 
 const ThemeToggle = ({ className }: { className?: string }) => {
   const [isDark, setIsDark] = useDarkMode()
+  const { trackCustomEvent } = useAnalyticsEvent()
 
   return (
     <>
@@ -11,12 +13,12 @@ const ThemeToggle = ({ className }: { className?: string }) => {
         title={isDark ? 'Activate Light Mode' : 'Activate Dark Mode'}
         onClick={() => {
           setIsDark(!isDark)
+          trackCustomEvent({ eventName: 'toggle-theme' })
         }}
         className={classnames(className, {
           'rotate-180': isDark,
           'rotate-0': !isDark,
         })}
-        data-goatcounter-click="toggle"
       >
         <svg
           aria-hidden="true"
