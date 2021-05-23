@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import glob from 'glob'
+import globby from 'globby'
 import readingTime from 'reading-time'
 import { bundleMDX } from 'mdx-bundler'
 import prism from '@mapbox/rehype-prism'
@@ -9,7 +9,8 @@ import rehypeHeadings from 'rehype-autolink-headings'
 
 import type { Frontmatter } from '@/types/frontmatter'
 
-const CONTENT_PATH = path.join(process.cwd(), 'content/blog')
+const MDX_PATH = 'content/blog'
+const CONTENT_PATH = path.join(process.cwd(), MDX_PATH)
 
 async function getMdxBySlug(slug) {
   const source = fs.readFileSync(path.join(CONTENT_PATH, `${slug}.mdx`), 'utf8')
@@ -35,7 +36,7 @@ async function getMdxBySlug(slug) {
 }
 
 async function getAllFrontMatters(): Promise<Frontmatter[]> {
-  const paths = glob.sync(`${CONTENT_PATH}/**/*.mdx`)
+  const paths = await globby([`${MDX_PATH}/**/*.mdx`])
   const matters = await Promise.all(
     paths.map(async filePath => {
       const source = fs.readFileSync(filePath, 'utf8')

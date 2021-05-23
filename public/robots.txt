@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://jeffjadulco.com/sitemap.xml
