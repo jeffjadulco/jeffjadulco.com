@@ -1,5 +1,17 @@
-@import url('https://rsms.me/inter/inter.css');
-@import url('https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css');
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: optional;
+  src: url(/fonts/Inter.var.woff2);
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-display: optional;
+  src: url(/fonts/FiraCode-VF.woff2);
+}
 
 :root {
   scroll-behavior: auto;

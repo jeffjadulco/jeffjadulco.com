@@ -1,4 +1,4 @@
-const { fontFamily, spacing } = require('tailwindcss/defaultTheme')
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
   purge: [
@@ -16,7 +16,7 @@ module.exports = {
         '-120': '-30rem',
       },
       fontFamily: {
-        sans: ['Inter var', 'Inter', ...fontFamily.sans],
+        sans: ['Inter', ...fontFamily.sans],
         mono: ['Fira Code', ...fontFamily.mono],
       },
       backgroundColor: {
