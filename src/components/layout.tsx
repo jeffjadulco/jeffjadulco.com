@@ -1,11 +1,11 @@
-import { ThemeProvider } from "../context/themeContext"
-import Header from "./header"
-import MobileNav from "./mobileNav"
-import Footer from "./footer"
+import { Fragment } from 'react'
+import Header from './header'
+import MobileNav from './mobileNav'
+import Footer from './footer'
 
 const Layout = ({ children, footer = true }) => {
   return (
-    <ThemeProvider initialTheme="dark">
+    <Fragment>
       <MobileNav />
       <div className="min-h-screen flex flex-col">
         <Header />
@@ -14,7 +14,7 @@ const Layout = ({ children, footer = true }) => {
         </main>
         {footer && <Footer />}
       </div>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 

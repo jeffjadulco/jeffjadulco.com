@@ -1,36 +1,22 @@
-import React from 'react'
-import { ThemeContext } from '../context/themeContext'
+import classnames from 'classnames'
+import { useDarkMode } from '@/hooks/useDarkMode'
 // import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 const ThemeToggle = ({ className }: { className?: string }) => {
-  const { theme, setTheme } = React.useContext(ThemeContext)
-
-  function isLight() {
-    return theme === 'light'
-  }
-
-  const ToggleTheme = _ => {
-    setTheme(isLight() ? 'dark' : 'light')
-    // trackCustomEvent({
-    //   category: "Dark Mode Toggle",
-    //   action: "Click",
-    //   label: "Dark Mode",
-    // })
-  }
-
-  const getToggleClassName = () => {
-    return `${className} ${
-      isLight() ? 'rotate-0' : 'rotate-180'
-    } focus:outline-none`
-  }
+  const [isDark, setIsDark] = useDarkMode()
 
   return (
     <>
       <button
-        aria-label={isLight() ? 'Activate Dark Mode' : 'Activate Light Mode'}
-        title={isLight() ? 'Activate Dark Mode' : 'Activate Light Mode'}
-        onClick={ToggleTheme}
-        className={getToggleClassName()}
+        aria-label={isDark ? 'Activate Light Mode' : 'Activate Dark Mode'}
+        title={isDark ? 'Activate Light Mode' : 'Activate Dark Mode'}
+        onClick={() => {
+          setIsDark(!isDark)
+        }}
+        className={classnames(className, {
+          'rotate-180': isDark,
+          'rotate-0': !isDark,
+        })}
       >
         <svg
           aria-hidden="true"
