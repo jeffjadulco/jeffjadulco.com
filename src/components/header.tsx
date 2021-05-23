@@ -1,25 +1,25 @@
-import Link from "next/link"
-import { useRouter } from "next/router"
-import ThemeToggle from "./themeToggle"
-import { NavLink, BlobHeader } from "./atoms"
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import ThemeToggle from './themeToggle'
+import { NavLink, BlobHeader } from './atoms'
 
 const routes = [
   {
-    path: "/",
-    label: "Home",
+    path: '/',
+    label: 'Home',
     exact: true,
   },
   {
-    path: "/blog",
-    label: "Blog",
+    path: '/blog',
+    label: 'Blog',
   },
   {
-    path: "/projects",
-    label: "Projects",
+    path: '/projects',
+    label: 'Projects',
   },
   {
-    path: "/about",
-    label: "About",
+    path: '/about',
+    label: 'About',
   },
 ]
 
@@ -31,8 +31,8 @@ function Header() {
         className="mt-auto h-full flex space-x-6 items-center justify-center md:justify-start text-sm"
         aria-label="Main Navigation"
       >
-        <Link href="/" aria-label="Website logo, go back to homepage.">
-          <a>
+        <Link href="/">
+          <a aria-label="Website logo, go back to homepage.">
             <svg
               aria-hidden="true"
               role="img"
