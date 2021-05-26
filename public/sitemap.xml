@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://jeffjadulco.com/about</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://jeffjadulco.com</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://jeffjadulco.com/projects</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://jeffjadulco.com/blog</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jeffjadulco.com/blog/2020-into-2021</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jeffjadulco.com/blog/css-snippet-bottom-footer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jeffjadulco.com/blog/dark-mode-react-tailwind</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jeffjadulco.com/blog/how-i-take-notes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jeffjadulco.com/blog/never-trust-client</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jeffjadulco.com/blog/welcome</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
