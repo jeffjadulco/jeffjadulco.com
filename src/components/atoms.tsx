@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const NavLink = ({ to, children, title = 'Link', selected = false }) => {
   const textColor = selected ? 'text-accent' : 'text-secondary'
-  const style = `font-normal text-base hover:text-accent transition duration-150 ${textColor}`
+  const style = `uppercase font-semibold tracking-wide text-sm hover:text-accent transition duration-150 ${textColor}`
   return (
     <Link href={to}>
       <a className={style}>{children}</a>

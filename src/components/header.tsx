@@ -64,7 +64,7 @@ function Header() {
       </nav>
 
       <div className="hidden sm:block">
-        <div className="-mt-120 sm:-mt-120 ml-4">
+        <div className="-mt-120 sm:-mt-120 ml-8">
           <BlobHeader />
         </div>
       </div>
