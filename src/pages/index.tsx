@@ -27,8 +27,8 @@ export default function IndexPage({ posts }: { posts: Frontmatter[] }) {
               <Image
                 src="/images/the-avatar.png"
                 alt="My avatar"
-                width={200}
-                height={200}
+                width={512}
+                height={512}
               />
             </div>
           </div>

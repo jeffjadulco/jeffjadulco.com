@@ -3,10 +3,10 @@ const siteMetadata = {
   description: `Jeff Jadulco is a game and javascript developer`,
   author: `Jeff Jadulco`,
   siteUrl:
-    process.env.NODE_ENV === "development"
+    process.env.NODE_ENV === 'development'
       ? `https://dev.jeffjadulco.com`
       : `https://jeffjadulco.com`,
-  image: `/images/og-card.png`,
+  image: `/static/og/default.png`,
   twitterUsername: `@jeffjadulco`,
 }
 
