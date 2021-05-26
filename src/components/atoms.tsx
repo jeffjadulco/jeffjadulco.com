@@ -1,12 +1,20 @@
-import React from 'react'
+import classNames from 'classnames'
 import Link from 'next/link'
 
 export const NavLink = ({ to, children, title = 'Link', selected = false }) => {
-  const textColor = selected ? 'text-accent' : 'text-secondary'
-  const style = `uppercase font-semibold tracking-wide text-sm hover:text-accent transition duration-150 ${textColor}`
   return (
     <Link href={to}>
-      <a className={style}>{children}</a>
+      <a
+        className={classNames(
+          'uppercase font-semibold tracking-wide text-sm hover:text-accent transition duration-150',
+          {
+            'text-accent': selected,
+            'text-secondary': !selected,
+          }
+        )}
+      >
+        {children}
+      </a>
     </Link>
   )
 }
