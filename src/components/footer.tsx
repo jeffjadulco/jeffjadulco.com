@@ -3,19 +3,19 @@ import { NavLink } from './atoms'
 const routes = [
   {
     path: '/',
-    label: 'Home',
+    label: 'HOME',
   },
   {
     path: '/blog',
-    label: 'Blog',
+    label: 'BLOG',
   },
   {
     path: '/projects',
-    label: 'Projects',
+    label: 'PROJECTS',
   },
   {
     path: '/about',
-    label: 'About',
+    label: 'ABOUT',
   },
 ]
 

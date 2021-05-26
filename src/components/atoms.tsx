@@ -6,7 +6,7 @@ export const NavLink = ({ to, children, title = 'Link', selected = false }) => {
     <Link href={to}>
       <a
         className={classNames(
-          'uppercase font-semibold tracking-wide text-sm hover:text-accent transition duration-150',
+          'font-semibold tracking-wide text-sm hover:text-accent transition duration-150',
           {
             'text-accent': selected,
             'text-secondary': !selected,
