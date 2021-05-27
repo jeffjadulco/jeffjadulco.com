@@ -13,6 +13,7 @@ module.exports = {
         '-84': '-21rem',
         '-88': '-22rem',
         '-96': '-24rem',
+        '-116': '-29rem',
         '-120': '-30rem',
       },
       fontFamily: {

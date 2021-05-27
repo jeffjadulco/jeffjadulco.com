@@ -1,15 +1,15 @@
+import { Fragment, useMemo } from 'react'
+import { format, parseISO } from 'date-fns'
 import { GetStaticPaths, InferGetStaticPropsType } from 'next'
 import { getMDXComponent } from 'mdx-bundler/client'
-import Layout from '@/components/layout'
 import SEO from '@/components/seo'
-import { BlogTitle, BlogTitleInfo, ExtLink } from '@/components/atoms'
+import { BlogTitle, BlogTitleInfo } from '@/components/atoms'
 import Newsletter from '@/components/newsletter'
 import { getAllFrontMatters, getMdxBySlug } from '@/lib/mdx'
-import type { Frontmatter } from '@/types/frontmatter'
-import { useMemo } from 'react'
-import { format, parseISO } from 'date-fns'
 import { components } from '@/components/mdxComponents'
 import { QuickNav } from '@/components/quickNav'
+
+import type { Frontmatter } from '@/types/frontmatter'
 
 type Post = {
   frontmatter: Frontmatter
@@ -21,7 +21,7 @@ export default function BlogPost({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const Component = useMemo(() => getMDXComponent(code), [code])
   return (
-    <Layout>
+    <Fragment>
       <SEO
         blog
         title={frontmatter.title}
@@ -49,7 +49,7 @@ export default function BlogPost({
         )}
       </div>
       <Newsletter />
-    </Layout>
+    </Fragment>
   )
 }
 

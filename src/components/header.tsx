@@ -55,16 +55,14 @@ function Header() {
                   ? route.path === router.asPath
                   : router.asPath.startsWith(route.path)
               }
-            >
-              {route.label}
-            </NavLink>
+            />
           ))}
         </div>
         <ThemeToggle className="hidden sm:block hover:text-accent transition duration-150" />
       </nav>
 
       <div className="hidden sm:block">
-        <div className="-mt-120 sm:-mt-120 ml-8">
+        <div className="-mt-116 ml-12">
           <BlobHeader />
         </div>
       </div>

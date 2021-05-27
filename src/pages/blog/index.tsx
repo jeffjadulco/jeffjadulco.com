@@ -1,4 +1,4 @@
-import Layout from '@/components/layout'
+import { Fragment } from 'react'
 import SEO from '@/components/seo'
 import PostList from '@/components/postList'
 import { Heading } from '@/components/atoms'
@@ -9,7 +9,7 @@ import { Frontmatter } from '@/types/frontmatter'
 
 export default function Blog({ posts }: { posts: Frontmatter[] }) {
   return (
-    <Layout>
+    <Fragment>
       <SEO title="Blog" />
       <Heading>Blog</Heading>
       <p className="-mt-3 mb-12 text-tertiary">
@@ -18,7 +18,7 @@ export default function Blog({ posts }: { posts: Frontmatter[] }) {
       </p>
       <PostList posts={posts} />
       <Newsletter />
-    </Layout>
+    </Fragment>
   )
 }
 

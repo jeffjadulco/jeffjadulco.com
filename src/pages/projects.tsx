@@ -1,14 +1,14 @@
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { Heading } from "../components/atoms"
-import Contact from "../components/contact"
-import ProjectGrid from "../components/projectGrid"
-import SkillGrid from "../components/skillGrid"
-import skills from "../data/skills"
+import { Fragment } from 'react'
+import SEO from '@/components/seo'
+import { Heading } from '@/components/atoms'
+import Contact from '@/components/contact'
+import ProjectGrid from '@/components/projectGrid'
+import SkillGrid from '@/components/skillGrid'
+import skills from '@/data/skills'
 
 const Projects = () => {
   return (
-    <Layout>
+    <Fragment>
       <SEO title="Projects" />
       <Heading>Projects</Heading>
       <p className="-mt-3 mb-8 text-tertiary">
@@ -28,7 +28,7 @@ const Projects = () => {
         })}
       </div>
       <Contact />
-    </Layout>
+    </Fragment>
   )
 }
 

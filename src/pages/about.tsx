@@ -1,11 +1,11 @@
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import { ExtLink, InlinePageLink } from '../components/atoms'
-import Contact from '../components/contact'
+import { Fragment } from 'react'
+import { ExtLink, InlinePageLink } from '@/components/atoms'
+import Contact from '@/components/contact'
+import SEO from '@/components/seo'
 
 function About() {
   return (
-    <Layout>
+    <Fragment>
       <SEO title="About" />
       <div className="container">
         <article className="prose md:prose-lg min-w-0">
@@ -58,7 +58,7 @@ function About() {
         </article>
       </div>
       <Contact />
-    </Layout>
+    </Fragment>
   )
 }
 

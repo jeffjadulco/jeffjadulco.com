@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import Link from 'next/link'
 
-export const NavLink = ({ to, children, title = 'Link', selected = false }) => {
+export const NavLink = ({ to, title = 'Link', selected = false, ...props }) => {
   return (
-    <Link href={to}>
+    <Link {...props} href={to}>
       <a
         className={classNames(
           'font-semibold tracking-wide text-sm hover:text-accent transition duration-150',
@@ -13,7 +13,7 @@ export const NavLink = ({ to, children, title = 'Link', selected = false }) => {
           }
         )}
       >
-        {children}
+        {title}
       </a>
     </Link>
   )

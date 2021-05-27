@@ -1,18 +1,18 @@
+import { Fragment } from 'react'
 import { GetStaticProps } from 'next'
 import Image from 'next/image'
-import { getAllFrontMatters } from '../lib/mdx'
-import { Blob } from '../components/atoms'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import PostList from '../components/postList'
-import ProjectList from '../components/projectList'
-import Contact from '../components/contact'
+import { getAllFrontMatters } from '@/lib/mdx'
+import { Blob } from '@/components/atoms'
+import SEO from '@/components/seo'
+import PostList from '@/components/postList'
+import ProjectList from '@/components/projectList'
+import Contact from '@/components/contact'
 
 import type { Frontmatter } from '@/types/frontmatter'
 
 export default function IndexPage({ posts }: { posts: Frontmatter[] }) {
   return (
-    <Layout>
+    <Fragment>
       <SEO />
       <div className="mt-12 flex flex-col-reverse lg:flex-row items-center lg:justify-between lg:space-x-6">
         <h1 className="mt-12 lg:mt-0 max-w-3xl text-3xl sm:text-4xl text-primary font-semibold sm:text-left md:text-center lg:text-left">
@@ -29,6 +29,8 @@ export default function IndexPage({ posts }: { posts: Frontmatter[] }) {
                 alt="My avatar"
                 width={512}
                 height={512}
+                quality={100}
+                priority={true}
               />
             </div>
           </div>
@@ -37,7 +39,7 @@ export default function IndexPage({ posts }: { posts: Frontmatter[] }) {
       <PostList posts={posts} showHeading />
       <ProjectList showHeading />
       <Contact />
-    </Layout>
+    </Fragment>
   )
 }
 
