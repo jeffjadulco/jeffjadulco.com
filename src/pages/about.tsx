@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { ExtLink, InlinePageLink } from '@/components/atoms'
+import { ExtLink, InlinePageLink, Heading } from '@/components/atoms'
 import Contact from '@/components/contact'
 import SEO from '@/components/seo'
 
@@ -8,8 +8,8 @@ function About() {
     <Fragment>
       <SEO title="About" />
       <div className="container">
-        <article className="prose md:prose-lg min-w-0">
-          <h2>About Me</h2>
+        <Heading>About Me</Heading>
+        <article className="prose min-w-0">
           <p>
             I'm Jeff Jadulco, I work full-time as a game programmer at{' '}
             <ExtLink link="https://secret6.com/">Secret 6, Inc</ExtLink>. In my

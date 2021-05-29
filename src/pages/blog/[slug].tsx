@@ -39,12 +39,10 @@ export default function BlogPost({
             <BlogTitle>{frontmatter.title}</BlogTitle>
           </div>
           <Component components={components} />
-          {/* <Component /> */}
         </article>
         {frontmatter.toc && (
           <aside className="sticky hidden lg:block max-w-xs ml-6 mt-8 h-screen">
             <QuickNav />
-            {/* <TOC items={mdx.tableOfContents.items} /> */}
           </aside>
         )}
       </div>

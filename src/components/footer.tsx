@@ -17,6 +17,10 @@ const routes = [
     path: '/about',
     label: 'ABOUT',
   },
+  {
+    path: '/gamedev',
+    label: 'GAMEDEV',
+  },
 ]
 
 const Footer = () => {
