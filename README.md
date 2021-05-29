@@ -10,7 +10,6 @@ My personal website running on [Next.js](https://nextjs.org/)
 - [Next.js + Typescript](https://nextjs.org/)
 - [MDX using `mdx-bundler`](https://github.com/kentcdodds/mdx-bundler/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Figma (mostly outdated)](https://www.figma.com/file/6umesgU3tEZgkQm9Hrw2PO/jeffjadulco.com)
 
 ## Development
 

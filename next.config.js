@@ -2,6 +2,12 @@ module.exports = {
   future: {
     webpack5: true,
   },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      require('./scripts/generate-sitemap')
+    }
+    return config
+  },
   async headers() {
     return [
       {
@@ -22,11 +28,14 @@ module.exports = {
       },
     ]
   },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      require('./scripts/generate-sitemap')
-    }
-    return config
+  async redirects() {
+    return [
+      {
+        source: '/gamedev',
+        destination: 'https://gamedev.jeffjadulco.com',
+        permanent: false,
+      },
+    ]
   },
 }
 

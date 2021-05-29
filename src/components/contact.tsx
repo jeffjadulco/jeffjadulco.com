@@ -25,10 +25,6 @@ export const Contact = () => {
           <ExtLink link="https://twitter.com/jeffjadulco" newTab>
             Twitter
           </ExtLink>
-          ,{' '}
-          <ExtLink link="https://www.instagram.com/jeffjadulco/" newTab>
-            Instagram
-          </ExtLink>
         </p>
         <div className="mx-auto  pt-10 flex justify-center">
           <Button
