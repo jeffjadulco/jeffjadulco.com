@@ -12,7 +12,7 @@ export default function Blog({ posts }: { posts: Frontmatter[] }) {
     <Fragment>
       <SEO title="Blog" />
       <Heading>Blog</Heading>
-      <p className="-mt-3 mb-12 text-tertiary">
+      <p className="mb-12 text-tertiary">
         I write about things I learn in web development and also stuff that I
         find interesting.
       </p>

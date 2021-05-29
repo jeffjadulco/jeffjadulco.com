@@ -44,7 +44,7 @@ export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
 
 export const Heading = ({ children }) => {
   return (
-    <h2 className="relative mt-12 mb-3 text-2xl font-bold text-accent">
+    <h2 className="relative mt-12 mb-3 text-3xl font-bold text-accent">
       {children}
     </h2>
   )

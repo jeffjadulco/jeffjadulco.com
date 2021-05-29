@@ -11,7 +11,7 @@ const Projects = () => {
     <Fragment>
       <SEO title="Projects" />
       <Heading>Projects</Heading>
-      <p className="-mt-3 mb-8 text-tertiary">
+      <p className="mb-12 text-tertiary">
         Collection of web and game development side projects.
       </p>
       <ProjectGrid />
