@@ -28,69 +28,69 @@
 }
 
 .light {
-  --color-bg-accent: #63b3ed;
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #edf2f7;
-  --color-bg-accent-hover: #4299e1;
+  --color-bg-accent: hsla(205, 79%, 66%, 1);
+  --color-bg-primary: hsla(0, 100%, 100%, 1);
+  --color-bg-secondary: hsla(210, 38%, 95%, 1);
+  --color-bg-accent-hover: hsla(207, 73%, 57%, 1);
 
-  --color-text-accent: #2b6cb0;
-  --color-text-primary: #2d3748;
-  --color-text-secondary: #4a5568;
-  --color-text-tertiary: #4a5568;
-  --color-text-on-accent: #f7fafc;
+  --color-text-accent: hsla(211, 61%, 43%, 1);
+  --color-text-primary: hsla(218, 23%, 23%, 1);
+  --color-text-secondary: hsla(218, 17%, 35%, 1);
+  --color-text-tertiary: hsla(218, 17%, 35%, 1);
+  --color-text-on-accent: hsla(204, 45%, 98%, 1);
 
-  --color-fill-primary: #b1d9f6;
-  --color-fill-secondary: #edf2f7;
+  --color-fill-primary: hsla(205, 79%, 83%, 1);
+  --color-fill-secondary: hsla(210, 38%, 95%, 1);
 
-  --color-gradient-accent1: rgba(49, 130, 206, 1);
-  --color-gradient-accent2: rgba(79, 209, 197, 1);
+  --color-gradient-accent1: hsla(209, 62%, 50%, 1);
+  --color-gradient-accent2: hsla(174, 59%, 56%, 1);
 
-  --color-code-background: hsl(210, 38%, 98%);
-  --color-code-background-file: hsl(210, 38%, 95%);
-  --color-code-line-hover: hsl(210, 38%, 95%);
-  --color-code-text: #2d3748;
-  --color-code-comment: #718096;
-  --color-code-punctuation: #39adb5;
-  --color-code-const: #7c4dff;
-  --color-code-bool: #7c4dff;
-  --color-code-string: #f6a434;
-  --color-code-var: #e53935;
-  --color-code-func: #3d5afe;
-  --color-code-keyword: #7c4dff;
-  --color-code-regex: #6182b8;
+  --color-code-background: hsla(210, 38%, 98%, 1);
+  --color-code-background-file: hsla(210, 38%, 95%, 1);
+  --color-code-line-hover: hsla(210, 38%, 95%, 1);
+  --color-code-text: hsla(218, 23%, 23%, 1);
+  --color-code-comment: hsla(216, 15%, 52%, 1);
+  --color-code-punctuation: hsla(184, 52%, 47%, 1);
+  --color-code-const: hsla(256, 100%, 65%, 1);
+  --color-code-bool: hsla(256, 100%, 65%, 1);
+  --color-code-string: hsla(35, 92%, 58%, 1);
+  --color-code-var: hsla(1, 77%, 55%, 1);
+  --color-code-func: hsla(231, 99%, 62%, 1);
+  --color-code-keyword: hsla(256, 100%, 65%, 1);
+  --color-code-regex: hsla(217, 38%, 55%, 1);
 }
 
 .dark {
-  --color-bg-accent: #81e6d9;
-  --color-bg-primary: #1a202c;
-  --color-bg-secondary: #161b25;
-  --color-bg-accent-hover: #4fd1c5;
+  --color-bg-accent: hsla(172, 67%, 70%, 1);
+  --color-bg-primary: hsla(220, 26%, 14%, 1);
+  --color-bg-secondary: hsla(220, 25%, 12%, 1);
+  --color-bg-accent-hover: hsla(174, 59%, 56%, 1);
 
-  --color-text-accent: #81e6d9;
-  --color-text-primary: #f7fafc;
-  --color-text-secondary: #e2e8f0;
-  --color-text-tertiary: #a0aec0;
-  --color-text-on-accent: #1a202c;
+  --color-text-accent: hsla(172, 67%, 70%, 1);
+  --color-text-primary: hsla(204, 45%, 98%, 1);
+  --color-text-secondary: hsla(214, 32%, 91%, 1);
+  --color-text-tertiary: hsla(214, 20%, 69%, 1);
+  --color-text-on-accent: hsla(220, 26%, 14%, 1);
 
-  --color-fill-primary: #81e6d9;
-  --color-fill-secondary: #161b25;
+  --color-fill-primary: hsla(172, 67%, 70%, 1);
+  --color-fill-secondary: hsla(220, 25%, 12%, 1);
 
-  --color-gradient-accent1: rgba(49, 130, 206, 1);
-  --color-gradient-accent2: rgba(79, 209, 197, 1);
+  --color-gradient-accent1: hsla(209, 62%, 50%, 1);
+  --color-gradient-accent2: hsla(174, 59%, 56%, 1);
 
-  --color-code-background: hsl(220, 25%, 12%);
-  --color-code-background-file: hsl(220, 25%, 10%);
-  --color-code-line-hover: hsl(220, 25%, 8%);
-  --color-code-text: #edf2f7;
-  --color-code-comment: #718096;
-  --color-code-punctuation: #edf2f7;
-  --color-code-const: #ff79c6;
-  --color-code-bool: #bd93f9;
-  --color-code-string: #50fa7b;
-  --color-code-var: #f8f8f2;
-  --color-code-func: #f1fa8c;
-  --color-code-keyword: #8be9fd;
-  --color-code-regex: #ffb86c;
+  --color-code-background: hsla(220, 25%, 12%, 1);
+  --color-code-background-file: hsla(220, 25%, 10%, 1);
+  --color-code-line-hover: hsla(220, 25%, 8%, 1);
+  --color-code-text: hsla(210, 38%, 95%, 1);
+  --color-code-comment: hsla(216, 15%, 52%, 1);
+  --color-code-punctuation: hsla(210, 38%, 95%, 1);
+  --color-code-const: hsla(326, 100%, 74%, 1);
+  --color-code-bool: hsla(265, 89%, 78%, 1);
+  --color-code-string: hsla(135, 94%, 65%, 1);
+  --color-code-var: hsla(60, 30%, 96%, 1);
+  --color-code-func: hsla(65, 92%, 76%, 1);
+  --color-code-keyword: hsla(191, 97%, 77%, 1);
+  --color-code-regex: hsla(31, 100%, 71%, 1);
 }
 
 @import 'tailwindcss/base';
