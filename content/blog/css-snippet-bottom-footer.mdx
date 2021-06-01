@@ -8,7 +8,13 @@ toc: false
 seoImage: '/static/og/blog/bottom-footer.png'
 ---
 
-![Footer issue](/images/blog/footer-gap.png)
+<Image
+  src={'/images/blog/footer-gap.png'}
+  alt="Footer issue"
+  width={1105}
+  height={972}
+  quality={100}
+/>
 
 I experienced this footer problem before in this site, but I got away with it because there are no pages that have no content to make this happen 😆. But in this [side project](https://hn.jeffjadulco.com) of mine (which is a Hacker News reader), there are times when a post don't have no comments yet, and I have no control over it.
 
@@ -42,7 +48,13 @@ I love this solution because it's so simple and it tells us what it does.
 >
 > 💡 The main content's height grows to occupy the remaining space. Pushing the footer to the bottom of the page.
 
-![Footer issue fixed](/images/blog/footer-fixed.png)
+<Image
+  src={'/images/blog/footer-fixed.png'}
+  alt="Fixed footer issue"
+  width={1105}
+  height={972}
+  quality={100}
+/>
 
 And... that's it! Now the footer stays at the bottom whenever there are no or few contents in the page.
 

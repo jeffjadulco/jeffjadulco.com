@@ -27,7 +27,13 @@ First, let's declare all our css variables in our main css file. If you don't kn
 
 In my website I tried to stick with five colors: _primary_, _secondary_, and _accent_, for both background and texts. This will differ based on your design, but in my case, I already knew what colors I needed because I designed my website in Figma beforehand.
 
-![color palette](/images/blog/palette.png)
+<Image
+  src={'/images/blog/palette.png'}
+  alt="Color Palette"
+  width={438}
+  height={272}
+  quality={100}
+/>
 
 Next, add `.light` and `.dark` CSS classes and assign the colors for each variables. Then use the `@apply` directive in the root selector to apply a default theme for your page.
 
@@ -81,7 +87,13 @@ module.exports = {
 
 These extensions will now be included in Tailwind classes
 
-![tailwind intellisense](/images/oCVsUuUj46.gif)
+<Image
+  src={'/images/oCVsUuUj46.gif'}
+  alt="Tailwind Intellisense"
+  width={376}
+  height={142}
+  quality={100}
+/>
 
 > 🚀 Install this [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) for that sweet, sweet, Tailwind intellisense.
 
@@ -218,7 +230,13 @@ export const Toggle = () => {
 
 And there you have it! Our toggle is not as fancy as it looks, but you can do the same logic using a button or a different component.
 
-![final dark mode output](/images/KrnD22TTfH.gif)
+<Image
+  src={'/images/KrnD22TTfH.gif'}
+  alt="Final dark mode output"
+  width={512}
+  height={314}
+  quality={100}
+/>
 
 This solution isn't perfect and there's a small caveat with this: **page load flicker**. Josh made a great write up about how he solved it in the same [article](https://joshwcomeau.com/gatsby/dark-mode).
 
