@@ -31,9 +31,7 @@ In my website I tried to stick with five colors: _primary_, _secondary_, and _ac
 
 Next, add `.light` and `.dark` CSS classes and assign the colors for each variables. Then use the `@apply` directive in the root selector to apply a default theme for your page.
 
-```css
-/* index.css */
-
+```css showLineNumbers fileName=index.css
 :root {
   @apply .light;
 }
@@ -63,9 +61,7 @@ Next, add `.light` and `.dark` CSS classes and assign the colors for each variab
 
 In order to use the css variables we created, we must extend the tailwind configuration.
 
-```jsx
-// tailwind.config.js
-
+```js showLineNumbers fileName=tailwind.config.js
 module.exports = {
   theme: {
     extend: {
@@ -95,23 +91,26 @@ Before we create a way for the user to toggle the theme between light or dark th
 
 ### Getting the initial theme
 
-```jsx
-// themeContext.js
-
+```jsx showLineNumbers fileName=themeContext.jsx
 const getInitialTheme = _ => {
-  if (typeof window !== 'undefined' && window.localStorage) {
-    const storedPrefs = window.localStorage.getItem('color-theme')
+  if (typeof window !== 'undefined' && 
+      window.localStorage) {
+
+    const storedPrefs = 
+      window.localStorage.getItem('color-theme')
     if (typeof storedPrefs === 'string') {
       return storedPrefs
     }
 
-    const userMedia = window.matchMedia('(prefers-color-scheme: dark)')
+    const userMedia = 
+      window.matchMedia('(prefers-color-scheme: dark)')
     if (userMedia.matches) {
       return 'dark'
     }
   }
 
-  // If you want to use light theme as the default, return "light" instead
+  // If you want to use light theme as the default, 
+  // return "light" instead
   return 'dark'
 }
 ```
@@ -128,13 +127,13 @@ Our theme context must do the following:
 2. Create another function called `rawSetTheme` that will apply the `.light` or `.dark` class in the root element and save the theme in the `localStorage`
 3. Create a side effect that will call the `rawSetTheme` whenever the value of `theme` changes.
 
-```jsx
-// themeContext.js
+```jsx showLineNumbers fileName=themeContext.jsx
+export const ThemeContext = createContext()
 
-export const ThemeContext = React.createContext()
-
-export const ThemeProvider = ({ initialTheme, children }) => {
-  const [theme, setTheme] = React.useState(getInitialTheme)
+export const ThemeProvider = ({ 
+  initialTheme, 
+  children }) => {
+  const [theme, setTheme] = useState(getInitialTheme)
 
   const rawSetTheme = theme => {
     const root = window.document.documentElement
@@ -169,9 +168,7 @@ export const ThemeProvider = ({ initialTheme, children }) => {
 
 For our components to use the context, let's make the `ThemeProvider` as the Higher Order Component (HOC).
 
-```jsx
-// layout.js
-
+```jsx showLineNumbers fileName=layout.jsx
 import { ThemeProvider } from './themeContext'
 
 const Layout = ({ children }) => {
@@ -192,14 +189,16 @@ Now that we have our context ready, let's create a toggle component that will le
 2. Set the checkbox's `checked` attribute to true when the `theme` is equal to `dark`
 3. Call the `setTheme` on the `onChange` event.
 
-```jsx
-// toggle.js
-
+```jsx showLineNumbers fileName=toggle.jsx
 export const Toggle = () => {
-  const { theme, setTheme } = React.useContext(ThemeContext)
+  const { theme, setTheme } = useContext(ThemeContext)
 
   function isDark() {
     return theme === 'dark'
+  }
+
+  function toggleTheme(e) {
+    setTheme(e.target.checked ? 'dark' : 'light')
   }
 
   return (
@@ -207,8 +206,8 @@ export const Toggle = () => {
       <input
         type="checkbox"
         checked={isDark()}
-        onChange={e => setTheme(e.target.checked ? 'dark' : 'light')}
-      ></input>
+        onChange={e => toggleTheme(e)}
+      />
       Dark Mode
     </label>
   )
