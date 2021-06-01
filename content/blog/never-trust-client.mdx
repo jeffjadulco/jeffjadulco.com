@@ -22,7 +22,7 @@ The app was originally written 3 years ago and so most of the components are sti
 
 The API was designed and written to handle generic requests so that the caller can specify the action (create, read, update, or delete), table name and columns, and query conditions in just one endpoint. The request looks like this:
 
-```js
+```js showLineNumbers fileName=request.js
 fetch("https://endpoint.com/user", {
   method: "POST",
   body: JSON.stringify({
@@ -41,7 +41,7 @@ For confidentiality, let's say I have a UserBio component and its role is to tak
 
 But this is where I messed up. Take a look a the code below:
 
-```js
+```js showLineNumbers fileName=userBio.jsx
 const [userBio, setUserBio] = useState("")
 
 const getUserBioInput = () => {
@@ -67,7 +67,7 @@ The request body is missing something… the `where` property! In MySQL, if an `
 
 And if that isn't enough, notice that I didn't call the `getUserBioInput` function, but I assigned it directly to the `data` property! So when it was stringified, it looks like this:
 
-```js
+```js showLineNumbers
 'data:`()=>{return userBio}`'
 ```
 

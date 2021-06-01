@@ -3,7 +3,7 @@ import { format, parseISO } from 'date-fns'
 import { GetStaticPaths, InferGetStaticPropsType } from 'next'
 import { getMDXComponent } from 'mdx-bundler/client'
 import SEO from '@/components/seo'
-import { BlogTitle, BlogTitleInfo } from '@/components/atoms'
+import { BlogTitleInfo } from '@/components/atoms'
 import Newsletter from '@/components/newsletter'
 import { getAllFrontMatters, getMdxBySlug } from '@/lib/mdx'
 import { components } from '@/components/mdxComponents'
@@ -29,15 +29,15 @@ export default function BlogPost({
         ogImage={frontmatter.seoImage}
       />
       <div className="flex justify-between mt-12 mb-12 relative">
-        <article className="prose md:prose-lg min-w-0">
-          <div className="">
-            <BlogTitleInfo
-              date={format(parseISO(frontmatter.publishedAt), 'MMMM dd yyyy')}
-              datetime={parseISO(frontmatter.publishedAt)}
-              timeToRead={frontmatter.readingTime.text}
-            />
-            <BlogTitle>{frontmatter.title}</BlogTitle>
-          </div>
+        <article className="min-w-0 max-w-2xl text-base lg:text-lg text-tertiary">
+          <BlogTitleInfo
+            date={format(parseISO(frontmatter.publishedAt), 'MMMM dd yyyy')}
+            datetime={parseISO(frontmatter.publishedAt)}
+            timeToRead={frontmatter.readingTime.text}
+          />
+          <h1 className="mb-10 text-4xl lg:text-5xl font-extrabold tracking-tight text-primary">
+            {frontmatter.title}
+          </h1>
           <Component components={components} />
         </article>
         {frontmatter.toc && (
