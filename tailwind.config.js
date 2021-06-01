@@ -1,10 +1,15 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  purge: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-  ],
+  purge: {
+    content: [
+      './src/pages/**/*.{js,ts,jsx,tsx}',
+      './src/components/**/*.{js,ts,jsx,tsx}',
+    ],
+    options: {
+      safelist: ['-ml-6'], // weird fix :/
+    },
+  },
   theme: {
     extend: {
       margin: {
@@ -76,43 +81,8 @@ module.exports = {
             h4: {
               color: 'var(--color-text-accent)',
             },
-            blockquote: {
-              color: 'var(--color-text-tertiary)',
-            },
             strong: {
               color: 'var(--color-text-tertiary)',
-            },
-            blockquote: {
-              color: 'var(--color-text-tertiary)',
-              fontSize: '1rem',
-              fontWeight: '400',
-              fontStyle: 'normal',
-              padding: '0.5rem 0.75rem 0.5rem 1.25rem',
-              borderLeftWidth: '2px',
-              borderLeftColor: 'var(--color-text-accent)',
-              backgroundColor: 'var(--color-bg-secondary)',
-            },
-            'blockquote p:first-of-type::before': {
-              content: '',
-            },
-            'blockquote p:last-of-type::after': {
-              content: '',
-            },
-            code: {
-              color: 'var(--color-code-text)',
-              backgroundColor: 'var(--color-code-background)',
-              fontWeight: '400',
-              padding: '0.15rem 0.5rem',
-            },
-            'code::before': {
-              content: '',
-            },
-            'code::after': {
-              content: '',
-            },
-            hr: {
-              borderColor: 'var(--color-text-tertiary)',
-              borderWidth: '1px',
             },
           },
         },

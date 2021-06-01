@@ -1,0 +1,133 @@
+code,
+pre {
+  background-color: var(--color-code-background);
+  color: var(--color-code-text);
+  font-size: 1rem;
+}
+
+pre {
+  margin: 1em 0em 1em -1.5em;
+  padding: 0.75rem 0;
+  overflow-x: auto;
+}
+
+:not(pre) > code {
+  padding: 0.2em 0.3em;
+  border-radius: 0.2em;
+  white-space: normal;
+}
+
+.token.parameter {
+  color: var(--color-code-text);
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--color-code-comment);
+}
+
+.token.punctuation {
+  color: var(--color-code-punctuation);
+}
+
+.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--color-code-const);
+}
+
+.token.boolean,
+.token.number {
+  color: var(--color-code-bool);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--color-code-string);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: var(--color-code-var);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: var(--color-code-func);
+}
+
+.token.keyword {
+  color: var(--color-code-keyword);
+}
+
+.token.regex,
+.token.important {
+  color: var(--color-code-regex);
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.line-numbers .highlight-line {
+  position: relative;
+  padding: 0.2em 1em 0.2em 4em;
+  cursor: text;
+}
+
+.line-numbers .highlight-line::before {
+  position: absolute;
+  left: 1.5em;
+  top: 0.25em;
+  color: var(--color-code-comment);
+  content: attr(data-line);
+  font-size: 0.9rem;
+}
+
+:not(.line-numbers) > .highlight-line {
+  position: relative;
+  padding: 0.2em 1em 0.2em 1.5em;
+  cursor: text;
+}
+
+.highlight-line:hover {
+  background-color: var(--color-code-line-hover);
+}
+
+.highlight-line:first-child {
+  margin-top: 0.5em;
+}
+
+.code-filename {
+  margin-top: -0.75rem;
+  padding: 1em 2em;
+  background-color: var(--color-code-background-file);
+  font-size: 0.8rem;
+}
