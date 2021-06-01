@@ -3,9 +3,11 @@ import path from 'path'
 import globby from 'globby'
 import readingTime from 'reading-time'
 import { bundleMDX } from 'mdx-bundler'
-import prism from '@mapbox/rehype-prism'
 import rehypeSlug from 'rehype-slug'
 import rehypeHeadings from 'rehype-autolink-headings'
+import rehypeHighlightCode from './rehype-highlight-code'
+import rehypeMetaAttribute from './rehype-meta-attribute'
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
 
 import type { Frontmatter } from '@/types/frontmatter'
 
@@ -18,7 +20,9 @@ async function getMdxBySlug(slug) {
     xdmOptions(options) {
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
-        prism,
+        rehypeMetaAttribute,
+        rehypeHighlightCode,
+        rehypeAccessibleEmojis,
         rehypeSlug,
         [rehypeHeadings, { behavior: 'append' }],
       ]
