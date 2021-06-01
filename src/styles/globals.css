@@ -15,7 +15,6 @@
 
 :root {
   scroll-behavior: auto;
-  @apply dark;
 }
 
 ::-moz-selection {
@@ -46,7 +45,9 @@
   --color-gradient-accent1: rgba(49, 130, 206, 1);
   --color-gradient-accent2: rgba(79, 209, 197, 1);
 
-  --color-code-background: #edf2f7;
+  --color-code-background: hsl(210, 38%, 98%);
+  --color-code-background-file: hsl(210, 38%, 95%);
+  --color-code-line-hover: hsl(210, 38%, 95%);
   --color-code-text: #2d3748;
   --color-code-comment: #718096;
   --color-code-punctuation: #39adb5;
@@ -77,7 +78,9 @@
   --color-gradient-accent1: rgba(49, 130, 206, 1);
   --color-gradient-accent2: rgba(79, 209, 197, 1);
 
-  --color-code-background: #161b25;
+  --color-code-background: hsl(220, 25%, 12%);
+  --color-code-background-file: hsl(220, 25%, 10%);
+  --color-code-line-hover: hsl(220, 25%, 8%);
   --color-code-text: #edf2f7;
   --color-code-comment: #718096;
   --color-code-punctuation: #edf2f7;
