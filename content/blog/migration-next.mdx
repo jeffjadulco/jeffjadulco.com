@@ -1,0 +1,244 @@
+---
+title: How I Migrated from Gatsby to Next.js
+publishedAt: '2021-06-05'
+isPublished: true
+tags: ['webdev']
+description: Migration to Next.js, Typescript, and other plugins.
+toc: true
+seoImage: '/static/og/blog/migration-next.png'
+---
+
+Last year I started learning React and wanted to make a personal website so I googled for the "best" framework for creating static blog websites at that time. I chose Gatsby because its static generation features are so enticing. Next.js only has a partial support for static generation because it heavily focused on SSR at that time.
+
+I've been using Next.js with my recent side projects and my experience has been great. So I decided why not try it with my personal website?
+
+In this post, I'm sharing the steps I did to migrate this website from Gatsby to Next.js. Let's get started!
+
+> ⚡ If you want to skip reading this and start your migration, Next.js has their [official documentation](https://nextjs.org/docs/migrating/from-gatsby) about migrating from Gatsby. It's probably the best resource to get started.
+>
+> 🧾 You can view my [pull request](https://github.com/jeffjadulco/jeffjadulco.com/pull/3) if you want to see the exact migration process and code changes.
+>
+> 🔖 Also note that I was using Gatsby v2 before I migrated to Next.js v10, so features and implementation might be different and improved by the time you read this. As of June 2021, Gatsby and Next.js both supports SSG and SSR. Next.js also has a hybrid solution (ISR).
+
+## package.json
+
+### npm uninstall
+
+The very first thing I did was to `npm uninstall` all Gatsby-related packages. I also removed these files from the root folder:
+
+- gatsby-browser.js
+- gatsby-config.js
+- gatsby-node.js
+- gatsby-ssr.js
+
+### npm upgrade
+
+I also did an `npm upgrade` for the remaining packages. The important ones are `react`, `react-dom`, and `tailwindcss` (together with `autoprefixer` and `postcss`).
+
+### npm install
+
+The most important package to install is `next`. That's it! But since I want to use TypeScript for development, I also installed `typescript` and `@types/react`. There are also other packages, mostly replacements for the Gatsby plugins, but I'll touch on that later.
+
+Since we're now using Next.js, it's time to update the npm scripts:
+
+```json showLineNumbers fileName=old
+"scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "server": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+```
+
+```json showLineNumbers fileName=new
+"scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  }
+```
+
+## TypeScript
+
+In order to set up Typescript with Next.js, create an empty file named `tsconfig.json` in the root of your project and run `npm run dev`. This step is based on their [official documentation](https://nextjs.org/docs/basic-features/typescript).
+
+## Folder structure
+
+### static/ to public/
+
+Next.js [requires](https://nextjs.org/docs/basic-features/static-file-serving) static files, like images, to be placed under the `public` folder in the root directory.
+
+Gatsby supports referencing assets that are not in the `static` folder. I had some images under `src/assets/images` that I had to move to `public`.
+
+With Gatsby:
+
+```md
+my-app/
+├─ static/
+│ ├─ images/
+│ │ ├─ avatar.png
+│ ├─ favicon.ico
+│ ├─ robots.txt
+├─ src/
+│ ├─ assets/
+│ │ ├─ cat.png
+```
+
+With Next.js
+
+```md
+my-app/
+├─ public/
+│ ├─ images/
+│ │ ├─ avatar.png
+│ │ ├─ cat.png
+│ ├─ favicon.ico
+│ ├─ robots.txt
+```
+
+Files inside `public` can then be referenced starting from the base URL (`/`).
+
+For example, to reference an image with path `public/images/cat.png`:
+
+```jsx showLineNumbers
+function MyImage() {
+  return <img src="/images/cat.png" />
+}
+```
+
+### pages/ directory
+
+Next.js has a file-system based router built on the concept of pages.
+
+When a file is added to the `pages` directory it's automatically available as a route.
+
+The `pages` directory can be put in the root or even under `src/` folder. It is different from Gatsby which [requires](https://www.gatsbyjs.com/docs/reference/routing/creating-routes/) you to define the pages inside `src/pages`.
+
+With Gatsby:
+
+```md
+my-app/
+├─ src/
+│ ├─ pages/
+│ │ ├─ index.js
+│ ├─ components/
+```
+
+With Next.js:
+
+```md
+my-app/
+├─ pages/
+│ ├─ \_app.tsx
+│ ├─ index.tsx
+├─ src/
+│ ├─ components/
+```
+
+## Custom App
+
+In order to have a shared layout components across pages, we need to have a custom app. It also lets us add a global CSS. Next.js uses a default `App` but to override it we need to create a file named `_app.tsx` under the `pages` directory.
+
+```tsx showLineNumbers fileName=_app.tsx
+import '../styles/globals.css'
+import Layout from '../components/layout'
+
+function App({ Component, pageProps }) {
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  )
+}
+
+export default App
+```
+
+And this is the Layout component:
+
+```tsx showLineNumbers fileName=layout.tsx
+function Layout({ children }) {
+  return (
+    <React.Fragment>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </React.Fragment>
+  )
+}
+```
+
+## Plugin replacements
+
+In this section I'll list down the Next.js features, third-party packages, and a custom script that replaced some of the Gatsby plugins I used.
+
+### Built-in Next.js features
+
+- [next/image](https://nextjs.org/docs/api-reference/next/image) - Replaces `gatsby-image`, `gatsby-plugin-sharp` and `gatsby-transformer-sharp`
+- [next/head](https://nextjs.org/docs/api-reference/next/head) - Replaces `gatsby-plugin-react-helmet`
+
+> 🚨 `next/image` does not fully replace all the features and optimizations of `gatsby-image` + `gatsby-plugin-sharp`. It's easier to use but it does not provide progressive images and more optimization features.
+>
+> If you want something like that, you probably have a image-heavy website, you can look into [next-optimized-images](https://github.com/cyrilwanner/next-optimized-images).
+
+### MDX via mdx-bundler
+
+This is probably the most critical part of the migration. Gatsby's MDX plugins (`gatsby-plugin-mdx` and `gatsby-remark-*` plugins) are so easy to use and to be able to recreate or improve the MDX workflow in Next.js was a challenge for me.
+
+Good thing there are plenty of MDX solutions for Next.js to choose from:
+
+- [@next/mdx](https://github.com/vercel/next.js/blob/canary/packages/next-mdx/readme.md)
+- [next-mdx-enhanced](https://github.com/hashicorp/next-mdx-enhanced)
+- [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote)
+- [mdx-bundler](https://github.com/kentcdodds/mdx-bundler)
+
+I already tried both `@next/mdx` and `next-mdx-enhanced` in my [gamedev portfolio](https://gamedev.jeffjadulco.com) which worked fine but I wanted to try other solutions. I chose `mxd-bundler` over `next-mdx-remote` simply because I like its API better.
+
+I also used other plugins for these features:
+
+- Syntax highlighting: [@mapbox/rehype-prism](https://github.com/mapbox/rehype-prism)
+- Autolink headers: [rehype-autolink-headers](https://github.com/rehypejs/rehype-autolink-headings)
+- Slugified header id: [rehype-slug](https://github.com/rehypejs/rehype-slug)
+- Reading time calculation: [reading-time](https://github.com/ngryman/reading-time)
+
+> 🧾 I didn't include the code of the mdx-bundler implementation because it'll take too much space here. Instead, you can view the exact code I use to implement it: [mdx.ts](https://github.com/jeffjadulco/jeffjadulco.com/blob/master/src/lib/mdx.ts), [[slug].tsx](https://github.com/jeffjadulco/jeffjadulco.com/blob/master/src/pages/blog/%5Bslug%5D.tsx)
+
+### Custom scripts
+
+- [generate-sitemap.js](https://github.com/jeffjadulco/jeffjadulco.com/blob/master/scripts/generate-sitemap.js) - Replaces `gatsby-plugin-sitemap`
+- [robots.txt](https://github.com/jeffjadulco/jeffjadulco.com/blob/master/public/robots.txt) - Replaces `gatsby-plugin-robots-txt`
+
+For `generate-sitemap.js`, I included the script in the webpack section of `next.config.js` to invoke the function when running `npm run build`. The script will generate a `sitemap.xml` in the `public/` directory.
+
+```js showLineNumbers fileName=next.config.js
+module.exports = {
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      require('./scripts/generate-sitemap')
+    }
+    return config
+  },
+}
+```
+
+For `robots.txt`, I just created a file in the `public/` directory with these contents:
+
+```md
+User-agent: \*
+Sitemap: https://yourdomain.com/sitemap.xml
+```
+
+## Conclusion
+
+And that's it, migration complete! As a tinkerer, I enjoyed this migration process and learned so much about each frameworks' ecosystem.
+
+Gatsby's usage of GraphQL for transforming images, sourcing and parsing markdown files is brilliant, but I found it overwhelming at first (why do I need to learn GraphQL queries if I just want to reference my images and markdown files? 🤔). Gatsby team has an explanation on [why Gatsby uses GraphQL](https://www.gatsbyjs.com/docs/why-gatsby-uses-graphql/) but I found the use cases they presented doesn't really fit mine.
+
+On the other hand, Next.js' file-system routing and zero config makes it easy to just get started and focus on building my website without spending too much time on configuration.
+
+Anyways, to each their own I guess. What's important is these frameworks keeps on improving and making the developer experience better which is a win for developers.
+
+---
+
+_I want to thank [@leerob](https://twitter.com/leeerob) for his awesome and [open-source portfolio](https://github.com/leerob/leerob.io). I referenced his code a lot for MDX stuff when I did the migration._
