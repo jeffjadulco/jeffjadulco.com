@@ -35,7 +35,7 @@ export default function BlogPost({
             datetime={parseISO(frontmatter.publishedAt)}
             timeToRead={frontmatter.readingTime.text}
           />
-          <h1 className="mb-10 text-4xl lg:text-5xl font-extrabold tracking-tight text-primary">
+          <h1 className="mb-10 text-4xl lg:text-5xl font-extrabold text-primary">
             {frontmatter.title}
           </h1>
           <Component components={components} />
