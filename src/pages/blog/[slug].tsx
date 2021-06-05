@@ -4,6 +4,7 @@ import { GetStaticPaths, InferGetStaticPropsType } from 'next'
 import { getMDXComponent } from 'mdx-bundler/client'
 import SEO from '@/components/seo'
 import Newsletter from '@/components/newsletter'
+import Feedback from '@/components/feedback'
 import { getAllFrontMatters, getMdxBySlug } from '@/lib/mdx'
 import { components } from '@/components/mdxComponents'
 import { QuickNav } from '@/components/quickNav'
@@ -66,7 +67,7 @@ export default function BlogPost({
           </aside>
         )}
       </div>
-      <Newsletter />
+      <Feedback post={frontmatter} />
     </Fragment>
   )
 }
