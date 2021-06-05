@@ -48,6 +48,8 @@
   --color-code-background: hsla(210, 38%, 98%, 1);
   --color-code-background-file: hsla(210, 38%, 95%, 1);
   --color-code-line-hover: hsla(210, 38%, 95%, 1);
+  --color-code-word-highlight: hsla(211, 61%, 43%, 0.6);
+  --color-code-word-highlight-hover: hsla(211, 61%, 43%, 1);
   --color-code-text: hsla(218, 23%, 23%, 1);
   --color-code-comment: hsla(216, 15%, 52%, 1);
   --color-code-punctuation: hsla(184, 52%, 47%, 1);
