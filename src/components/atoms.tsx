@@ -19,29 +19,6 @@ export const NavLink = ({ to, title = 'Link', selected = false, ...props }) => {
   )
 }
 
-export const BlogTitle = ({ children }) => {
-  return (
-    <h1
-      id="introduction"
-      className="text-4xl font-bold text-accent tracking-tight"
-    >
-      {children}
-    </h1>
-  )
-}
-
-export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
-  return (
-    <div className="mb-2 text-sm text-tertiary tracking-normal">
-      <span>
-        <time dateTime={datetime}>{date}</time>
-      </span>
-      <span> • </span>
-      <span>{timeToRead}</span>
-    </div>
-  )
-}
-
 export const Heading = ({ children }) => {
   return (
     <h2 className="relative mt-12 mb-3 text-3xl font-bold text-accent">
