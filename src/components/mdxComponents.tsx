@@ -10,7 +10,7 @@ export const components = {
       return (
         <a
           {...props}
-          className="text-tertiary hover:text-accent underline"
+          className="underline text-tertiary hover:text-accent"
           href={href}
           target="_blank"
           rel="noopener"
@@ -23,11 +23,11 @@ export const components = {
         <a
           {...props}
           href={href}
-          className="ml-1 text-tertiary hover:text-accent transform origin-left transition-transform ease-out duration-75 scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100"
+          className="ml-1 transition-transform duration-75 ease-out origin-left transform scale-0 opacity-0 text-tertiary hover:text-accent group-hover:scale-100 group-hover:opacity-100"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            className="w-5 h-5"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -49,7 +49,7 @@ export const components = {
       <h2
         {...props}
         data-heading
-        className="group flex items-baseline mt-14 mb-8 text-2xl lg:text-3xl leading-10 font-bold text-accent"
+        className="flex items-baseline mb-8 text-2xl font-bold leading-10 group mt-14 lg:text-3xl text-accent"
       />
     )
   },
@@ -58,21 +58,22 @@ export const components = {
       <h3
         {...props}
         data-heading
-        className="group flex items-baseline mt-14 mb-4 text-2xl leading-tight font-bold text-accent"
+        className="flex items-baseline mb-4 text-2xl font-bold leading-tight group mt-14 text-accent"
       />
     )
   },
   p: ({ ...props }) => {
     return <p {...props} className="my-6 leading-7 lg:leading-8" />
   },
-  code: ({ children, showLineNumbers, fileName }) => {
+  code: ({ children, showLineNumbers, fileName, id }) => {
     return (
       <React.Fragment>
-        {fileName && <div className="code-filename w-full">{fileName}</div>}
+        {fileName && <div className="w-full code-filename">{fileName}</div>}
         <code
           className={classNames('', {
             'line-numbers': showLineNumbers !== undefined,
           })}
+          id={id}
         >
           {children}
         </code>
@@ -89,7 +90,7 @@ export const components = {
     return (
       <blockquote
         {...props}
-        className="lg:-ml-6 my-6 px-5 py-2 bg-secondary border-l-2 border-accent text-base"
+        className="px-5 py-2 my-6 text-base border-l-2 lg:-ml-6 bg-secondary border-accent"
       />
     )
   },
@@ -100,4 +101,26 @@ export const components = {
     <ol className="pl-4 my-6 leading-7 list-decimal" {...props} />
   ),
   li: (props: any) => <li className="mt-3" {...props} />,
+  CodeLink: ({ id, index, href }) => {
+    const isExternal = href.startsWith('http')
+    React.useEffect(() => {
+      const codeblock = document.getElementById(id)
+      if (!codeblock) return
+
+      const allHighlightWords = codeblock.querySelectorAll('.highlight-word')
+      const target = allHighlightWords[index - 1]
+      if (!target) return
+
+      target.replaceWith(
+        Object.assign(document.createElement('a'), {
+          href,
+          innerHTML: target.innerHTML,
+          className: target.className,
+          ...(isExternal ? { target: '_blank', rel: 'noopener' } : {}),
+        })
+      )
+    }, [])
+
+    return null
+  },
 }

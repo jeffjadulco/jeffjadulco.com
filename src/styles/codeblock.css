@@ -135,6 +135,16 @@ code {
   margin-top: 0.5em;
 }
 
+.highlight-word {
+  background-color: var(--color-code-word-highlight);
+  color: var(--color-text-on-accent);
+  border-radius: 2px;
+}
+
+.highlight-word:hover {
+  background-color: var(--color-code-word-highlight-hover);
+}
+
 .code-filename {
   margin-top: -0.75rem;
   padding: 1em 2em;
