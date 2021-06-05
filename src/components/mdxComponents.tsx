@@ -101,7 +101,7 @@ export const components = {
     <ol className="pl-4 my-6 leading-7 list-decimal" {...props} />
   ),
   li: (props: any) => <li className="mt-3" {...props} />,
-  CodeLink: ({ id, index, href }) => {
+  CodeLink: ({ id, index, href, children, ...props }) => {
     const isExternal = href.startsWith('http')
     React.useEffect(() => {
       const codeblock = document.getElementById(id)
