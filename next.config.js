@@ -8,6 +8,9 @@ module.exports = {
     }
     return config
   },
+  images: {
+    domains: ['i.scdn.co'],
+  },
   async headers() {
     return [
       {
