@@ -9,7 +9,11 @@ module.exports = {
     return config
   },
   images: {
-    domains: ['i.scdn.co', 'a.ltrbxd.com'],
+    domains: [
+      'i.scdn.co', // spotify
+      'a.ltrbxd.com', // letterboxd
+      'steamcdn-a.akamaihd.net', // steam
+    ],
   },
   async headers() {
     return [

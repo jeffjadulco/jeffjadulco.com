@@ -1,14 +1,19 @@
-import {
+import { PresenceWidget } from './presenceWidget'
+import { Letterboxd16, Spotify16, Steam16 } from './icons'
+
+import type {
   LetterboxdRecentMovies,
   SpotifyCurrentTrack,
   SpotifyRecentTracks,
+  SteamRecentlyPlayedGames,
 } from '@/types/rich-presence'
-import { Letterboxd16, Spotify16 } from './icons'
-import { PresenceWidget } from './presenceWidget'
 
 interface RichPresenceListProps {
   presenceList: Array<
-    SpotifyCurrentTrack | SpotifyRecentTracks | LetterboxdRecentMovies
+    | SpotifyCurrentTrack
+    | SpotifyRecentTracks
+    | LetterboxdRecentMovies
+    | SteamRecentlyPlayedGames
   >
 }
 
@@ -50,10 +55,22 @@ export function RichPresenceList({ presenceList }: RichPresenceListProps) {
                 key={rp.type}
                 icon={<Letterboxd16 />}
                 verb={rp.verb}
-                title={rp.movies[0]?.title}
+                title={`${rp.movies[0]?.title}, ${rp.movies[0]?.year}`}
                 subtitle={rp.movies[0]?.rating}
                 img_url={rp.movies[0]?.image}
                 url={rp.movies[0]?.url}
+              />
+            )
+          } else if (rp.type === 'steam') {
+            return (
+              <PresenceWidget
+                key={rp.type}
+                icon={<Steam16 />}
+                verb={rp.verb}
+                title={rp.games[0]?.name}
+                subtitle={rp.games[0]?.playtime.two_weeks}
+                img_url={rp.games[0]?.image}
+                url={rp.games[0]?.url}
               />
             )
           }

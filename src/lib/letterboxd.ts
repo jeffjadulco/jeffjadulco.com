@@ -4,7 +4,7 @@ import { parse } from 'node-html-parser'
 
 import type { LetterboxdRecentMovies } from '@/types/rich-presence'
 
-const letterboxd_username = 'jeffjadulco'
+const letterboxd_username = process.env.LETTERBOXD_USERNAME
 
 const rating_star = new Map([
   ['-1.0', 'None'],

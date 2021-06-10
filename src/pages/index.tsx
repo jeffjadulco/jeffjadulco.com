@@ -15,19 +15,23 @@ import {
   LetterboxdRecentMovies,
   SpotifyCurrentTrack,
   SpotifyRecentTracks,
+  SteamRecentlyPlayedGames,
 } from '@/types/rich-presence'
 import { getRecentMovies } from '@/lib/letterboxd'
+import { getRecentGames } from '@/lib/steam'
 
 interface IndexPageProps {
   posts: Frontmatter[]
   spotify?: SpotifyCurrentTrack | SpotifyRecentTracks
   letterboxd?: LetterboxdRecentMovies
+  steam: SteamRecentlyPlayedGames
 }
 
 export default function IndexPage({
   posts,
   spotify,
   letterboxd,
+  steam,
 }: IndexPageProps) {
   return (
     <Fragment>
@@ -56,7 +60,7 @@ export default function IndexPage({
       </div>
       <PostList posts={posts} showHeading />
       <ProjectList showHeading />
-      <RichPresenceList presenceList={[spotify, letterboxd]} />
+      <RichPresenceList presenceList={[spotify, letterboxd, steam]} />
       <Contact />
     </Fragment>
   )
@@ -72,7 +76,8 @@ export const getStaticProps: GetStaticProps = async () => {
     spotify = await getRecentlyPlayed()
   }
 
-  const letterboxd: LetterboxdRecentMovies = await getRecentMovies()
+  const letterboxd = await getRecentMovies()
+  const steam = await getRecentGames()
 
-  return { props: { posts, spotify, letterboxd }, revalidate: 60 * 5 }
+  return { props: { posts, spotify, letterboxd, steam }, revalidate: 60 * 5 }
 }

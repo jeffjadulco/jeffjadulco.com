@@ -1,6 +1,11 @@
 export interface RichPresence {
   type: string
-  verb: 'Now Playing' | 'Recently Played' | 'Recently Watched' | 'Now'
+  verb:
+    | 'Now Playing'
+    | 'Recently Played'
+    | 'Recently Played Game'
+    | 'Recently Watched'
+    | 'Now'
 }
 
 export type SpotifyTrack = {
@@ -36,4 +41,20 @@ export interface LetterboxdRecentMovies extends RichPresence {
   type: 'letterboxd'
   verb: 'Recently Watched'
   movies: LetterboxdItem[]
+}
+
+export type SteamGame = {
+  name: string
+  playtime: {
+    two_weeks: string
+    forever: string
+  }
+  image: string
+  url: string
+}
+
+export interface SteamRecentlyPlayedGames extends RichPresence {
+  type: 'steam'
+  verb: 'Recently Played Game'
+  games: SteamGame[]
 }
