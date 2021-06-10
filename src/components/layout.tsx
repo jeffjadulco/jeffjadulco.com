@@ -7,9 +7,9 @@ const Layout = ({ children }) => {
   return (
     <Fragment>
       <MobileNav />
-      <div className="min-h-screen flex flex-col">
+      <div className="flex flex-col min-h-screen">
         <Header />
-        <main className="container flex-grow m-auto px-5 mt-16 sm:px-12 md:px-20 max-w-screen-xl">
+        <main className="container flex-grow max-w-screen-xl px-5 m-auto mt-16 sm:px-12 md:px-20">
           {children}
         </main>
         <Footer />

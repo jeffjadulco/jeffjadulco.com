@@ -1,3 +1,4 @@
+import { InputHTMLAttributes, TextareaHTMLAttributes } from 'react'
 import classNames from 'classnames'
 import Link from 'next/link'
 
@@ -19,29 +20,6 @@ export const NavLink = ({ to, title = 'Link', selected = false, ...props }) => {
   )
 }
 
-export const BlogTitle = ({ children }) => {
-  return (
-    <h1
-      id="introduction"
-      className="text-4xl font-bold text-accent tracking-tight"
-    >
-      {children}
-    </h1>
-  )
-}
-
-export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
-  return (
-    <div className="mb-2 text-sm text-tertiary tracking-normal">
-      <span>
-        <time dateTime={datetime}>{date}</time>
-      </span>
-      <span> • </span>
-      <span>{timeToRead}</span>
-    </div>
-  )
-}
-
 export const Heading = ({ children }) => {
   return (
     <h2 className="relative mt-12 mb-3 text-3xl font-bold text-accent">
@@ -50,26 +28,10 @@ export const Heading = ({ children }) => {
   )
 }
 
-export const SubHeading = ({ children }) => {
-  return (
-    <h2 className="relative mt-6 mb-2 text-lg font-semibold text-primary">
-      {children}
-    </h2>
-  )
-}
-
-export const Paragraph = ({ children }) => {
-  return (
-    <p className=" max-w-screen-md mb-4 font-normal text-base leading-relaxed md:leading-normal text-tertiary">
-      {children}
-    </p>
-  )
-}
-
 export const InlinePageLink = ({ to, children, title = 'Link' }) => {
   return (
     <Link href={to}>
-      <a className="font-medium text-base text-accent hover:text-accent hover:underline">
+      <a className="text-base font-medium text-accent hover:text-accent hover:underline">
         {children}
       </a>
     </Link>
@@ -158,20 +120,12 @@ export const Button = ({ children, link, width, ...props }) => {
   )
 }
 
-export const Callout = ({ children }) => {
-  return (
-    <aside className="bg-secondary border-l-2 border-accent pl-5 pr-3 py-2 rounded-r text-base">
-      {children}
-    </aside>
-  )
-}
-
-export const Blob = _ => {
+export const Blob = () => {
   return (
     <div aria-hidden="true">
-      <div className="relative blob h-48 md:h-56 lg:h-64">
+      <div className="relative h-48 blob md:h-56 lg:h-64">
         <svg
-          className="blob-rotate-faster h-full text-fill-primary fill-current"
+          className="h-full fill-current blob-rotate-faster text-fill-primary"
           viewBox="0 0 278 279"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -182,12 +136,12 @@ export const Blob = _ => {
   )
 }
 
-export const BlobHeader = _ => {
+export const BlobHeader = () => {
   return (
     <div aria-hidden="true">
-      <div className="blob-bg absolute">
+      <div className="absolute blob-bg">
         <svg
-          className="block m-auto blob-rotate h-64 text-fill-secondary fill-current"
+          className="block h-64 m-auto fill-current blob-rotate text-fill-secondary"
           viewBox="0 0 715 693"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -198,18 +152,47 @@ export const BlobHeader = _ => {
   )
 }
 
-export const BlobFooter = _ => {
+export const Input = ({
+  labelText,
+  name,
+  ...props
+}: { labelText: string } & InputHTMLAttributes<HTMLInputElement>) => {
   return (
-    <div aria-hidden="true">
-      <div className="blob-bg relative">
-        <svg
-          className="blob-rotate h-64 text-fill-secondary fill-current"
-          viewBox="0 0 715 693"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M359.408 0.499261C434.083 0.69572 509.059 15.4608 570.136 58.4268C631.828 101.825 675.247 166.543 697.772 238.528C720.119 309.946 720.46 387.141 695.015 457.515C670.121 526.365 618.875 581.064 558.794 622.901C499.694 664.055 431.329 687.499 359.408 691.212C284.339 695.087 205.553 688.115 144.481 644.291C83.2293 600.338 54.1113 526.936 30.6392 455.293C7.11277 383.484 -10.9409 307.559 10.4113 235.074C32.1072 161.421 84.1477 100.148 147.872 57.3159C209.988 15.5657 284.566 0.302364 359.408 0.499261Z" />
-        </svg>
-      </div>
+    <div className="group">
+      <label
+        className="text-sm font-medium transition-colors duration-200 text-secondary group-hover:text-accent"
+        htmlFor={name}
+      >
+        {labelText}
+      </label>
+      <input
+        className="block w-full p-3 mt-1 border outline-none border-subtle bg-primary focus:border-accent text-primary disabled:opacity-50"
+        name={name}
+        {...props}
+      />
+    </div>
+  )
+}
+
+export const TextArea = ({
+  labelText,
+  name,
+  ...props
+}: { labelText: string } & TextareaHTMLAttributes<HTMLTextAreaElement>) => {
+  return (
+    <div className="group">
+      <label
+        className="text-sm font-medium transition-colors duration-200 text-secondary group-hover:text-accent"
+        htmlFor={name}
+      >
+        {labelText}
+      </label>
+      <textarea
+        className="block w-full p-3 mt-1 border outline-none border-subtle bg-primary focus:border-accent text-primary disabled:opacity-50"
+        style={{ minHeight: '80px' }}
+        name={name}
+        {...props}
+      />
     </div>
   )
 }

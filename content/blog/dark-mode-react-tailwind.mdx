@@ -1,7 +1,7 @@
 ---
 title: How to Dark Mode in React and Tailwind CSS
 publishedAt: '2020-07-25'
-updatedAt: '2021-02-06'
+updatedAt: '2021-06-06'
 isPublished: true
 tags: ['gatsby', 'css']
 description: Add dark mode using CSS variables and Context API
@@ -245,3 +245,53 @@ This solution isn't perfect and there's a small caveat with this: **page load fl
 I took inspirations from many other websites for the dark mode design of this website. Then, I used TailwindCSS plugin for Figma to simplify my color selection.
 
 However, if you're interested on designing your own dark UI, check out this [in-depth article about Dark UI by Miklos Philips](https://www.toptal.com/designers/ui/dark-ui-design).
+
+## June 2021 Update
+
+After reading [Use CSS Variables instead of React Context](https://epicreact.dev/css-variables/) by [Kent C. Dodds](https://kentcdodds.com/), I realized that since we're already using CSS variables, we don't necessarily need to use a Context in our app. 
+
+Using a Context rerenders the components inside the Provider and might cause performance issues. Instead, we just need the toggle logic by creating a custom hook `useDarkMode`:
+
+<CodeLink id='useDarkMode' index='1' href='https://github.com/jeffjadulco/jeffjadulco.com/blob/master/src/hooks/usePrefersDarkMode.ts' />
+<CodeLink id='useDarkMode' index='2' href='https://github.com/jeffjadulco/jeffjadulco.com/blob/master/src/hooks/useSafeLocalStorage.ts' />
+
+```js showLineNumbers fileName=userDarkMode.js id=useDarkMode
+export function useDarkMode() {
+  const prefersDarkMode = __usePrefersDarkMode__()
+  const [
+    isEnabled, 
+    setIsEnabled] = __useSafeLocalStorage__('dark-mode', undefined)
+
+  const enabled = 
+    isEnabled === undefined ? prefersDarkMode : isEnabled
+
+  useEffect(() => {
+    if (window === undefined) return
+    const root = window.document.documentElement
+    root.classList.remove(enabled ? 'light' : 'dark')
+    root.classList.add(enabled ? 'dark' : 'light')
+  }, [enabled])
+
+  return [enabled, setIsEnabled]
+}
+```
+
+This is how the toggle component looks like now:
+```jsx showLineNumbers fileName=toggle.jsx
+export const Toggle = () => {
+  const [isDark, setIsDark] = useDarkMode()
+
+  return (
+    <label>
+      <input
+        type="checkbox"
+        checked={isDark}
+        onChange={e => setIsDark(e.target.checked)}
+      />
+      Dark Mode
+    </label>
+  )
+}
+```
+
+Now, with the ThemeContext we created earlier gone, our code is much more cleaner and performant. 
