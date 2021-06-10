@@ -1,12 +1,15 @@
 import {
-  SpotifyCurrentlyPlaying,
-  SpotifyRecentlyPlayed,
+  LetterboxdRecentMovies,
+  SpotifyCurrentTrack,
+  SpotifyRecentTracks,
 } from '@/types/rich-presence'
-import { Spotify16 } from './icons'
+import { Letterboxd16, Spotify16 } from './icons'
 import { PresenceWidget } from './presenceWidget'
 
 interface RichPresenceListProps {
-  presenceList: Array<SpotifyCurrentlyPlaying | SpotifyRecentlyPlayed>
+  presenceList: Array<
+    SpotifyCurrentTrack | SpotifyRecentTracks | LetterboxdRecentMovies
+  >
 }
 
 export function RichPresenceList({ presenceList }: RichPresenceListProps) {
@@ -15,7 +18,7 @@ export function RichPresenceList({ presenceList }: RichPresenceListProps) {
       <h2 className="mt-32 font-normal text-accent tracking-widestest">
         RICH PRESENCE
       </h2>
-      <div className="grid grid-cols-1 gap-4 mt-3 -mx-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 mt-3 -mx-5 md:grid-cols-2 xl:grid-cols-2">
         {presenceList.map(rp => {
           if (rp.type === 'spotify_current') {
             return (
@@ -39,6 +42,18 @@ export function RichPresenceList({ presenceList }: RichPresenceListProps) {
                 subtitle={rp.tracks[0]?.artists}
                 img_url={rp.tracks[0]?.image}
                 url={rp.tracks[0]?.url}
+              />
+            )
+          } else if (rp.type === 'letterboxd') {
+            return (
+              <PresenceWidget
+                key={rp.type}
+                icon={<Letterboxd16 />}
+                verb={rp.verb}
+                title={rp.movies[0]?.title}
+                subtitle={rp.movies[0]?.rating}
+                img_url={rp.movies[0]?.image}
+                url={rp.movies[0]?.url}
               />
             )
           }

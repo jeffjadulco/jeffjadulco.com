@@ -36,9 +36,16 @@ export function PresenceWidget({
             </span>
           </div>
         </div>
-        <div className="w-24 h-24 rounded-sm">
-          <Image width={640} height={640} src={img_url} />
-        </div>
+        {img_url && (
+          <div className="object-scale-down w-24 h-24 rounded-sm">
+            <Image
+              width={640}
+              height={640}
+              src={img_url}
+              objectFit="scale-down"
+            />
+          </div>
+        )}
       </div>
     </div>
   )

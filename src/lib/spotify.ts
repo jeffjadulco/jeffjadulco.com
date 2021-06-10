@@ -2,8 +2,8 @@ import axios from 'axios'
 import querystring from 'querystring'
 
 import {
-  SpotifyCurrentlyPlaying,
-  SpotifyRecentlyPlayed,
+  SpotifyCurrentTrack,
+  SpotifyRecentTracks,
   SpotifyTrack,
 } from '@/types/rich-presence'
 
@@ -91,7 +91,7 @@ export async function getCurrentlyPlaying() {
       album: data.item.album.name,
       image: data.item.album.images[0].url,
     },
-  } as SpotifyCurrentlyPlaying
+  } as SpotifyCurrentTrack
 }
 
 export async function getRecentlyPlayed() {
@@ -101,17 +101,14 @@ export async function getRecentlyPlayed() {
   return {
     type: 'spotify_recent',
     verb: 'Recently Played',
-    tracks: data.items.map(
-      ({ track }) =>
-        ({
-          url: track.external_urls.spotify,
-          title: track.name,
-          artists: track.artists.map(artist => artist.name).join(', '),
-          album: track.album.name,
-          image: track.album.images[0].url,
-        } as SpotifyTrack)
-    ),
-  } as SpotifyRecentlyPlayed
+    tracks: data.items.map(({ track }) => ({
+      url: track.external_urls.spotify,
+      title: track.name,
+      artists: track.artists.map(artist => artist.name).join(', '),
+      album: track.album.name,
+      image: track.album.images[0].url,
+    })),
+  } as SpotifyRecentTracks
 }
 
 export async function getTopTracks() {

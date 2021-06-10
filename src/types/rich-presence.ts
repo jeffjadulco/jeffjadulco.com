@@ -11,15 +11,29 @@ export type SpotifyTrack = {
   image: string
 }
 
-export interface SpotifyCurrentlyPlaying extends RichPresence {
+export interface SpotifyCurrentTrack extends RichPresence {
   type: 'spotify_current'
   verb: 'Now Playing'
   isPlaying: boolean
   track: SpotifyTrack
 }
 
-export interface SpotifyRecentlyPlayed extends RichPresence {
+export interface SpotifyRecentTracks extends RichPresence {
   type: 'spotify_recent'
   verb: 'Recently Played'
   tracks: SpotifyTrack[]
+}
+
+export type LetterboxdItem = {
+  title: string
+  year: number
+  rating: string
+  url: string
+  image: string
+}
+
+export interface LetterboxdRecentMovies extends RichPresence {
+  type: 'letterboxd'
+  verb: 'Recently Watched'
+  movies: LetterboxdItem[]
 }

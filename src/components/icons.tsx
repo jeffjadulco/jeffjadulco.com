@@ -10,3 +10,93 @@ export const Spotify16 = () => {
     </svg>
   )
 }
+
+export const Letterboxd16 = () => {
+  return (
+    <svg
+      className="w-4 h-4"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 500 500"
+    >
+      <defs>
+        <path
+          id="path-1"
+          d="M250 500C111.929 500 0 388.071 0 250S111.929 0 250 0s250 111.929 250 250-111.929 250-250 250z"
+        ></path>
+        <radialGradient
+          id="radialGradient-3"
+          cx="50%"
+          cy="50%"
+          r="50%"
+          fx="50%"
+          fy="50%"
+        >
+          <stop offset="0%" stopColor="#FF8000"></stop>
+          <stop offset="37.691%" stopColor="#FF8000"></stop>
+          <stop offset="100%" stopColor="#FF8000" stopOpacity="0"></stop>
+        </radialGradient>
+        <filter
+          id="filter-4"
+          width="139.2%"
+          height="139.2%"
+          x="-19.6%"
+          y="-19.6%"
+          filterUnits="objectBoundingBox"
+        >
+          <feGaussianBlur in="SourceGraphic" stdDeviation="50"></feGaussianBlur>
+        </filter>
+        <radialGradient
+          id="radialGradient-5"
+          cx="50%"
+          cy="50%"
+          r="50%"
+          fx="50%"
+          fy="50%"
+        >
+          <stop offset="0%" stopColor="#40BCF4"></stop>
+          <stop offset="49.309%" stopColor="#40BCF4"></stop>
+          <stop offset="100%" stopColor="#40BCF4" stopOpacity="0"></stop>
+        </radialGradient>
+        <filter
+          id="filter-6"
+          width="139.2%"
+          height="139.2%"
+          x="-19.6%"
+          y="-19.6%"
+          filterUnits="objectBoundingBox"
+        >
+          <feGaussianBlur in="SourceGraphic" stdDeviation="50"></feGaussianBlur>
+        </filter>
+      </defs>
+      <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
+        <g>
+          <mask id="mask-2" fill="#fff">
+            <use xlinkHref="#path-1"></use>
+          </mask>
+          <use fill="#0EDF52" fillRule="nonzero" xlinkHref="#path-1"></use>
+          <path
+            fill="url(#radialGradient-3)"
+            fillRule="nonzero"
+            d="M26.5 752C-184.749 752-356 580.749-356 369.5S-184.749-13 26.5-13 409 158.251 409 369.5 237.749 752 26.5 752z"
+            filter="url(#filter-4)"
+            mask="url(#mask-2)"
+          ></path>
+          <path
+            fill="url(#radialGradient-5)"
+            fillRule="nonzero"
+            d="M431.5 820C220.251 820 49 648.749 49 437.5S220.251 55 431.5 55 814 226.251 814 437.5 642.749 820 431.5 820z"
+            filter="url(#filter-6)"
+            mask="url(#mask-2)"
+          ></path>
+          <path
+            fill="#FFF"
+            fillRule="nonzero"
+            d="M165 103L165 383 354.15639 383 354.15639 313.100855 237.72411 313.100855 237.72411 103z"
+            mask="url(#mask-2)"
+          ></path>
+        </g>
+      </g>
+    </svg>
+  )
+}

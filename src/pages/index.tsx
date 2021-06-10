@@ -12,16 +12,23 @@ import { getCurrentlyPlaying, getRecentlyPlayed } from '@/lib/spotify'
 
 import type { Frontmatter } from '@/types/frontmatter'
 import {
-  SpotifyCurrentlyPlaying,
-  SpotifyRecentlyPlayed,
+  LetterboxdRecentMovies,
+  SpotifyCurrentTrack,
+  SpotifyRecentTracks,
 } from '@/types/rich-presence'
+import { getRecentMovies } from '@/lib/letterboxd'
 
 interface IndexPageProps {
   posts: Frontmatter[]
-  spotify_presence?: SpotifyCurrentlyPlaying | SpotifyRecentlyPlayed
+  spotify?: SpotifyCurrentTrack | SpotifyRecentTracks
+  letterboxd?: LetterboxdRecentMovies
 }
 
-export default function IndexPage({ posts, spotify_presence }: IndexPageProps) {
+export default function IndexPage({
+  posts,
+  spotify,
+  letterboxd,
+}: IndexPageProps) {
   return (
     <Fragment>
       <SEO />
@@ -49,7 +56,7 @@ export default function IndexPage({ posts, spotify_presence }: IndexPageProps) {
       </div>
       <PostList posts={posts} showHeading />
       <ProjectList showHeading />
-      <RichPresenceList presenceList={[spotify_presence]} />
+      <RichPresenceList presenceList={[spotify, letterboxd]} />
       <Contact />
     </Fragment>
   )
@@ -58,12 +65,14 @@ export default function IndexPage({ posts, spotify_presence }: IndexPageProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllFrontMatters()
 
-  let spotify_presence:
-    | SpotifyCurrentlyPlaying
-    | SpotifyRecentlyPlayed = await getCurrentlyPlaying()
-  if (spotify_presence === null) {
-    spotify_presence = await getRecentlyPlayed()
+  let spotify:
+    | SpotifyCurrentTrack
+    | SpotifyRecentTracks = await getCurrentlyPlaying()
+  if (spotify === null) {
+    spotify = await getRecentlyPlayed()
   }
 
-  return { props: { posts, spotify_presence }, revalidate: 60 * 5 }
+  const letterboxd: LetterboxdRecentMovies = await getRecentMovies()
+
+  return { props: { posts, spotify, letterboxd }, revalidate: 60 * 5 }
 }
