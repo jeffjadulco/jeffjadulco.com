@@ -20,7 +20,7 @@ export function PresenceWidget({
   children,
 }: PresenceWidgetProps & { children?: ReactNode }) {
   return (
-    <div className="px-6 py-5 rounded-md bg-secondary">
+    <div className="px-5 py-5 rounded-md bg-secondary">
       <div className="flex items-center">
         {url ? (
           <a href={url} target="_blank" rel="noopener noreferrer">
