@@ -58,3 +58,14 @@ export interface SteamRecentlyPlayedGames extends RichPresence {
   verb: 'Recently Played Game'
   games: SteamGame[]
 }
+
+export type NotionNowEntry = {
+  id: string
+  title: string
+}
+
+export interface NotionDoingNow extends RichPresence {
+  type: 'notion'
+  verb: 'Now'
+  entries: NotionNowEntry[]
+}

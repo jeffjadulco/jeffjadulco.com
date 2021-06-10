@@ -19,12 +19,14 @@ import {
 } from '@/types/rich-presence'
 import { getRecentMovies } from '@/lib/letterboxd'
 import { getRecentGames } from '@/lib/steam'
+import { getDoingNow } from '@/lib/notion'
 
 interface IndexPageProps {
   posts: Frontmatter[]
   spotify?: SpotifyCurrentTrack | SpotifyRecentTracks
   letterboxd?: LetterboxdRecentMovies
   steam: SteamRecentlyPlayedGames
+  notion: any
 }
 
 export default function IndexPage({
@@ -32,6 +34,7 @@ export default function IndexPage({
   spotify,
   letterboxd,
   steam,
+  notion,
 }: IndexPageProps) {
   return (
     <Fragment>
@@ -60,7 +63,7 @@ export default function IndexPage({
       </div>
       <PostList posts={posts} showHeading />
       <ProjectList showHeading />
-      <RichPresenceList presenceList={[spotify, letterboxd, steam]} />
+      <RichPresenceList presenceList={[spotify, notion, letterboxd, steam]} />
       <Contact />
     </Fragment>
   )
@@ -78,6 +81,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const letterboxd = await getRecentMovies()
   const steam = await getRecentGames()
+  const notion = await getDoingNow()
 
-  return { props: { posts, spotify, letterboxd, steam }, revalidate: 60 * 5 }
+  return {
+    props: { posts, spotify, letterboxd, steam, notion },
+    revalidate: 60 * 5,
+  }
 }

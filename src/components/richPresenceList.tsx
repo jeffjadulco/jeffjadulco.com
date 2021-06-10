@@ -1,8 +1,9 @@
 import { PresenceWidget } from './presenceWidget'
-import { Letterboxd16, Spotify16, Steam16 } from './icons'
+import { Letterboxd16, Notion16, Spotify16, Steam16 } from './icons'
 
 import type {
   LetterboxdRecentMovies,
+  NotionDoingNow,
   SpotifyCurrentTrack,
   SpotifyRecentTracks,
   SteamRecentlyPlayedGames,
@@ -14,6 +15,7 @@ interface RichPresenceListProps {
     | SpotifyRecentTracks
     | LetterboxdRecentMovies
     | SteamRecentlyPlayedGames
+    | NotionDoingNow
   >
 }
 
@@ -23,7 +25,7 @@ export function RichPresenceList({ presenceList }: RichPresenceListProps) {
       <h2 className="mt-32 font-normal text-accent tracking-widestest">
         RICH PRESENCE
       </h2>
-      <div className="grid grid-cols-1 gap-4 mt-3 -mx-5 md:grid-cols-2 xl:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 mt-3 -mx-1 md:-mx-5 md:grid-cols-2 xl:grid-cols-2">
         {presenceList.map(rp => {
           if (rp.type === 'spotify_current') {
             return (
@@ -72,6 +74,22 @@ export function RichPresenceList({ presenceList }: RichPresenceListProps) {
                 img_url={rp.games[0]?.image}
                 url={rp.games[0]?.url}
               />
+            )
+          } else if (rp.type === 'notion') {
+            return (
+              <PresenceWidget key={rp.type} icon={<Notion16 />} verb={rp.verb}>
+                <ul className="py-4 space-y-1">
+                  {rp.entries.map((entry, index) => {
+                    if (index < 2) {
+                      return (
+                        <li className="text-base font-semibold list-disc list-inside md:text-sm">
+                          {entry.title}
+                        </li>
+                      )
+                    }
+                  })}
+                </ul>
+              </PresenceWidget>
             )
           }
         })}
