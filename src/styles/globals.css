@@ -14,42 +14,33 @@
 }
 
 :root {
-  scroll-behavior: auto;
-}
-
-::-moz-selection {
-  background: var(--color-bg-accent);
-  color: var(--color-text-on-accent);
-}
-
-::selection {
-  background: var(--color-bg-accent);
-  color: var(--color-text-on-accent);
+  --tw-bg-opacity: 1; /* OPACITY HACK FOR CSS VARS */
+  --tw-text-opacity: 1;
 }
 
 .light {
-  --color-bg-accent: hsla(205, 79%, 66%, 1);
-  --color-bg-primary: hsla(0, 100%, 100%, 1);
-  --color-bg-secondary: hsla(210, 38%, 95%, 1);
-  --color-bg-accent-hover: hsla(207, 73%, 57%, 1);
+  --color-fore-primary: hsla(218, 23%, 23%, var(--tw-text-opacity));
+  --color-fore-secondary: hsla(218, 17%, 35%, var(--tw-text-opacity));
+  --color-fore-subtle: hsla(218, 17%, 35%, var(--tw-text-opacity));
 
-  --color-text-accent: hsla(211, 61%, 43%, 1);
-  --color-text-primary: hsla(218, 23%, 23%, 1);
-  --color-text-secondary: hsla(218, 17%, 35%, 1);
-  --color-text-tertiary: hsla(218, 17%, 35%, 1);
-  --color-text-on-accent: hsla(204, 45%, 98%, 1);
+  --color-back-primary: hsla(0, 100%, 100%, var(--tw-bg-opacity));
+  --color-back-secondary: hsla(210, 38%, 95%, var(--tw-bg-opacity));
+  --color-back-subtle: hsla(210, 38%, 100%, var(--tw-bg-opacity));
 
-  --color-fill-primary: hsla(205, 79%, 83%, 1);
-  --color-fill-secondary: hsla(210, 38%, 95%, 1);
+  --color-accent: hsla(211, 61%, 43%, var(--tw-text-opacity));
+  --color-back-accent: hsla(172, 67%, 70%, var(--tw-bg-opacity));
 
   --color-gradient-accent1: hsla(209, 62%, 50%, 1);
   --color-gradient-accent2: hsla(174, 59%, 56%, 1);
 
-  --color-code-background: hsla(210, 38%, 98%, 1);
-  --color-code-background-file: hsla(210, 38%, 95%, 1);
-  --color-code-line-hover: hsla(210, 38%, 95%, 1);
-  --color-code-word-highlight: hsla(211, 61%, 43%, 0.6);
-  --color-code-word-highlight-hover: hsla(211, 61%, 43%, 1);
+  --color-code-background: hsla(210, 38%, 95%, 1);
+  --color-code-background-file: hsla(210, 38%, 90%, 1);
+  --color-code-line-hover: hsla(210, 38%, 90%, 1);
+  --color-code-word-highlight: hsla(210, 38%, 75%, 0.6);
+  --color-code-word-highlight-hover: hsla(210, 38%, 75%, 1);
+
+  /* THEME: Material Light */
+  /* https://github.com/PrismJS/prism-themes/blob/master/themes/prism-material-light.css */
   --color-code-text: hsla(218, 23%, 23%, 1);
   --color-code-comment: hsla(216, 15%, 52%, 1);
   --color-code-punctuation: hsla(184, 52%, 47%, 1);
@@ -63,114 +54,67 @@
 }
 
 .dark {
-  --color-bg-accent: hsla(172, 67%, 70%, 1);
-  --color-bg-primary: hsla(220, 26%, 14%, 1);
-  --color-bg-secondary: hsla(220, 25%, 12%, 1);
-  --color-bg-accent-hover: hsla(174, 59%, 56%, 1);
+  --color-fore-primary: hsla(214, 32%, 91%, var(--tw-text-opacity));
+  --color-fore-secondary: hsla(214, 32%, 91%, var(--tw-text-opacity));
+  --color-fore-subtle: hsla(214, 20%, 69%, var(--tw-text-opacity));
 
-  --color-text-accent: hsla(172, 67%, 70%, 1);
-  --color-text-primary: hsla(204, 45%, 98%, 1);
-  --color-text-secondary: hsla(214, 32%, 91%, 1);
-  --color-text-tertiary: hsla(214, 20%, 69%, 1);
-  --color-text-on-accent: hsla(220, 26%, 14%, 1);
+  --color-back-primary: hsla(221, 39%, 11%, var(--tw-bg-opacity));
+  --color-back-secondary: hsla(221, 39%, 8%, var(--tw-bg-opacity));
+  --color-back-subtle: hsla(221, 39%, 5%, var(--tw-bg-opacity));
 
-  --color-fill-primary: hsla(172, 67%, 70%, 1);
-  --color-fill-secondary: hsla(220, 25%, 12%, 1);
+  --color-accent: hsla(172, 67%, 70%, var(--tw-text-opacity));
+  --color-back-accent: hsla(172, 67%, 70%, var(--tw-bg-opacity));
 
   --color-gradient-accent1: hsla(209, 62%, 50%, 1);
   --color-gradient-accent2: hsla(174, 59%, 56%, 1);
 
-  --color-code-background: hsla(220, 25%, 12%, 1);
-  --color-code-background-file: hsla(220, 25%, 10%, 1);
-  --color-code-line-hover: hsla(220, 25%, 8%, 1);
-  --color-code-word-highlight: hsla(172, 67%, 70%, 0.75);
-  --color-code-word-highlight-hover: hsl(172, 67%, 70%, 1);
-  --color-code-text: hsla(210, 38%, 95%, 1);
-  --color-code-comment: hsla(216, 15%, 52%, 1);
-  --color-code-punctuation: hsla(210, 38%, 95%, 1);
-  --color-code-const: hsla(326, 100%, 74%, 1);
-  --color-code-bool: hsla(265, 89%, 78%, 1);
-  --color-code-string: hsla(135, 94%, 65%, 1);
-  --color-code-var: hsla(60, 30%, 96%, 1);
-  --color-code-func: hsla(65, 92%, 76%, 1);
-  --color-code-keyword: hsla(191, 97%, 77%, 1);
-  --color-code-regex: hsla(31, 100%, 71%, 1);
+  --color-code-background: hsla(221, 39%, 15%, 1);
+  --color-code-background-file: hsla(221, 39%, 13%, 1);
+  --color-code-line-hover: hsla(221, 39%, 13%, 1);
+  --color-code-word-highlight: hsla(211, 24%, 21%, 1);
+  --color-code-word-highlight-hover: hsl(220, 100%, 80%, 1);
+
+  /* THEME: Duotone Sea  */
+  /* https://github.com/PrismJS/prism-themes/blob/master/themes/prism-duotone-sea.css  */
+  --color-code-text: hsl(212, 87%, 73%);
+  --color-code-comment: hsl(213, 24%, 45%);
+  --color-code-punctuation: hsl(213, 24%, 45%);
+  --color-code-const: hsl(160, 88%, 34%);
+  --color-code-bool: hsl(160, 80%, 60%);
+  --color-code-string: hsl(160, 80%, 60%);
+  --color-code-var: hsl(160, 80%, 60%);
+  --color-code-func: hsl(212, 24%, 45%);
+  --color-code-keyword: hsl(160, 80%, 60%);
+  --color-code-regex: hsl(160, 80%, 60%);
 }
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-body {
-  transition: all 300ms ease 0s;
-  overflow-x: hidden;
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  @apply antialiased;
-}
-
-.full-width-container {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
+@layer base {
+  ::-moz-selection {
+    background: var(--color-accent);
+    color: var(--color-back-primary);
   }
-  to {
-    transform: rotate(360deg);
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-back-primary);
   }
-}
 
-.blob {
-  z-index: -10;
-}
-
-.blob-bg {
-  transform: scale(2.85);
-  z-index: -10;
-}
-
-.blob-rotate {
-  animation: rotate 50s linear infinite;
-}
-
-.blob-rotate-faster {
-  animation: rotate 25s linear infinite;
-}
-
-aside.sticky {
-  top: 4rem;
-}
-
-@media (min-width: 1024px) {
-  :root {
+  html {
     scroll-behavior: smooth;
   }
-}
 
-.accent-gradient {
-  background: var(--color-bg-accent);
-  background: -moz-linear-gradient(
-    45deg,
-    var(--color-gradient-accent2) 0%,
-    var(--color-gradient-accent1) 100%
-  );
-  background: -webkit-linear-gradient(
-    45deg,
-    var(--color-gradient-accent2) 0%,
-    var(--color-gradient-accent1) 100%
-  );
-  background: linear-gradient(
-    45deg,
-    var(--color-gradient-accent2) 0%,
-    var(--color-gradient-accent1) 100%
-  );
-  background-size: 200%;
-  transition: background-position 0.5s ease-out;
-}
+  body {
+    background-color: var(--color-back-primary);
+    color: var(--color-fore-primary);
+    @apply overflow-x-hidden antialiased;
+  }
 
-.accent-gradient:hover {
-  background-position: right center;
+  .full-width-container {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
 }

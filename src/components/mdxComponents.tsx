@@ -10,7 +10,7 @@ export const components = {
       return (
         <a
           {...props}
-          className="underline text-tertiary hover:text-accent"
+          className="underline text-fore-subtle hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
           href={href}
           target="_blank"
           rel="noopener"
@@ -23,7 +23,7 @@ export const components = {
         <a
           {...props}
           href={href}
-          className="ml-1 transition-transform duration-75 ease-out origin-left transform scale-0 opacity-0 text-tertiary hover:text-accent group-hover:scale-100 group-hover:opacity-100"
+          className="ml-1 transition-transform duration-75 ease-out origin-left transform scale-0 opacity-0 text-fore-subtle hover:text-accent group-hover:scale-100 group-hover:opacity-100 focus-visible:outline-accent focus-visible:text-accent"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,14 @@ export const components = {
       )
     }
 
-    return <Link href={href} />
+    return (
+      <Link href={href}>
+        <a
+          {...props}
+          className="underline text-fore-subtle hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
+        />
+      </Link>
+    )
   },
   strong: ({ ...props }) => <strong {...props} className="font-semibold" />,
   h2: ({ ...props }) => {
@@ -90,7 +97,7 @@ export const components = {
     return (
       <blockquote
         {...props}
-        className="px-5 py-2 my-6 text-base border-l-2 lg:-ml-6 bg-secondary border-accent"
+        className="px-5 py-2 my-6 text-base border-l-2 lg:-ml-6 bg-back-secondary border-accent"
       />
     )
   },

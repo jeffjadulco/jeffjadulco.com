@@ -4,16 +4,16 @@ import type { Frontmatter } from '@/types/frontmatter'
 
 function Post({ post }: { post: Frontmatter }) {
   return (
-    <li className="py-3">
+    <li className="py-5">
       <Link href={`blog/${post.slug}`}>
-        <a className="-mx-5 -my-3 px-5 py-3 group flex flex-col sm:flex-row sm:justify-between sm:items-end hover:bg-secondary">
+        <a className="flex flex-col py-5 -mx-6 -my-6 transition-colors ease-in-out px-7 group sm:flex-row sm:justify-between sm:items-end hover:bg-back-secondary focus:bg-back-secondary focus-visible:outline-accent focus:text-accent">
           <div>
             <h3 className="text-xl font-semibold group-hover:text-accent">
               {post.title}
             </h3>
-            <h4 className="font-medium text-tertiary">{post.description}</h4>
+            <h4 className="font-medium text-fore-subtle">{post.description}</h4>
           </div>
-          <div className="mt-2 sm:mt-0 text-sm sm:text-base text-accent sm:text-tertiary">
+          <div className="mt-2 text-sm sm:mt-0 sm:text-base text-accent sm:text-fore-subtle">
             {format(parseISO(post.publishedAt), 'MMMM yyyy')}
           </div>
         </a>
@@ -22,7 +22,7 @@ function Post({ post }: { post: Frontmatter }) {
   )
 }
 
-export default function PostList({
+export function PostList({
   posts,
   showHeading = false,
 }: {
@@ -30,13 +30,11 @@ export default function PostList({
   showHeading?: boolean
 }) {
   return (
-    <section className="">
+    <section>
       {showHeading && (
-        <h2 className="mt-64 font-normal text-accent tracking-widestest">
-          WRITINGS
-        </h2>
+        <h2 className="mt-64 text-accent tracking-widestest">WRITINGS</h2>
       )}
-      <ul className="mt-3 divide-y divide-subtle">
+      <ul className="mt-3 divide-y divide-back-subtle">
         {posts.map(post => (
           <Post key={post.slug} post={post} />
         ))}

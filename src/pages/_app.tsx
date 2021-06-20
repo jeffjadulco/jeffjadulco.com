@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 import '@/styles/codeblock.css'
 import { useAnalyticsInstance } from '@/hooks/useAnalytics'
-import Layout from '@/components/layout'
+import { Layout } from '@/components/layout'
 import { FormspreeProvider } from '@formspree/react'
 
 function App({ Component, pageProps }) {

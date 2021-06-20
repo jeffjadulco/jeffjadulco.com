@@ -1,9 +1,32 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import ThemeToggle from './themeToggle'
+import { useRouter } from 'next/router'
+import classNames from 'classnames'
+import { ThemeToggle } from './themeToggle'
 
-const MobileNav = () => {
+const routes = [
+  {
+    path: '/',
+    label: 'HOME',
+    exact: true,
+  },
+  {
+    path: '/blog',
+    label: 'BLOG',
+  },
+  {
+    path: '/projects',
+    label: 'PROJECTS',
+  },
+  {
+    path: '/about',
+    label: 'ABOUT',
+  },
+]
+
+export function MobileNav() {
   const [navShow, setNavShow] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     const body = document.body
@@ -17,63 +40,70 @@ const MobileNav = () => {
   }, [navShow])
 
   return (
-    <div className="sm:hidden text-xl" aria-hidden={!navShow}>
+    <div className="text-xl sm:hidden" aria-hidden={!navShow}>
       <button
         type="button"
-        className="md:hidden fixed right-0 px-5 py-12 z-50 focus:outline-none"
-        onClick={e => {
+        className="fixed right-0 z-50 px-5 py-12 md:hidden focus:outline-none"
+        onClick={_ => {
           setNavShow(!navShow)
         }}
       >
         {navShow ? (
-          <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
             <path
-              fillRule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            ></path>
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         ) : (
-          <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
             <path
-              fillRule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-              clipRule="evenodd"
-            ></path>
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 8h16M4 16h16"
+            />
           </svg>
         )}
       </button>
       {navShow && (
         <div className="relative z-10">
-          <div className="w-full h-screen fixed bg-primary opacity-95"></div>
+          <div className="fixed w-full h-screen bg-back-primary"></div>
           <button
             type="button"
-            className="w-full h-screen fixed cursor-auto"
+            className="fixed w-full h-screen cursor-auto"
             onClick={e => {
               setNavShow(!navShow)
             }}
           ></button>
-          <nav className="right-0 h-screen mt-auto py-48 px-6 fixed flex flex-col items-end text-primary tracking-widest font-semibold">
-            <div className="flex-grow">
-              <Link href="/">
-                <a>HOME</a>
-              </Link>
-            </div>
-            <div className="flex-grow">
-              <Link href="/blog">
-                <a>BLOG</a>
-              </Link>
-            </div>
-            <div className="flex-grow">
-              <Link href="/projects">
-                <a>PROJECTS</a>
-              </Link>
-            </div>
-            <div className="flex-grow">
-              <Link href="/about">
-                <a>ABOUT</a>
-              </Link>
-            </div>
+          <nav className="fixed flex flex-col items-center w-full h-screen px-6 py-48 mt-auto text-base tracking-widest text-fore-primary">
+            {routes.map(route => (
+              <MobileNavLink
+                key={route.path}
+                to={route.path}
+                title={route.label}
+                selected={
+                  route.exact === true
+                    ? route.path === router.asPath
+                    : router.asPath.startsWith(route.path)
+                }
+                hide={() => setNavShow(false)}
+              />
+            ))}
             <ThemeToggle />
           </nav>
         </div>
@@ -82,4 +112,19 @@ const MobileNav = () => {
   )
 }
 
-export default MobileNav
+function MobileNavLink({ to, title, selected, hide }) {
+  return (
+    <div className="flex-grow">
+      <Link href={to}>
+        <a
+          className={classNames({
+            'text-accent': !!selected,
+          })}
+          onClick={_ => hide()}
+        >
+          {title}
+        </a>
+      </Link>
+    </div>
+  )
+}

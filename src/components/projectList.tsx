@@ -1,38 +1,43 @@
-import projects from "../data/projects"
+import projects from '@/data/projects'
 
-const ProjectList = ({ showHeading }: { showHeading: boolean }) => {
+function Project({ project }) {
   return (
-    <section className="">
+    <li className="py-3">
+      <a
+        href={project.slug}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="focus-visible:outline-accent group"
+      >
+        <div className="flex justify-between px-5 py-3 -mx-5 -my-3 space-x-3 transition-colors ease-in-out sm:items-end sm:space-x-0 hover:bg-back-secondary group-focus:bg-back-secondary">
+          <div>
+            <h3 className="text-xl font-semibold group-hover:text-accent">
+              {project.title}
+            </h3>
+            <h4 className="font-medium text-fore-subtle">
+              {project.description}
+            </h4>
+          </div>
+          <span className="text-sm sm:text-base text-accent sm:text-fore-subtle">
+            {project.year}
+          </span>
+        </div>
+      </a>
+    </li>
+  )
+}
+
+export function ProjectList({ showHeading }: { showHeading: boolean }) {
+  return (
+    <section>
       {showHeading && (
-        <h2 className="mt-32 font-normal text-accent tracking-widestest">
-          PROJECTS
-        </h2>
+        <h2 className="mt-32 text-accent tracking-widestest">PROJECTS</h2>
       )}
-      <ul className="mt-3 divide-y divide-subtle">
+      <ul className="mt-3 divide-y divide-back-subtle">
         {projects.map(project => {
-          return (
-            <li key={project.title} className="py-3">
-              <a href={project.slug} target="_blank" rel="noopener noreferrer">
-                <div className="-mx-5 -my-3 px-5 py-3 group flex justify-between sm:items-end space-x-3 sm:space-x-0 hover:bg-secondary">
-                  <div>
-                    <h3 className="text-xl font-semibold text-primary group-hover:text-accent">
-                      {project.title}
-                    </h3>
-                    <h4 className="font-medium text-tertiary">
-                      {project.description}
-                    </h4>
-                  </div>
-                  <span className="text-sm sm:text-base text-accent sm:text-tertiary">
-                    {project.year}
-                  </span>
-                </div>
-              </a>
-            </li>
-          )
+          return <Project key={project.title} project={project} />
         })}
       </ul>
     </section>
   )
 }
-
-export default ProjectList
