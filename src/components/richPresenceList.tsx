@@ -21,11 +21,9 @@ interface RichPresenceListProps {
 
 export function RichPresenceList({ presenceList }: RichPresenceListProps) {
   return (
-    <section className="">
-      <h2 className="mt-32 font-normal text-accent tracking-widestest">
-        RICH PRESENCE
-      </h2>
-      <div className="grid grid-cols-1 gap-4 mt-3 -mx-1 md:gap-6 md:-mx-5 md:grid-cols-2 xl:grid-cols-2">
+    <section>
+      <h2 className="mt-32 text-accent tracking-widestest">RECENTS</h2>
+      <div className="grid grid-cols-1 gap-4 mt-3 -mx-1 md:-mx-5 md:grid-cols-2 xl:grid-cols-2">
         {presenceList.map(rp => {
           if (rp.type === 'spotify_current') {
             return (
@@ -82,7 +80,10 @@ export function RichPresenceList({ presenceList }: RichPresenceListProps) {
                   {rp.entries.map((entry, index) => {
                     if (index < 2) {
                       return (
-                        <li className="text-base font-semibold list-disc list-inside md:text-sm">
+                        <li
+                          key={entry.id}
+                          className="text-base font-semibold list-disc list-inside md:text-sm"
+                        >
                           {entry.title}
                         </li>
                       )

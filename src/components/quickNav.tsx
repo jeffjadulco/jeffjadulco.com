@@ -24,7 +24,7 @@ export function QuickNav() {
   }
 
   return (
-    <nav className="toc text-tertiary">
+    <nav className="toc text-fore-subtle">
       <h2 className="mb-2 font-normal text-accent tracking-widestest">
         TABLE OF CONTENTS
       </h2>

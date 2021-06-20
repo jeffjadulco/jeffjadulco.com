@@ -12,10 +12,14 @@ import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
 import type { Frontmatter } from '@/types/frontmatter'
 
 const MDX_PATH = 'content/blog'
-const CONTENT_PATH = path.join(process.cwd(), MDX_PATH)
 
 async function getMdxBySlug(slug) {
-  const source = fs.readFileSync(path.join(CONTENT_PATH, `${slug}.mdx`), 'utf8')
+  return getMdxByPath(path.join(MDX_PATH, `${slug}.mdx`))
+}
+
+async function getMdxByPath(mdxPath) {
+  const slug = path.basename(mdxPath).replace(path.extname(mdxPath), '')
+  const source = fs.readFileSync(path.join(process.cwd(), mdxPath), 'utf8')
   const { code, frontmatter } = await bundleMDX(source, {
     xdmOptions(options) {
       options.rehypePlugins = [
@@ -62,4 +66,4 @@ async function getAllFrontMatters(): Promise<Frontmatter[]> {
     )
 }
 
-export { getAllFrontMatters, getMdxBySlug }
+export { getAllFrontMatters, getMdxBySlug, getMdxByPath }

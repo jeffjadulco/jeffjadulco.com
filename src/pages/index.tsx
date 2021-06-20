@@ -2,10 +2,10 @@ import { Fragment } from 'react'
 import { GetStaticProps } from 'next'
 import Image from 'next/image'
 import { Blob } from '@/components/atoms'
-import SEO from '@/components/seo'
-import PostList from '@/components/postList'
-import ProjectList from '@/components/projectList'
-import Contact from '@/components/contact'
+import { SEO } from '@/components/seo'
+import { PostList } from '@/components/postList'
+import { ProjectList } from '@/components/projectList'
+import { Contact } from '@/components/contact'
 import { RichPresenceList } from '@/components/richPresenceList'
 import { getAllFrontMatters } from '@/lib/mdx'
 import { getCurrentlyPlaying, getRecentlyPlayed } from '@/lib/spotify'
@@ -40,11 +40,10 @@ export default function IndexPage({
     <Fragment>
       <SEO />
       <div className="flex flex-col-reverse items-center mt-12 lg:flex-row lg:justify-between lg:space-x-6">
-        <h1 className="max-w-3xl mt-12 text-3xl font-semibold lg:mt-0 sm:text-4xl text-primary sm:text-left md:text-center lg:text-left">
-          Hi, I’m Jeff.
-          <br className="mb-6 lg:hidden" /> I’m an experienced game developer
-          with deep interest in modern web development.
-        </h1>
+        <p className="max-w-3xl mt-12 text-3xl font-semibold lg:mt-0 sm:text-4xl sm:text-left md:text-center lg:text-left">
+          Hi, I’m Jeff. I’m an experienced game developer with deep interest in
+          modern web development.
+        </p>
         <div className="relative">
           <Blob />
           <div className="absolute top-0 flex items-center justify-center w-full h-full">
@@ -63,7 +62,7 @@ export default function IndexPage({
       </div>
       <PostList posts={posts} showHeading />
       <ProjectList showHeading />
-      <RichPresenceList presenceList={[spotify, notion, letterboxd, steam]} />
+      <RichPresenceList presenceList={[notion, spotify, letterboxd, steam]} />
       <Contact />
     </Fragment>
   )

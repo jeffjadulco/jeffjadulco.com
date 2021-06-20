@@ -1,40 +1,22 @@
-import classnames from 'classnames'
 import { useDarkMode } from '@/hooks/useDarkMode'
 import { useAnalyticsEvent } from '@/hooks/useAnalytics'
+import { Moon20, Sun20 } from '@/components/icons'
 
-const ThemeToggle = ({ className }: { className?: string }) => {
+export function ThemeToggle({ className }: { className?: string }) {
   const [isDark, setIsDark] = useDarkMode()
   const { trackCustomEvent } = useAnalyticsEvent()
 
   return (
-    <>
-      <button
-        aria-label={isDark ? 'Activate Light Mode' : 'Activate Dark Mode'}
-        title={isDark ? 'Activate Light Mode' : 'Activate Dark Mode'}
-        onClick={() => {
-          setIsDark(!isDark)
-          trackCustomEvent({ eventName: 'toggle-theme' })
-        }}
-        className={classnames(className, {
-          'rotate-180': isDark,
-          'rotate-0': !isDark,
-        })}
-      >
-        <svg
-          aria-hidden="true"
-          className="w-6 h-6 md:w-5 md:h-5 fill-current"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M10 18.75V1.25a8.75 8.75 0 100 17.5zM10 20a10 10 0 100-20 10 10 0 000 20z"
-          />
-        </svg>
-      </button>
-    </>
+    <button
+      aria-label={isDark ? 'Activate Light Mode' : 'Activate Dark Mode'}
+      title={isDark ? 'Activate Light Mode' : 'Activate Dark Mode'}
+      onClick={() => {
+        setIsDark(!isDark)
+        trackCustomEvent({ eventName: 'toggle-theme' })
+      }}
+      className={className}
+    >
+      {isDark ? <Moon20 /> : <Sun20 />}
+    </button>
   )
 }
-
-export default ThemeToggle

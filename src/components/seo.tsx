@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { siteMetadata } from '../config'
+import { siteMetadata } from '@/config'
 
 type SEOProps = {
   title?: string
@@ -8,7 +8,7 @@ type SEOProps = {
   blog?: boolean
 }
 
-function SEO({ title, description, blog, ogImage }: SEOProps) {
+export function SEO({ title, description, blog, ogImage }: SEOProps) {
   const {
     title: defaultTitle,
     author,
@@ -54,5 +54,3 @@ function SEO({ title, description, blog, ogImage }: SEOProps) {
     </Head>
   )
 }
-
-export default SEO

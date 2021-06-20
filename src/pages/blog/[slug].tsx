@@ -1,11 +1,10 @@
 import { Fragment, useMemo } from 'react'
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { format, parseISO } from 'date-fns'
-import { GetStaticPaths, InferGetStaticPropsType } from 'next'
 import { getMDXComponent } from 'mdx-bundler/client'
-import SEO from '@/components/seo'
-import Newsletter from '@/components/newsletter'
-import Feedback from '@/components/feedback'
 import { getAllFrontMatters, getMdxBySlug } from '@/lib/mdx'
+import { SEO } from '@/components/seo'
+import { Feedback } from '@/components/feedback'
 import { components } from '@/components/mdxComponents'
 import { QuickNav } from '@/components/quickNav'
 
@@ -34,9 +33,9 @@ export default function BlogPost({
         description={frontmatter.description}
         ogImage={frontmatter.seoImage}
       />
-      <div className="relative flex justify-between mt-12 mb-12">
-        <article className="max-w-2xl min-w-0 text-base lg:text-lg text-tertiary">
-          <div className="mb-2 text-sm tracking-normal text-tertiary">
+      <div className="relative flex justify-between mt-12 mb-12 xl:-mr-52">
+        <article className="max-w-3xl min-w-0 text-base lg:text-lg text-fore-subtle">
+          <div className="mb-2 text-sm tracking-normal text-fore-subtle">
             <span>
               <time dateTime={publishedAt.toISOString()}>
                 {format(publishedAt, 'MMMM dd yyyy')}
@@ -56,13 +55,13 @@ export default function BlogPost({
               </Fragment>
             )}
           </div>
-          <h1 className="mb-10 text-4xl font-extrabold lg:text-5xl text-primary">
+          <h1 className="mb-10 text-4xl font-extrabold lg:text-5xl text-fore-primary">
             {frontmatter.title}
           </h1>
           <Component components={components} />
         </article>
         {frontmatter.toc && (
-          <aside className="sticky hidden h-screen max-w-xs mt-8 ml-6 lg:block">
+          <aside className="sticky hidden h-screen max-w-xs mt-8 ml-6 xl:block">
             <QuickNav />
           </aside>
         )}
@@ -84,7 +83,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async context => {
+export const getStaticProps: GetStaticProps = async context => {
   const { code, frontmatter } = await getMdxBySlug(context.params.slug)
   return {
     props: {

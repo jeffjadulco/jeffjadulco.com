@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import { ReactNode } from 'react'
+import Image from 'next/image'
 
 interface PresenceWidgetProps {
   icon: ReactNode
@@ -20,10 +20,16 @@ export function PresenceWidget({
   children,
 }: PresenceWidgetProps & { children?: ReactNode }) {
   return (
-    <div className="px-5 py-5 rounded-md bg-secondary">
+    <div className="px-5 py-5 rounded-md bg-back-secondary">
       <div className="flex items-center">
         {url ? (
-          <a href={url} target="_blank" rel="noopener noreferrer">
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={url}
+            className="focus-visible:outline-accent"
+          >
             {icon}
           </a>
         ) : (
@@ -42,13 +48,13 @@ export function PresenceWidget({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-lg font-bold truncate hover:text-accent"
+                  className="text-lg font-bold truncate hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
                 >
                   {title}
                 </a>
               )}
               {subtitle && (
-                <span className="text-sm font-normal text-tertiary">
+                <span className="text-sm font-normal text-fore-subtle">
                   {subtitle}
                 </span>
               )}
@@ -61,6 +67,8 @@ export function PresenceWidget({
                 height={640}
                 src={img_url}
                 objectFit="scale-down"
+                alt={`Image for ${title}`}
+                tabIndex={-1}
               />
             </div>
           )}

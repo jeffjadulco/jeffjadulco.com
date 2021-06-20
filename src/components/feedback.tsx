@@ -1,13 +1,13 @@
+import React from 'react'
 import { useForm } from '@formspree/react'
 import { ExtLink, Input, TextArea } from './atoms'
 import type { Frontmatter } from '@/types/frontmatter'
-import React from 'react'
 
 interface Props {
   post: Frontmatter
 }
 
-export const Feedback = ({ post }: Props) => {
+export function Feedback({ post }: Props) {
   const [state, handleSubmit] = useForm('feedbackForm')
 
   const submitForm = e => {
@@ -16,12 +16,12 @@ export const Feedback = ({ post }: Props) => {
   }
 
   return (
-    <div className="mt-32 full-width-container bg-secondary">
+    <div className="mt-32 full-width-container bg-back-secondary">
       <div className="container max-w-xl px-8 pt-16 pb-2 mx-auto text-gray-900">
-        <h6 className="text-lg font-semibold text-center text-accent">
+        <h6 className="text-xl font-semibold text-center text-accent">
           A small favor
         </h6>
-        <p className="mx-auto mt-2 text-center text-secondary">
+        <p className="mx-auto mt-2 text-center text-fore-subtle">
           Is this post confusing? Did I make a mistake? Let me know if you have
           any feedback and suggestions!
         </p>
@@ -63,13 +63,13 @@ export const Feedback = ({ post }: Props) => {
             <button
               disabled={state.submitting}
               type="submit"
-              className="py-3 font-semibold border rounded-sm accent-gradient text-on-accent focus-within:ring-2 disabled:opacity-50"
+              className="py-3 font-semibold rounded-md bg-gradient-to-r from-teal-500 to-blue-500 bg-200 bg-left hover:bg-right transition-all duration-[0.5s] ease-out text-back-secondary focus-visible:outline-accent disabled:opacity-50"
             >
               {state.submitting ? 'Submitting feedback...' : 'Send Feedback 😊'}
             </button>
           )}
           {!state.submitting && state.succeeded && (
-            <p className="mt-3 font-semibold text-center text-secondary">
+            <p className="mt-3 font-semibold text-center text-fore-secondary">
               Thanks for taking the time to give a feedback!
             </p>
           )}
@@ -87,5 +87,3 @@ export const Feedback = ({ post }: Props) => {
     </div>
   )
 }
-
-export default Feedback
