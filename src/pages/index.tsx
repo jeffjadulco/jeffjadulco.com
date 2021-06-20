@@ -6,36 +6,15 @@ import { SEO } from '@/components/seo'
 import { PostList } from '@/components/postList'
 import { ProjectList } from '@/components/projectList'
 import { Contact } from '@/components/contact'
-import { RichPresenceList } from '@/components/richPresenceList'
 import { getAllFrontMatters } from '@/lib/mdx'
-import { getCurrentlyPlaying, getRecentlyPlayed } from '@/lib/spotify'
 
 import type { Frontmatter } from '@/types/frontmatter'
-import {
-  LetterboxdRecentMovies,
-  SpotifyCurrentTrack,
-  SpotifyRecentTracks,
-  SteamRecentlyPlayedGames,
-} from '@/types/rich-presence'
-import { getRecentMovies } from '@/lib/letterboxd'
-import { getRecentGames } from '@/lib/steam'
-import { getDoingNow } from '@/lib/notion'
 
 interface IndexPageProps {
   posts: Frontmatter[]
-  spotify?: SpotifyCurrentTrack | SpotifyRecentTracks
-  letterboxd?: LetterboxdRecentMovies
-  steam: SteamRecentlyPlayedGames
-  notion: any
 }
 
-export default function IndexPage({
-  posts,
-  spotify,
-  letterboxd,
-  steam,
-  notion,
-}: IndexPageProps) {
+export default function IndexPage({ posts }: IndexPageProps) {
   return (
     <Fragment>
       <SEO />
@@ -62,7 +41,6 @@ export default function IndexPage({
       </div>
       <PostList posts={posts} showHeading />
       <ProjectList showHeading />
-      <RichPresenceList presenceList={[notion, spotify, letterboxd, steam]} />
       <Contact />
     </Fragment>
   )
@@ -71,19 +49,7 @@ export default function IndexPage({
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllFrontMatters()
 
-  let spotify:
-    | SpotifyCurrentTrack
-    | SpotifyRecentTracks = await getCurrentlyPlaying()
-  if (spotify === null) {
-    spotify = await getRecentlyPlayed()
-  }
-
-  const letterboxd = await getRecentMovies()
-  const steam = await getRecentGames()
-  const notion = await getDoingNow()
-
   return {
-    props: { posts, spotify, letterboxd, steam, notion },
-    revalidate: 60 * 5,
+    props: { posts },
   }
 }
