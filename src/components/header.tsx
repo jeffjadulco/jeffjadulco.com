@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { ThemeToggle } from './themeToggle'
 import { NavLink } from './atoms'
-import avatar from '../../public/images/the-avatar.png'
 
 const routes = [
   {
@@ -40,7 +39,7 @@ export function Header() {
           >
             <div className="overflow-hidden transition-transform ease-in-out border-2 rounded-full w-9 h-9 group-hover:-translate-y-1">
               <Image
-                src={avatar}
+                src="/images/the-avatar.png"
                 alt="My avatar"
                 width={36}
                 height={36}
