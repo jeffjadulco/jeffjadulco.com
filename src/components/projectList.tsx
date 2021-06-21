@@ -2,14 +2,14 @@ import projects from '@/data/projects'
 
 function Project({ project }) {
   return (
-    <li className="py-3">
+    <li className="py-5">
       <a
         href={project.slug}
         target="_blank"
         rel="noopener noreferrer"
         className="focus-visible:outline-accent group"
       >
-        <div className="flex justify-between px-5 py-3 -mx-5 -my-3 space-x-3 transition-colors ease-in-out sm:items-end sm:space-x-0 hover:bg-back-secondary group-focus:bg-back-secondary">
+        <div className="flex justify-between px-5 py-5 -mx-6 -my-5 transition-colors ease-in-out sm:items-end hover:bg-back-secondary group-focus:bg-back-secondary">
           <div>
             <h3 className="text-xl font-semibold group-hover:text-accent">
               {project.title}

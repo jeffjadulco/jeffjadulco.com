@@ -25,7 +25,7 @@
 
   --color-back-primary: hsla(0, 100%, 100%, var(--tw-bg-opacity));
   --color-back-secondary: hsla(210, 38%, 95%, var(--tw-bg-opacity));
-  --color-back-subtle: hsla(210, 38%, 100%, var(--tw-bg-opacity));
+  --color-back-subtle: hsla(210, 38%, 92%, var(--tw-bg-opacity));
 
   --color-accent: hsla(211, 61%, 43%, var(--tw-text-opacity));
   --color-back-accent: hsla(172, 67%, 70%, var(--tw-bg-opacity));
@@ -60,7 +60,7 @@
 
   --color-back-primary: hsla(221, 39%, 11%, var(--tw-bg-opacity));
   --color-back-secondary: hsla(221, 39%, 8%, var(--tw-bg-opacity));
-  --color-back-subtle: hsla(221, 39%, 5%, var(--tw-bg-opacity));
+  --color-back-subtle: hsla(221, 39%, 16%, var(--tw-bg-opacity));
 
   --color-accent: hsla(172, 67%, 70%, var(--tw-text-opacity));
   --color-back-accent: hsla(172, 67%, 70%, var(--tw-bg-opacity));

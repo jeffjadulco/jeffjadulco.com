@@ -7,6 +7,7 @@ import { PostList } from '@/components/postList'
 import { ProjectList } from '@/components/projectList'
 import { Contact } from '@/components/contact'
 import { getAllFrontMatters } from '@/lib/mdx'
+import avatar from '../../public/images/the-avatar.png'
 
 import type { Frontmatter } from '@/types/frontmatter'
 
@@ -28,12 +29,13 @@ export default function IndexPage({ posts }: IndexPageProps) {
           <div className="absolute top-0 flex items-center justify-center w-full h-full">
             <div className="w-32 h-32 overflow-hidden rounded-full md:h-40 md:w-40 lg:h-48 lg:w-48">
               <Image
-                src="/images/the-avatar.png"
+                src={avatar}
                 alt="My avatar"
                 width={512}
                 height={512}
                 quality={100}
                 priority={true}
+                placeholder="blur"
               />
             </div>
           </div>

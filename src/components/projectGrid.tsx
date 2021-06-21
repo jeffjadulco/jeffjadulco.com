@@ -8,16 +8,16 @@ export function ProjectGrid({
   showHeading?: boolean
 }) {
   return (
-    <section className="">
+    <section>
       {showHeading && (
         <h2 className="mt-32 text-accent tracking-widestest">PROJECTS</h2>
       )}
-      <ul className="grid gap-6 mt-3 -mx-5 md:grid-cols-2 md:gap-4">
+      <ul className="grid gap-6 mt-3 -mx-4 md:grid-cols-2 md:gap-4">
         {projects.map(project => {
           return (
             <li
               key={project.title}
-              className="relative px-6 py-5 mx-4 rounded-md group bg-back-secondary hover:bg-back-secondary"
+              className="relative px-6 py-5 rounded-md group bg-back-secondary hover:bg-back-secondary"
             >
               <div className="flex justify-between pb-10 space-x-3 sm:space-x-0">
                 <div>

@@ -61,7 +61,7 @@ export default function BlogPost({
           <Component components={components} />
         </article>
         {frontmatter.toc && (
-          <aside className="sticky hidden h-screen max-w-xs mt-8 ml-6 xl:block">
+          <aside className="sticky hidden h-screen max-w-xs mt-8 ml-6 top-16 xl:block">
             <QuickNav />
           </aside>
         )}
