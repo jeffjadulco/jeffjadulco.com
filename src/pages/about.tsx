@@ -54,7 +54,7 @@ export default function About({
   )
 }
 
-export const getStaticProps: GetStaticProps = async context => {
+export const getStaticProps: GetStaticProps = async () => {
   const { code } = await getMdxByPath('/content/about.mdx')
 
   let spotify:
