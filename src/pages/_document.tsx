@@ -1,5 +1,4 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
-import Script from 'next/script'
 
 class MyDocument extends Document {
   render() {
@@ -26,13 +25,12 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           {/* ANALYTICS */}
-          <Script
+          <script
             data-goatcounter={`https://${process.env.NEXT_PUBLIC_GOAT_COUNTER_CODE}.goatcounter.com/count`}
             data-goatcounter-settings='{"allow_local": true}'
             async={true}
             src="//gc.zgo.at/count.js"
-            strategy="afterInteractive"
-          ></Script>
+          ></script>
         </body>
       </Html>
     )
