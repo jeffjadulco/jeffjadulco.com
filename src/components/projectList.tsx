@@ -1,15 +1,15 @@
-import projects from '@/data/projects'
+import { Project } from '@/types/project'
 
-function Project({ project }) {
+function ProjectCard({ project }: { project: Project }) {
   return (
     <li className="py-5">
       <a
-        href={project.slug}
+        href={project.link}
         target="_blank"
         rel="noopener noreferrer"
         className="focus-visible:outline-accent group"
       >
-        <div className="flex justify-between px-5 py-5 -mx-6 -my-5 transition-colors ease-in-out sm:items-end hover:bg-back-secondary group-focus:bg-back-secondary">
+        <div className="flex justify-between py-5 -my-5 transition-colors ease-in-out px-7 -mx-7 sm:items-end hover:bg-back-secondary group-focus:bg-back-secondary">
           <div>
             <h3 className="text-xl font-semibold group-hover:text-accent">
               {project.title}
@@ -27,15 +27,12 @@ function Project({ project }) {
   )
 }
 
-export function ProjectList({ showHeading }: { showHeading: boolean }) {
+export function ProjectList({ projects }: { projects: Project[] }) {
   return (
     <section>
-      {showHeading && (
-        <h2 className="mt-32 text-accent tracking-widestest">PROJECTS</h2>
-      )}
       <ul className="mt-3 divide-y divide-back-subtle">
         {projects.map(project => {
-          return <Project key={project.title} project={project} />
+          return <ProjectCard key={project.title} project={project} />
         })}
       </ul>
     </section>
