@@ -37,7 +37,12 @@ export default function Projects({ projects }: { projects: Project[] }) {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <a href={project.link} target="_blank" rel="noopener noreferrer">
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="focus-visible:outline-accent"
+    >
       <div className="relative flex flex-col justify-between w-full h-full px-6 py-5 group bg-back-secondary hover:bg-back-secondary">
         <div className="flex justify-between pb-10 space-x-3 sm:space-x-0">
           <div>
@@ -53,7 +58,10 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
         <div className="flex flex-wrap">
           {project.tags.map(tag => (
-            <span className="p-1 mb-2 mr-2 text-xs rounded-sm text-fore-subtle bg-back-subtle">
+            <span
+              key={tag}
+              className="p-1 mb-2 mr-2 text-xs rounded-sm text-fore-subtle bg-back-subtle"
+            >
               {tag}
             </span>
           ))}
