@@ -54,7 +54,7 @@ export default function IndexPage({ posts, projects }: IndexPageProps) {
         </span>
       </div>
       <PostList posts={posts} />
-      <div className="flex items-center mt-64 mb-8 space-x-3">
+      <div className="flex items-center mt-24 mb-8 space-x-3">
         <span className="p-3 rounded-full bg-back-subtle">
           <Project24 />
         </span>
