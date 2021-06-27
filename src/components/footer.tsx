@@ -18,10 +18,6 @@ const routes = [
     path: '/about',
     label: 'ABOUT',
   },
-  {
-    path: '/gamedev',
-    label: 'GAMEDEV',
-  },
 ]
 
 export function Footer() {

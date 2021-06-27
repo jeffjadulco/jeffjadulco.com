@@ -16,14 +16,14 @@ export default function Projects({ projects }: { projects: Project[] }) {
         <Project24 />
       </span>
       <h1 className="mt-3 mb-2 text-2xl font-bold text-accent">Projects</h1>
-      <p className="max-w-xs mb-12 text-fore-subtle">
-        Web development side projects + games.
+      <p className="max-w-sm mb-12 text-fore-subtle">
+        Web development side projects and games
       </p>
       <section className="mb-6">
-        <div className="grid grid-cols-2 gap-4 md:-mx-6 justify-items-start md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:-mx-6 justify-items-start md:grid-cols-3 lg:grid-cols-4">
           {projects.map(project => {
             return (
-              <ButtonPop>
+              <ButtonPop key={project.id}>
                 <ProjectCard project={project} />
               </ButtonPop>
             )
@@ -53,7 +53,7 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
         <div className="flex flex-wrap">
           {project.tags.map(tag => (
-            <span className="p-1 mb-2 mr-2 text-xs text-fore-subtle bg-back-subtle">
+            <span className="p-1 mb-2 mr-2 text-xs rounded-sm text-fore-subtle bg-back-subtle">
               {tag}
             </span>
           ))}
