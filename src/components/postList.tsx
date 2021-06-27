@@ -6,7 +6,7 @@ function Post({ post }: { post: Frontmatter }) {
   return (
     <li className="py-5">
       <Link href={`blog/${post.slug}`}>
-        <a className="flex flex-col py-5 -mx-6 -my-5 transition-colors ease-in-out px-7 group sm:flex-row sm:justify-between sm:items-end hover:bg-back-secondary focus:bg-back-secondary focus-visible:outline-accent focus:text-accent">
+        <a className="flex flex-col px-8 py-5 -my-5 transition-colors ease-in-out -mx-7 group sm:flex-row sm:justify-between sm:items-end hover:bg-back-secondary focus:bg-back-secondary focus-visible:outline-accent focus:text-accent">
           <div>
             <h3 className="text-xl font-semibold group-hover:text-accent">
               {post.title}

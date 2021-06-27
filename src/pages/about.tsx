@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { GetStaticProps } from 'next'
-import { Heading } from '@/components/atoms'
+import { About24 } from '@/components/icons'
 import { Contact } from '@/components/contact'
 import { SEO } from '@/components/seo'
 import { components as mdx } from '@/components/mdxComponents'
@@ -35,7 +35,12 @@ export default function About({
     <Fragment>
       <SEO title="About" />
       <div className="container">
-        <Heading>About Me</Heading>
+        <span className="inline-flex p-3 rounded-full bg-back-subtle">
+          <About24 />
+        </span>
+        <h1 className="mt-3 mb-2 text-2xl font-bold tracking-tight text-accent">
+          About Me
+        </h1>
         <article className="max-w-2xl min-w-0 text-base lg:text-lg text-fore-subtle">
           <mdx.p>
             I'm Jeff Jadulco, I work full-time as a game programmer at&nbsp;

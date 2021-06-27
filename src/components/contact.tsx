@@ -13,8 +13,8 @@ export function Contact() {
           </span>
         </h1>
         <p className="px-4 mt-4 text-center text-fore-secondary">
-          Feel free to email me about anything. Want some advice? Give some
-          feedback?
+          Feel free to email me about anything. Do you have some feedback or
+          suggestions?
         </p>
         <p className="px-4 mt-1 text-center text-fore-secondary">
           You can also reach me around the web:{' '}
