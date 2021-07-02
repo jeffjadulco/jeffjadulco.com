@@ -33,7 +33,12 @@ export default function BlogPost({
         description={frontmatter.description}
         ogImage={frontmatter.seoImage}
       />
-      <div className="relative flex justify-between mt-12 mb-12 xl:-mr-52">
+      <div className="relative flex flex-row-reverse justify-between mt-12 mb-12 xl:-mr-52">
+        {frontmatter.toc && (
+          <aside className="sticky hidden h-screen max-w-xs mt-8 ml-6 top-16 xl:block">
+            <QuickNav />
+          </aside>
+        )}
         <article className="max-w-3xl min-w-0 text-base lg:text-lg text-fore-subtle">
           <div className="mb-2 text-sm tracking-normal text-fore-subtle">
             <span>
@@ -60,11 +65,6 @@ export default function BlogPost({
           </h1>
           <Component components={components} />
         </article>
-        {frontmatter.toc && (
-          <aside className="sticky hidden h-screen max-w-xs mt-8 ml-6 top-16 xl:block">
-            <QuickNav />
-          </aside>
-        )}
       </div>
       <Feedback post={frontmatter} />
     </Fragment>

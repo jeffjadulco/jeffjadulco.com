@@ -34,10 +34,13 @@ export function QuickNav() {
           <a
             key={heading.id}
             href={`#${heading.id}`}
-            className={classNames('block mt-3 text-sm hover:text-accent', {
-              'text-accent': heading.id === activeNode,
-              'ml-3': getLevel(heading.nodeName) === 3,
-            })}
+            className={classNames(
+              'block mt-3 text-sm hover:text-accent focus-visible:outline-accent',
+              {
+                'text-accent': heading.id === activeNode,
+                'ml-3': getLevel(heading.nodeName) === 3,
+              }
+            )}
           >
             {heading.innerText}
           </a>
