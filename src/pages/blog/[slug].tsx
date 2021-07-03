@@ -1,5 +1,6 @@
 import { Fragment, useMemo } from 'react'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
+import classNames from 'classnames'
 import { format, parseISO } from 'date-fns'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { getAllFrontMatters, getMdxBySlug } from '@/lib/mdx'
@@ -33,7 +34,14 @@ export default function BlogPost({
         description={frontmatter.description}
         ogImage={frontmatter.seoImage}
       />
-      <div className="relative flex flex-row-reverse justify-between mt-12 mb-12 xl:-mr-52">
+      <div
+        className={classNames(
+          'relative flex justify-between mt-12 mb-12 xl:-mr-52',
+          {
+            'flex-row-reverse': Boolean(frontmatter.toc),
+          }
+        )}
+      >
         {frontmatter.toc && (
           <aside className="sticky hidden h-screen max-w-xs mt-8 ml-6 top-16 xl:block">
             <QuickNav />
