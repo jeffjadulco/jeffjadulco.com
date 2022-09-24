@@ -30,7 +30,7 @@ function getRating(rating) {
   return rating_star.get(rating)
 }
 
-export async function getRecentMovies() {
+export async function getRecentMovies(count: number) {
   const { data } = await axios.get(
     `https://letterboxd.com/${letterboxd_username}/rss/`
   )
@@ -58,6 +58,6 @@ export async function getRecentMovies() {
       rating: getRating(item['letterboxd:memberRating']),
       year: item['letterboxd:filmYear'],
       image: getImage(item.description),
-    })),
+    })).slice(0, count),
   } as LetterboxdRecentMovies
 }
