@@ -3,19 +3,23 @@ import { GetStaticProps } from 'next'
 import Image from 'next/image'
 import { Blob } from '@/components/atoms'
 import { SEO } from '@/components/seo'
+import { Blog24, Project24 } from '@/components/icons'
 import { PostList } from '@/components/postList'
 import { ProjectList } from '@/components/projectList'
 import { Contact } from '@/components/contact'
 import { getAllFrontMatters } from '@/lib/mdx'
+import { getProjects } from '@/lib/notion'
 import avatar from '../../public/images/the-avatar.png'
 
 import type { Frontmatter } from '@/types/frontmatter'
+import type { Project } from '@/types/project'
 
 interface IndexPageProps {
   posts: Frontmatter[]
+  projects: Project[]
 }
 
-export default function IndexPage({ posts }: IndexPageProps) {
+export default function IndexPage({ posts, projects }: IndexPageProps) {
   return (
     <Fragment>
       <SEO />
@@ -31,8 +35,8 @@ export default function IndexPage({ posts }: IndexPageProps) {
               <Image
                 src={avatar}
                 alt="My avatar"
-                width={512}
-                height={512}
+                width={256}
+                height={256}
                 quality={100}
                 priority={true}
                 placeholder="blur"
@@ -41,8 +45,24 @@ export default function IndexPage({ posts }: IndexPageProps) {
           </div>
         </div>
       </div>
-      <PostList posts={posts} showHeading />
-      <ProjectList showHeading />
+      <div className="flex items-center mt-64 mb-8 space-x-3">
+        <span className="p-3 rounded-full bg-back-subtle">
+          <Blog24 />
+        </span>
+        <span className="mt-3 mb-2 uppercase tracking-widestest text-accent">
+          WRITINGS
+        </span>
+      </div>
+      <PostList posts={posts} />
+      <div className="flex items-center mt-24 mb-8 space-x-3">
+        <span className="p-3 rounded-full bg-back-subtle">
+          <Project24 />
+        </span>
+        <span className="mt-3 mb-2 uppercase tracking-widestest text-accent">
+          PROJECTS
+        </span>
+      </div>
+      <ProjectList projects={projects} />
       <Contact />
     </Fragment>
   )
@@ -50,8 +70,9 @@ export default function IndexPage({ posts }: IndexPageProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllFrontMatters()
+  const projects = await getProjects()
 
   return {
-    props: { posts },
+    props: { posts, projects: projects.filter(p => p.type === 'Open Source') },
   }
 }
