@@ -97,7 +97,7 @@ export const getStaticProps: GetStaticProps = async () => {
     spotify = await getRecentlyPlayed()
   }
 
-  const letterboxd = await getRecentMovies()
+  const letterboxd = await getRecentMovies(1)
   const steam = await getRecentGames()
   const notion = await getDoingNow()
   return {
