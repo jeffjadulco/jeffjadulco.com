@@ -24,8 +24,9 @@ module.exports = {
         teal: colors.teal,
       },
       fontFamily: {
-        sans: ['Inter', ...fontFamily.sans],
-        mono: ['Fira Code', ...fontFamily.mono],
+        // using @next/font
+        sans: ['var(--font-inter)', ...fontFamily.sans],
+        mono: ['var(--font-fira-code)', ...fontFamily.mono],
       },
       letterSpacing: {
         widestest: '0.2em',

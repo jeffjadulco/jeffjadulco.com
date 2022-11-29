@@ -1,11 +1,24 @@
 import { Fragment } from 'react'
+import { Inter } from '@next/font/google'
+import { Fira_Code } from '@next/font/google'
 import { Header } from './header'
 import { Footer } from './footer'
 import { MobileNav } from './mobileNav'
 
+// Fonts
+const FontInter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+const FontFiraCode = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-fira-code',
+})
+
 export function Layout({ children }) {
   return (
-    <Fragment>
+    <div className={`${FontInter.variable} ${FontFiraCode.variable} font-sans`}>
       <MobileNav />
       <div className="flex flex-col min-h-screen">
         <Header />
@@ -14,6 +27,6 @@ export function Layout({ children }) {
         </main>
         <Footer />
       </div>
-    </Fragment>
+    </div>
   )
 }

@@ -1,18 +1,3 @@
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: optional;
-  src: url(/fonts/Inter.var.woff2);
-}
-
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-display: optional;
-  src: url(/fonts/FiraCode-VF.woff2);
-}
-
 :root {
   --tw-bg-opacity: 1; /* OPACITY HACK FOR CSS VARS */
   --tw-text-opacity: 1;
