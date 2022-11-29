@@ -88,9 +88,12 @@
   --color-code-regex: hsl(160, 80%, 60%);
 }
 
-@import 'tailwindcss/base';
+/* @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss/utilities'; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   ::-moz-selection {
