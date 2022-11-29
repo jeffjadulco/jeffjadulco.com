@@ -115,15 +115,14 @@ export function MobileNav() {
 function MobileNavLink({ to, title, selected, hide }) {
   return (
     <div className="flex-grow">
-      <Link href={to}>
-        <a
-          className={classNames({
-            'text-accent': !!selected,
-          })}
-          onClick={_ => hide()}
-        >
-          {title}
-        </a>
+      <Link
+        href={to}
+        className={classNames({
+          'text-accent': !!selected,
+        })}
+        onClick={_ => hide()}
+      >
+        {title}
       </Link>
     </div>
   )

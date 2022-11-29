@@ -42,12 +42,11 @@ export const components = {
     }
 
     return (
-      <Link href={href}>
-        <a
-          {...props}
-          className="underline text-fore-subtle hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
-        />
-      </Link>
+      <Link
+        href={href}
+        {...props}
+        className="underline text-fore-subtle hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
+      ></Link>
     )
   },
   strong: ({ ...props }) => <strong {...props} className="font-semibold" />,

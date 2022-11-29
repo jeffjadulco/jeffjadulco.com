@@ -8,18 +8,18 @@ import classNames from 'classnames'
 
 export const NavLink = ({ to, title = 'Link', selected = false, ...props }) => {
   return (
-    <Link {...props} href={to}>
-      <a
-        className={classNames(
-          'font-semibold tracking-wide text-sm hover:text-accent transition duration-150 focus-visible:outline-accent',
-          {
-            'text-accent': selected,
-            'text-fore-secondary': !selected,
-          }
-        )}
-      >
-        {title}
-      </a>
+    <Link
+      {...props}
+      href={to}
+      className={classNames(
+        'font-semibold tracking-wide text-sm hover:text-accent transition duration-150 focus-visible:outline-accent',
+        {
+          'text-accent': selected,
+          'text-fore-secondary': !selected,
+        }
+      )}
+    >
+      {title}
     </Link>
   )
 }
