@@ -1,15 +1,17 @@
+// import { getAllFrontMatters } from '../lib/mdx'
+import { allBlogs } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import Link from 'next/link'
 import { Props } from 'next/script'
 import React from 'react'
-import { getAllFrontMatters } from '../lib/mdx'
 
 export async function PostList({
   showHeading = false,
 }: {
   showHeading?: boolean
 }) {
-  const posts = await getAllFrontMatters()
+  // const posts = await getAllFrontMatters()
+  const posts = allBlogs
 
   return (
     <section>

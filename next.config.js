@@ -1,4 +1,6 @@
-module.exports = {
+const { withContentlayer } = require('next-contentlayer')
+/** @type {import('next').NextConfig } */
+const nextConfig = {
   experimental: {
     appDir: true,
   },
@@ -27,7 +29,7 @@ module.exports = {
           },
         ],
       },
-    ];
+    ]
   },
   redirects() {
     return [
@@ -50,3 +52,5 @@ const ContentSecurityPolicy = `
   connect-src *;
   font-src 'self';
 `
+
+module.exports = withContentlayer(nextConfig)

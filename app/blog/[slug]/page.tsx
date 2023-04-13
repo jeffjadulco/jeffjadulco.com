@@ -1,15 +1,17 @@
 import classNames from 'classnames'
+// import { getAllFrontMatters, getMdxBySlug } from '../../../lib/mdx'
+import { allBlogs } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
-import { getMDXComponent } from 'mdx-bundler/client'
 import { Metadata } from 'next'
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import { notFound } from 'next/navigation'
 import { Fragment } from 'react'
-import { Feedback } from '../../../components/feedback'
 import { components } from '../../../components/mdxComponents'
 import { QuickNav } from '../../../components/quickNav'
-import { getAllFrontMatters, getMdxBySlug } from '../../../lib/mdx'
 
 async function generateStaticParams() {
-  const posts = await getAllFrontMatters()
+  // const posts = await getAllFrontMatters()
+  const posts = allBlogs
   return {
     paths: posts.map(post => ({
       params: {
@@ -20,7 +22,12 @@ async function generateStaticParams() {
   }
 }
 export async function generateMetadata({ params }): Promise<Metadata> {
-  const { frontmatter } = await getMdxBySlug(params.slug)
+  // const { frontmatter } = await getMdxBySlug(params.slug)
+  const post = allBlogs.find(blog => blog._raw.flattenedPath === params.slug)
+
+  if (!post) return {}
+
+  const frontmatter = post
 
   return {
     title: frontmatter.title,
@@ -36,8 +43,15 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 }
 
 export default async function BlogPost({ params }) {
-  const { code, frontmatter } = await getMdxBySlug(params.slug)
-  const Component = getMDXComponent(code)
+  // const { code, frontmatter } = await getMdxBySlug(params.slug)
+  const post = allBlogs.find(blog => blog._raw.flattenedPath === params.slug)
+
+  if (!post) notFound()
+
+  const frontmatter = post
+
+  // const Component = getMDXComponent(code)
+  const Component = useMDXComponent(post.body.code)
 
   // const Component = useMemo(() => getMDXComponent(code), [code])
 
@@ -88,7 +102,7 @@ export default async function BlogPost({ params }) {
           <Component components={components} />
         </article>
       </div>
-      <Feedback post={frontmatter} />
+      {/*<Feedback post={frontmatter} />*/}
     </Fragment>
   )
 }
