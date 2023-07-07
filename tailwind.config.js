@@ -2,13 +2,11 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  mode: 'jit',
-  purge: {
-    content: [
-      './src/pages/**/*.{js,ts,jsx,tsx}',
-      './src/components/**/*.{js,ts,jsx,tsx}',
-    ],
-  },
+  content: [
+    './app/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './content/**/*.mdx',
+  ],
   theme: {
     extend: {
       colors: {
@@ -24,20 +22,10 @@ module.exports = {
           subtle: 'var(--color-back-subtle)',
           accent: 'var(--color-back-accent)',
         },
-        teal: colors.teal,
       },
       fontFamily: {
-        sans: ['Inter', ...fontFamily.sans],
-        mono: ['Fira Code', ...fontFamily.mono],
-      },
-      letterSpacing: {
-        widestest: '0.2em',
-      },
-      backgroundSize: {
-        200: '150%',
-      },
-      outline: {
-        accent: ['2px dotted var(--color-accent)', '2px'],
+        sans: ['var(--font-inter)', ...fontFamily.sans],
+        mono: ['var(--font-fira-code)', ...fontFamily.mono],
       },
       animation: {
         'blob-spin': 'blobbing 25s linear infinite',

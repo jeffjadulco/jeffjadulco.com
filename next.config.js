@@ -1,9 +1,6 @@
 module.exports = {
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      require('./scripts/generate-sitemap')
-    }
-    return config
+  experimental: {
+    appDir: true,
   },
   images: {
     domains: [
@@ -12,7 +9,7 @@ module.exports = {
       'steamcdn-a.akamaihd.net', // steam
     ],
   },
-  async headers() {
+  headers() {
     return [
       {
         source: '/(.*)',
@@ -30,9 +27,9 @@ module.exports = {
           },
         ],
       },
-    ]
+    ];
   },
-  async redirects() {
+  redirects() {
     return [
       {
         source: '/gamedev',
