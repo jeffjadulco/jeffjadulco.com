@@ -63,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${FontInter.variable} ${FontFiraCode.variable} font-sans flex flex-col min-h-screen`}
+        className={`${FontInter.variable} ${FontFiraCode.variable} font-sans flex flex-col min-h-screen relative`}
       >
         <MobileNav />
         <Header />
@@ -72,7 +72,14 @@ export default function RootLayout({
         </main>
         <Footer />
         <Analytics />
+        <BackgroundNoise />
       </body>
     </html>
+  )
+}
+
+function BackgroundNoise() {
+  return (
+    <div className="absolute inset-0 -z-20 opacity-80 h-full mix-blend-overlay noise-bg"></div>
   )
 }

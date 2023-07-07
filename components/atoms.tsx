@@ -1,10 +1,10 @@
+import classNames from 'classnames'
+import Link from 'next/link'
 import {
   AnchorHTMLAttributes,
   InputHTMLAttributes,
   TextareaHTMLAttributes,
 } from 'react'
-import Link from 'next/link'
-import classNames from 'classnames'
 
 export const NavLink = ({ to, title = 'Link', selected = false, ...props }) => {
   return (
@@ -12,7 +12,7 @@ export const NavLink = ({ to, title = 'Link', selected = false, ...props }) => {
       {...props}
       href={to}
       className={classNames(
-        'font-semibold tracking-wide text-sm hover:text-accent transition duration-150 focus-visible:outline-accent',
+        'font-semibold tracking-wide text-sm hover:text-accent transition duration-150 ',
         {
           'text-accent': selected,
           'text-fore-secondary': !selected,
@@ -34,7 +34,7 @@ export const ExtLink = ({
   return (
     <a
       href={link}
-      className="font-medium text-accent hover:underline focus-visible:outline-accent focus:text-accent"
+      className="font-medium text-accent hover:underline  focus:text-accent"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -59,7 +59,7 @@ export const Button = ({
     <a
       {...props}
       className={classNames(
-        'px-20 py-2 rounded bg-gradient-to-r from-teal-500 to-blue-500 bg-200 bg-left hover:bg-right transition-all text-back-secondary duration-[0.5s] ease-out focus-visible:outline-accent focus:text-accent',
+        'px-20 py-2 rounded bg-gradient-to-r from-teal-500 to-blue-500 bg-[length:150%] bg-left hover:bg-right transition-all text-back-secondary duration-[0.5s] ease-out  focus:text-accent',
         className
       )}
       href={link}

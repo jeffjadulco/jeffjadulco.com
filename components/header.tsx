@@ -38,7 +38,7 @@ export function Header() {
         <Link
           href="/"
           aria-label="Website logo, go back to homepage."
-          className="flex items-center border-white group focus-visible:outline-accent"
+          className="flex items-center border-white group "
         >
           <div>
             <div className="overflow-hidden transition-transform ease-in-out border-2 rounded-full w-9 h-9 group-hover:-translate-y-1">
@@ -72,7 +72,7 @@ export function Header() {
             />
           ))}
         </div>
-        <ThemeToggle className="hidden mt-1 transition-transform ease-in-out focus:outline-none sm:block hover:text-accent hover:-translate-y-1 focus-visible:outline-accent" />
+        <ThemeToggle className="hidden mt-1 transition-transform ease-in-out focus:outline-none sm:block hover:text-accent hover:-translate-y-1 " />
       </nav>
     </header>
   )

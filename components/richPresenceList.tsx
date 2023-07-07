@@ -28,7 +28,7 @@ export function RichPresenceList({
   return (
     <section>
       {showHeading && (
-        <h2 className="mt-32 text-accent tracking-widestest">RECENTS</h2>
+        <h2 className="mt-32 text-accent tracking-[.2em]">RECENTS</h2>
       )}
       <div className="grid grid-cols-1 gap-4 mt-3 -mx-1 md:-mx-5 md:grid-cols-2 xl:grid-cols-2">
         {presenceList.map(rp => {

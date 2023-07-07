@@ -11,7 +11,7 @@ export const components = {
       return (
         <a
           {...props}
-          className="underline text-fore-subtle hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
+          className="underline text-fore-subtle hover:text-accent focus-visible:text-accent"
           href={href}
           target="_blank"
           rel="noopener"
@@ -24,7 +24,7 @@ export const components = {
         <a
           {...props}
           href={href}
-          className="ml-1 transition-transform duration-75 ease-out origin-left transform scale-0 opacity-0 text-fore-subtle hover:text-accent group-hover:scale-100 group-hover:opacity-100 focus-visible:outline-accent focus-visible:text-accent"
+          className="ml-1 transition-transform duration-75 ease-out origin-left transform scale-0 opacity-0 text-fore-subtle hover:text-accent group-hover:scale-100 group-hover:opacity-100  focus-visible:text-accent"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ export const components = {
       <Link
         href={href}
         {...props}
-        className="underline text-fore-subtle hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
+        className="underline text-fore-subtle hover:text-accent  focus-visible:text-accent"
         legacyBehavior={true}
       ></Link>
     )

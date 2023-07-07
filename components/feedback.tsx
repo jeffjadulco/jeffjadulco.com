@@ -65,7 +65,7 @@ export function Feedback({ post }: Props) {
             <button
               disabled={state.submitting}
               type="submit"
-              className="py-3 font-semibold rounded-md bg-gradient-to-r from-teal-500 to-blue-500 bg-200 bg-left hover:bg-right transition-all duration-[0.5s] ease-out text-back-secondary focus-visible:outline-accent disabled:opacity-50"
+              className="py-3 font-semibold rounded-md bg-gradient-to-r from-teal-500 to-blue-500 bg-[length:150%] bg-left hover:bg-right transition-all duration-[0.5s] ease-out text-back-secondary disabled:opacity-50"
             >
               {state.submitting ? 'Submitting feedback...' : 'Send Feedback 😊'}
             </button>

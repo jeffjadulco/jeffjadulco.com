@@ -14,13 +14,13 @@ export async function PostList({
   return (
     <section>
       {showHeading && (
-        <h2 className="mt-64 text-accent tracking-widestest">WRITINGS</h2>
+        <h2 className="mt-64 text-accent tracking-[.2em]">WRITINGS</h2>
       )}
       <ul className="mt-3 divide-y divide-back-subtle">
         {posts.map(post => (
           <li key={post.slug} className="py-5">
             <Link href={`blog/${post.slug}`}>
-              <div className="flex flex-col px-8 py-5 -my-5 transition-colors ease-in-out -mx-7 group sm:flex-row sm:justify-between sm:items-end hover:bg-back-secondary focus:bg-back-secondary focus-visible:outline-accent focus:text-accent">
+              <div className="flex flex-col px-8 py-5 -my-5 transition-colors ease-in-out -mx-7 group sm:flex-row sm:justify-between sm:items-end hover:bg-back-secondary focus:bg-back-secondary focus:text-accent">
                 <div>
                   <h3 className="text-xl font-semibold group-hover:text-accent">
                     {post.title}

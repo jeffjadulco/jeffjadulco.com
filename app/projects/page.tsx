@@ -44,15 +44,12 @@ function ProjectCard({ project }: { project: Project }) {
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="focus-visible:outline-accent"
     >
       <div className="relative flex flex-col justify-between w-full h-full px-6 py-5 group bg-back-secondary hover:bg-back-secondary">
         <div className="flex justify-between pb-10 space-x-3 sm:space-x-0">
           <div>
             <h3 className="text-xl font-semibold text-fore-primary group-hover:text-accent">
-              <span className="focus-visible:outline-accent focus:text-accent">
-                {project.title}
-              </span>
+              <span className=" focus:text-accent">{project.title}</span>
             </h3>
             <h4 className="pr-3 mt-1 font-base text-fore-subtle">
               {project.description}

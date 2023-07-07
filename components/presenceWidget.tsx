@@ -28,7 +28,6 @@ export function PresenceWidget({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={url}
-            className="focus-visible:outline-accent"
           >
             {icon}
           </a>
@@ -48,7 +47,7 @@ export function PresenceWidget({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-lg font-bold truncate hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
+                  className="text-lg font-bold truncate hover:text-accent  focus-visible:text-accent"
                 >
                   {title}
                 </a>

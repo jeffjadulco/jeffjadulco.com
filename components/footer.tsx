@@ -45,7 +45,7 @@ export function Footer() {
                   href="mailto:hey@jeffjadulco.com"
                   aria-label="Email hey@jeffjadulco.com"
                   title="Email"
-                  className="focus-visible:outline-accent focus:text-accent"
+                  className="focus:text-accent"
                 >
                   <MailAt24 className="transition-transform ease-in-out hover:-translate-y-1 hover:text-accent" />
                 </a>
@@ -57,7 +57,7 @@ export function Footer() {
                   title="Visit GitHub profile"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="focus-visible:outline-accent focus:text-accent"
+                  className="focus:text-accent"
                 >
                   <GitHub24 className="transition-transform ease-in-out hover:-translate-y-1 hover:text-accent" />
                 </a>
@@ -69,7 +69,7 @@ export function Footer() {
                   title="Visit Twitter profile"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="focus-visible:outline-accent focus:text-accent"
+                  className="focus:text-accent"
                 >
                   <Twitter24 className="transition-transform ease-in-out hover:-translate-y-1 hover:text-accent" />
                 </a>

@@ -8,7 +8,7 @@ function ProjectCard({ project }: { project: Project }) {
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="focus-visible:outline-accent group"
+        className="group"
       >
         <div className="flex justify-between px-8 py-5 -my-5 transition-colors ease-in-out -mx-7 sm:items-end hover:bg-back-secondary group-focus:bg-back-secondary">
           <div>

@@ -36,7 +36,7 @@ export default async function Page() {
         <span className="p-3 rounded-full bg-back-subtle">
           <Blog24 />
         </span>
-        <span className="mt-3 mb-2 uppercase tracking-widestest text-accent">
+        <span className="mt-3 mb-2 uppercase tracking-[.2em] text-accent">
           WRITINGS
         </span>
       </div>
@@ -45,7 +45,7 @@ export default async function Page() {
         <span className="p-3 rounded-full bg-back-subtle">
           <Project24 />
         </span>
-        <span className="mt-3 mb-2 uppercase tracking-widestest text-accent">
+        <span className="mt-3 mb-2 uppercase tracking-[.2em] text-accent">
           PROJECTS
         </span>
       </div>
