@@ -1,0 +1,110 @@
+:root {
+  --tw-bg-opacity: 1; /* OPACITY HACK FOR CSS VARS */
+  --tw-text-opacity: 1;
+}
+
+.light {
+  --color-fore-primary: hsla(218, 23%, 23%, var(--tw-text-opacity));
+  --color-fore-secondary: hsla(218, 17%, 35%, var(--tw-text-opacity));
+  --color-fore-subtle: hsla(218, 17%, 35%, var(--tw-text-opacity));
+
+  --color-back-primary: hsla(0, 100%, 100%, var(--tw-bg-opacity));
+  --color-back-secondary: hsla(210, 38%, 95%, var(--tw-bg-opacity));
+  --color-back-subtle: hsla(210, 38%, 92%, var(--tw-bg-opacity));
+
+  --color-accent: hsla(211, 61%, 43%, var(--tw-text-opacity));
+  --color-back-accent: hsla(172, 67%, 70%, var(--tw-bg-opacity));
+
+  --color-gradient-accent1: hsla(209, 62%, 50%, 1);
+  --color-gradient-accent2: hsla(174, 59%, 56%, 1);
+
+  --color-code-background: hsla(210, 38%, 95%, 1);
+  --color-code-background-file: hsla(210, 38%, 90%, 1);
+  --color-code-line-hover: hsla(210, 38%, 90%, 1);
+  --color-code-word-highlight: hsla(210, 38%, 75%, 0.6);
+  --color-code-word-highlight-hover: hsla(210, 38%, 75%, 1);
+
+  /* THEME: Material Light */
+  /* https://github.com/PrismJS/prism-themes/blob/master/themes/prism-material-light.css */
+  --color-code-text: hsla(218, 23%, 23%, 1);
+  --color-code-comment: hsla(216, 15%, 52%, 1);
+  --color-code-punctuation: hsla(184, 52%, 47%, 1);
+  --color-code-const: hsla(256, 100%, 65%, 1);
+  --color-code-bool: hsla(256, 100%, 65%, 1);
+  --color-code-string: hsla(35, 92%, 58%, 1);
+  --color-code-var: hsla(1, 77%, 55%, 1);
+  --color-code-func: hsla(231, 99%, 62%, 1);
+  --color-code-keyword: hsla(256, 100%, 65%, 1);
+  --color-code-regex: hsla(217, 38%, 55%, 1);
+}
+
+.dark {
+  --color-fore-primary: hsla(214, 32%, 91%, var(--tw-text-opacity));
+  --color-fore-secondary: hsla(214, 32%, 91%, var(--tw-text-opacity));
+  --color-fore-subtle: hsla(214, 20%, 69%, var(--tw-text-opacity));
+
+  --color-back-primary: hsla(221, 39%, 11%, var(--tw-bg-opacity));
+  --color-back-secondary: hsla(221, 39%, 8%, var(--tw-bg-opacity));
+  --color-back-subtle: hsla(221, 39%, 16%, var(--tw-bg-opacity));
+
+  --color-accent: hsla(172, 67%, 70%, var(--tw-text-opacity));
+  --color-back-accent: hsla(172, 67%, 70%, var(--tw-bg-opacity));
+
+  --color-gradient-accent1: hsla(209, 62%, 50%, 1);
+  --color-gradient-accent2: hsla(174, 59%, 56%, 1);
+
+  --color-code-background: hsla(221, 39%, 15%, 1);
+  --color-code-background-file: hsla(221, 39%, 13%, 1);
+  --color-code-line-hover: hsla(221, 39%, 13%, 1);
+  --color-code-word-highlight: hsla(211, 24%, 21%, 1);
+  --color-code-word-highlight-hover: hsl(220, 100%, 80%, 1);
+
+  /* THEME: Duotone Sea  */
+  /* https://github.com/PrismJS/prism-themes/blob/master/themes/prism-duotone-sea.css  */
+  --color-code-text: hsl(212, 87%, 73%);
+  --color-code-comment: hsl(213, 24%, 45%);
+  --color-code-punctuation: hsl(213, 24%, 45%);
+  --color-code-const: hsl(160, 88%, 34%);
+  --color-code-bool: hsl(160, 80%, 60%);
+  --color-code-string: hsl(160, 80%, 60%);
+  --color-code-var: hsl(160, 80%, 60%);
+  --color-code-func: hsl(212, 24%, 45%);
+  --color-code-keyword: hsl(160, 80%, 60%);
+  --color-code-regex: hsl(160, 80%, 60%);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::-moz-selection {
+    background: var(--color-accent);
+    color: var(--color-back-primary);
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-back-primary);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-back-primary);
+    color: var(--color-fore-primary);
+    @apply overflow-x-hidden antialiased;
+  }
+
+  .full-width-container {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  .noise-bg {
+    background-image: url("/images/noisy.png");
+    /*background-color: aqua;*/
+  }
+}
