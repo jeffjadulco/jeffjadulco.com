@@ -1,15 +1,15 @@
 import fs from 'fs'
-import path from 'path'
 import globby from 'globby'
-import readingTime from 'reading-time'
 import { bundleMDX } from 'mdx-bundler'
-import rehypeSlug from 'rehype-slug'
-import rehypeHeadings from 'rehype-autolink-headings'
-import rehypeHighlightCode from './rehype-highlight-code'
-import rehypeMetaAttribute from './rehype-meta-attribute'
+import path from 'path'
+import readingTime from 'reading-time'
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
+import rehypeHeadings from 'rehype-autolink-headings'
+import rehypeSlug from 'rehype-slug'
 
 import type { Frontmatter } from '../types/frontmatter'
+import rehypeHighlightCode from './rehype-highlight-code'
+import rehypeMetaAttribute from './rehype-meta-attribute'
 
 const MDX_PATH = 'content/blog'
 
@@ -19,7 +19,7 @@ async function getMdxBySlug(slug) {
 
 async function getMdxByPath(mdxPath) {
   const slug = path.basename(mdxPath).replace(path.extname(mdxPath), '')
-  const source = fs.readFileSync(path.join(process.cwd(), mdxPath), 'utf8')
+  const source = fs.readFileSync(mdxPath, 'utf8')
   const { code, frontmatter } = await bundleMDX(source, {
     xdmOptions(options) {
       options.rehypePlugins = [
