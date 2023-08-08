@@ -1,7 +1,8 @@
+'use client'
+
 import classNames from 'classnames'
 import { format, parseISO } from 'date-fns'
 import { getMDXComponent } from 'mdx-bundler/client'
-import { Metadata } from 'next'
 import { Fragment } from 'react'
 import { Feedback } from '../../../components/feedback'
 import { components } from '../../../components/mdxComponents'
@@ -19,21 +20,21 @@ async function generateStaticParams() {
     fallback: false,
   }
 }
-export async function generateMetadata({ params }): Promise<Metadata> {
-  const { frontmatter } = await getMdxBySlug(params.slug)
-
-  return {
-    title: frontmatter.title,
-    description: frontmatter.description,
-    openGraph: {
-      images: [
-        {
-          url: `https://jeffjadulco.com${frontmatter.seoImage}`,
-        },
-      ],
-    },
-  }
-}
+// export async function generateMetadata({ params }): Promise<Metadata> {
+//   const { frontmatter } = await getMdxBySlug(params.slug)
+//
+//   return {
+//     title: frontmatter.title,
+//     description: frontmatter.description,
+//     openGraph: {
+//       images: [
+//         {
+//           url: `https://jeffjadulco.com${frontmatter.seoImage}`,
+//         },
+//       ],
+//     },
+//   }
+// }
 
 export default async function BlogPost({ params }) {
   const { code, frontmatter } = await getMdxBySlug(params.slug)
