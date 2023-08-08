@@ -1,5 +1,3 @@
-'use client'
-
 import classNames from 'classnames'
 import { format, parseISO } from 'date-fns'
 import { getMDXComponent } from 'mdx-bundler/client'
