@@ -19,7 +19,7 @@ async function getMdxBySlug(slug) {
 
 async function getMdxByPath(mdxPath) {
   const slug = path.basename(mdxPath).replace(path.extname(mdxPath), '')
-  const source = fs.readFileSync(path.join(process.cwd(), mdxPath), 'utf8')
+  const source = fs.readFileSync(mdxPath, 'utf8')
   const { code, frontmatter } = await bundleMDX(source, {
     xdmOptions(options) {
       options.rehypePlugins = [
