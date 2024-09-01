@@ -1,28 +1,12 @@
-// @ts-ignore
-import {
-  FilesPropertyValue,
-  MultiSelectPropertyValue,
-  PropertyValue,
-  RichTextPropertyValue,
-  SelectPropertyValue,
-  TitlePropertyValue,
-  URLPropertyValue,
-} from '@notionhq/client/build/src/api-types'
+import {PageObjectResponse} from '@notionhq/client/build/src/api-endpoints'
 
-export const asTitle = (propertyValue: PropertyValue) =>
-  propertyValue as TitlePropertyValue
+// Boo. https://github.com/makenotion/notion-sdk-js/issues/219
 
-export const asRichText = (propertyValue: PropertyValue) =>
-  propertyValue as RichTextPropertyValue
+type PageProperties = PageObjectResponse['properties']
+type PagePropertyValue = PageProperties[string]
 
-export const asUrl = (propertyValue: PropertyValue) =>
-  propertyValue as URLPropertyValue
-
-export const asSelect = (propertyValue: PropertyValue) =>
-  propertyValue as SelectPropertyValue
-
-export const asMultiSelect = (propertyValue: PropertyValue) =>
-  propertyValue as MultiSelectPropertyValue
-
-export const asFiles = (propertyValue: PropertyValue) =>
-  propertyValue as FilesPropertyValue
+export type PropertyValueTitle = Extract<PagePropertyValue, {type: 'title'}>
+export type PropertyValueRichText = Extract<PagePropertyValue, {type: 'rich_text'}>
+export type PropertyValueUrl = Extract<PagePropertyValue, {type: 'url'}>
+export type PropertyValueSelect = Extract<PagePropertyValue, {type: 'select'}>
+export type PropertyValueMultiSelect = Extract<PagePropertyValue, {type: 'multi_select'}>

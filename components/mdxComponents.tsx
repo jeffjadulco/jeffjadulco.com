@@ -5,7 +5,7 @@ import React from 'react'
 import { CodeLink } from './codeLink'
 
 export const components = {
-  Image,
+  Image: (props) => <Image {...props} />,
   a: ({ href = '', ...props }) => {
     if (href.startsWith('http')) {
       return (

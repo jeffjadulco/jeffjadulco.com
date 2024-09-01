@@ -80,6 +80,6 @@ export default function RootLayout({
 
 function BackgroundNoise() {
   return (
-    <div className="absolute inset-0 -z-20 opacity-80 h-full mix-blend-overlay noise-bg"></div>
+    <div className="absolute inset-0 -z-20 opacity-100 h-full mix-blend-overlay noise-bg"></div>
   )
 }

@@ -1,12 +1,21 @@
 module.exports = {
   experimental: {
-    appDir: true,
+    esmExternals: 'loose'
   },
   images: {
-    domains: [
-      'i.scdn.co', // spotify
-      'a.ltrbxd.com', // letterboxd
-      'steamcdn-a.akamaihd.net', // steam
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'a.ltrbxd.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'steamcdn-a.akamaihd.net',
+      }
     ],
   },
   headers() {

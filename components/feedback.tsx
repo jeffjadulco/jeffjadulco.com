@@ -17,6 +17,7 @@ export function Feedback({ post }: Props) {
     e.target.reset()
   }
 
+  // @ts-ignore
   return (
     <div className="mt-32 full-width-container bg-back-secondary">
       <div className="container max-w-xl px-8 pt-16 pb-2 mx-auto text-gray-900">
@@ -75,7 +76,7 @@ export function Feedback({ post }: Props) {
               Thanks for taking the time to give a feedback!
             </p>
           )}
-          {!state.submitting && state.errors.length > 0 && (
+          {!state.submitting && state.errors && (
             <p className="mt-3 font-medium text-center text-pink-500">
               I'm having errors sending your feedback. Alternatively, you can
               reach me out on Twitter:{' '}

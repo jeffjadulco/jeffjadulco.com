@@ -25,18 +25,16 @@ export async function getRecentGames() {
       method: 'GET',
       url: API_URL,
       params: {
-        key: API_KEY,
-        input_json: {
-          steamid: STEAM_ID,
-          count: 0,
-        },
+      key: API_KEY,
+        steamid: STEAM_ID,
+        count: 0,
       },
     })
 
     recentlyPlayedGames = {
       type: 'steam',
       verb: 'Recently Played Game',
-      games: response.games
+      games: !response.games ? [] : response.games
         .filter(game => game.name && game.appid)
         .filter(game => !IGNORED_GAMES.includes(game.appid.toString()))
         .map(

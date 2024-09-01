@@ -25,6 +25,9 @@ export default async function Projects() {
       <section className="mb-6">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:-mx-6 justify-items-start md:grid-cols-3 lg:grid-cols-4">
           {projects.map(project => {
+            if (!project) {
+              return
+            }
             return (
               <ButtonPop key={project.id}>
                 <ProjectCard project={project} />

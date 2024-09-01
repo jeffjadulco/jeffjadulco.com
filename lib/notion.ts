@@ -1,7 +1,13 @@
-import { Client } from '@notionhq/client'
+import { Client, isFullPage } from '@notionhq/client'
 import type { Project } from '../types/project'
 import type { NotionDoingNow } from '../types/rich-presence'
-import * as helper from './notion-helper'
+import {
+  PropertyValueMultiSelect,
+  PropertyValueRichText,
+  PropertyValueSelect,
+  PropertyValueTitle,
+  PropertyValueUrl,
+} from './notion-helper'
 
 const notion = new Client({ auth: process.env.NOTION_KEY })
 const dbid_now = process.env.NOTION_NOW_DB_ID || ''
@@ -21,10 +27,16 @@ export async function getDoingNow() {
     return {
       type: 'notion',
       verb: 'Now',
-      entries: results.map(result => ({
-        id: result.id,
-        title: helper.asTitle(result.properties.Name).title[0].plain_text,
-      })),
+      entries: results.map(doc => {
+        if (!isFullPage(doc)) {
+          return null
+        }
+        return {
+          id: doc.id,
+          title: (doc.properties['Name'] as PropertyValueTitle).title[0]
+            .plain_text,
+        }
+      }),
     } as NotionDoingNow
   } catch (error) {
     return undefined
@@ -48,22 +60,25 @@ export async function getProjects() {
         },
       ],
     })
-    return results.map(
-      result =>
-        ({
-          id: result.id,
-          title: helper.asTitle(result.properties.Title).title[0].plain_text,
-          description: helper.asRichText(result.properties.Description)
-            .rich_text[0].plain_text,
-          link: helper.asUrl(result.properties.Link).url,
-          type: helper.asSelect(result.properties.Type).select?.name,
-          year: helper.asRichText(result.properties.Year).rich_text[0]
-            .plain_text,
-          tags: helper
-            .asMultiSelect(result.properties.Tags)
-            .multi_select.map(tag => tag.name),
-        } as Project)
-    )
+    return results.map(doc => {
+      if (!isFullPage(doc)) {
+        return
+      }
+      return {
+        id: doc.id,
+        title: (doc.properties['Title'] as PropertyValueTitle).title[0]
+          .plain_text,
+        description: (doc.properties['Description'] as PropertyValueRichText)
+          .rich_text[0].plain_text,
+        link: (doc.properties['Link'] as PropertyValueUrl).url,
+        type: (doc.properties['Type'] as PropertyValueSelect).select?.name,
+        year: (doc.properties['Year'] as PropertyValueRichText).rich_text[0]
+          .plain_text,
+        tags: (
+          doc.properties['Tags'] as PropertyValueMultiSelect
+        ).multi_select.map(tag => tag.name),
+      } as Project
+    })
   } catch (error) {
     console.error(error)
     return undefined

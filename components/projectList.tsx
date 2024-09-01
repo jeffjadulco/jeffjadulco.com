@@ -34,8 +34,11 @@ export async function ProjectList({ bOpenSourceOnly }) {
     <section>
       <ul className="mt-3 divide-y divide-back-subtle">
         {projects
-          .filter(p => !bOpenSourceOnly || p.type === 'Open Source')
+          .filter(p => !bOpenSourceOnly || p?.type === 'Open Source')
           .map(project => {
+            if (!project) {
+              return
+            }
             return <ProjectCard key={project.title} project={project} />
           })}
       </ul>
