@@ -20,6 +20,25 @@ async function getMdxBySlug(slug) {
 async function getMdxByPath(mdxPath) {
   const slug = path.basename(mdxPath).replace(path.extname(mdxPath), '')
   const source = fs.readFileSync(path.join(process.cwd(), mdxPath), 'utf8')
+
+  // https://github.com/kentcdodds/mdx-bundler?tab=readme-ov-file#nextjs-esbuild-enoent
+  if (process.platform === 'win32') {
+    process.env.ESBUILD_BINARY_PATH = path.join(
+      process.cwd(),
+      'node_modules',
+      'esbuild',
+      'esbuild.exe',
+    )
+  } else {
+    process.env.ESBUILD_BINARY_PATH = path.join(
+      process.cwd(),
+      'node_modules',
+      'esbuild',
+      'bin',
+      'esbuild',
+    )
+  }
+
   const { code, frontmatter } = await bundleMDX({
     source,
     mdxOptions(options) {
