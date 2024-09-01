@@ -1,7 +1,8 @@
 module.exports = {
   experimental: {
-    esmExternals: 'loose'
+    esmExternals: 'loose',
   },
+  outputFileTracing: true,
   images: {
     remotePatterns: [
       {
@@ -15,7 +16,7 @@ module.exports = {
       {
         protocol: 'https',
         hostname: 'steamcdn-a.akamaihd.net',
-      }
+      },
     ],
   },
   headers() {
@@ -36,7 +37,7 @@ module.exports = {
           },
         ],
       },
-    ];
+    ]
   },
   redirects() {
     return [
