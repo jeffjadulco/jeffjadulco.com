@@ -1,8 +1,11 @@
 # [jeffjadulco.com](https://jeffjadulco.com)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 My personal website running on [Next.js](https://nextjs.org/)
+
+> [!WARNING]
+> This repo is super outdated now. Last major update was 3 years ago. 
 
 ## Built using
 
