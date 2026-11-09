@@ -1,3 +1,6 @@
+@import 'tailwindcss';
+@config '../../tailwind.config.js';
+
 :root {
   --tw-bg-opacity: 1; /* OPACITY HACK FOR CSS VARS */
   --tw-text-opacity: 1;
@@ -73,11 +76,21 @@
   --color-code-regex: hsl(160, 80%, 60%);
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
+  /* Keep Tailwind v3 defaults: v4 changed default border color and button cursor */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
   ::-moz-selection {
     background: var(--color-accent);
     color: var(--color-back-primary);

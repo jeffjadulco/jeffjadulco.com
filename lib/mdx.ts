@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import globby from 'globby'
+import { globby } from 'globby'
 import readingTime from 'reading-time'
 import { bundleMDX } from 'mdx-bundler'
 import rehypeSlug from 'rehype-slug'
@@ -19,9 +19,13 @@ async function getMdxBySlug(slug) {
 
 async function getMdxByPath(mdxPath) {
   const slug = path.basename(mdxPath).replace(path.extname(mdxPath), '')
-  const source = fs.readFileSync(path.join(process.cwd(), mdxPath), 'utf8')
-  const { code, frontmatter } = await bundleMDX(source, {
-    xdmOptions(options) {
+  const source = fs.readFileSync(
+    path.join(/*turbopackIgnore: true*/ process.cwd(), mdxPath),
+    'utf8'
+  )
+  const { code, frontmatter } = await bundleMDX({
+    source,
+    mdxOptions(options) {
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         rehypeMetaAttribute,
@@ -48,7 +52,7 @@ async function getAllFrontMatters(): Promise<Frontmatter[]> {
   const matters = await Promise.all(
     paths.map(async filePath => {
       const source = fs.readFileSync(filePath, 'utf8')
-      const { code, frontmatter } = await bundleMDX(source)
+      const { code, frontmatter } = await bundleMDX({ source })
 
       return {
         ...(frontmatter as Frontmatter),

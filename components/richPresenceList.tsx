@@ -1,20 +1,14 @@
 import type {
   LetterboxdRecentMovies,
-  NotionDoingNow,
-  SpotifyCurrentTrack,
-  SpotifyRecentTracks,
   SteamRecentlyPlayedGames,
 } from '../types/rich-presence'
-import { Letterboxd16, Notion16, Spotify16, Steam16 } from './icons'
+import { Letterboxd16, Steam16 } from './icons'
 import { PresenceWidget } from './presenceWidget'
 
 interface RichPresenceListProps {
   presenceList: Array<
-    | SpotifyCurrentTrack
-    | SpotifyRecentTracks
     | LetterboxdRecentMovies
     | SteamRecentlyPlayedGames
-    | NotionDoingNow
     | undefined
     | null
   >
@@ -32,31 +26,7 @@ export function RichPresenceList({
       )}
       <div className="grid grid-cols-1 gap-4 mt-3 -mx-1 md:-mx-5 md:grid-cols-2 xl:grid-cols-2">
         {presenceList.map(rp => {
-          if (rp?.type === 'spotify_current') {
-            return (
-              <PresenceWidget
-                key={rp.type}
-                icon={<Spotify16 />}
-                verb={rp.verb}
-                title={rp.track.title}
-                subtitle={rp.track.artists}
-                img_url={rp.track.image}
-                url={rp.track.url}
-              />
-            )
-          } else if (rp?.type === 'spotify_recent') {
-            return (
-              <PresenceWidget
-                key={rp.type}
-                icon={<Spotify16 />}
-                verb={rp.verb}
-                title={rp.tracks[0]?.title}
-                subtitle={rp.tracks[0]?.artists}
-                img_url={rp.tracks[0]?.image}
-                url={rp.tracks[0]?.url}
-              />
-            )
-          } else if (rp?.type === 'letterboxd') {
+          if (rp?.type === 'letterboxd') {
             return (
               <PresenceWidget
                 key={rp.type}
@@ -79,25 +49,6 @@ export function RichPresenceList({
                 img_url={rp.games[0]?.image}
                 url={rp.games[0]?.url}
               />
-            )
-          } else if (rp?.type === 'notion') {
-            return (
-              <PresenceWidget key={rp.type} icon={<Notion16 />} verb={rp.verb}>
-                <ul className="py-4 space-y-1">
-                  {rp.entries.map((entry, index) => {
-                    if (index < 2) {
-                      return (
-                        <li
-                          key={entry.id}
-                          className="text-base font-semibold list-disc list-inside md:text-sm"
-                        >
-                          {entry.title}
-                        </li>
-                      )
-                    }
-                  })}
-                </ul>
-              </PresenceWidget>
             )
           }
         })}

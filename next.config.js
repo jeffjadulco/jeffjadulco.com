@@ -1,12 +1,8 @@
 module.exports = {
-  experimental: {
-    appDir: true,
-  },
   images: {
-    domains: [
-      'i.scdn.co', // spotify
-      'a.ltrbxd.com', // letterboxd
-      'steamcdn-a.akamaihd.net', // steam
+    remotePatterns: [
+      { hostname: 'a.ltrbxd.com' }, // letterboxd
+      { hostname: 'steamcdn-a.akamaihd.net' }, // steam
     ],
   },
   headers() {
@@ -15,11 +11,10 @@ module.exports = {
         source: '/(.*)',
         headers: [
           // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
-          // Opt-out of Google FLoC: https://amifloced.org/
           {
             key: 'Permissions-Policy',
             value:
-              'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+              'camera=(), microphone=(), geolocation=()',
           },
           {
             key: 'Content-Security-Policy',
@@ -43,9 +38,9 @@ module.exports = {
 // https://securityheaders.com
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://gc.zgo.at http://gc.zgo.at;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline';
   style-src 'self' 'unsafe-inline';
-  img-src * blob: data: https://jeffjadulco.goatcounter.com/count;
+  img-src * blob: data:;
   media-src 'none';
   connect-src *;
   font-src 'self';

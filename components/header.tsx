@@ -56,7 +56,7 @@ export function Header() {
             <span className="text-accent">.com</span>
           </div>
         </Link>
-        <div className="items-center flex-grow hidden space-x-6 sm:flex">
+        <div className="items-center grow hidden space-x-6 sm:flex">
           {routes.map(route => (
             <NavLink
               key={route.path}
@@ -70,7 +70,7 @@ export function Header() {
             />
           ))}
         </div>
-        <ThemeToggle className="hidden mt-1 transition-transform ease-in-out focus:outline-none sm:block hover:text-accent hover:-translate-y-1 " />
+        <ThemeToggle className="hidden mt-1 transition-transform ease-in-out focus:outline-hidden sm:block hover:text-accent hover:-translate-y-1 " />
       </nav>
     </header>
   )

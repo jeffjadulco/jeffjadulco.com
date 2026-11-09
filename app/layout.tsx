@@ -1,11 +1,11 @@
 import { Metadata } from 'next'
 import { Fira_Code, Inter } from 'next/font/google'
-import { Analytics } from '../components/analytics'
 import { Footer } from '../components/footer'
 import { Header } from '../components/header'
 import { MobileNav } from '../components/mobileNav'
 import './styles/codeblock.css'
 import './styles/globals.css'
+import React from 'react'
 
 const FontInter = Inter({
   subsets: ['latin'],
@@ -69,11 +69,10 @@ export default function RootLayout({
       >
         <MobileNav />
         <Header />
-        <main className="container flex-grow max-w-screen-lg px-5 m-auto mt-16 sm:px-12 md:px-20">
+        <main className="container grow max-w-5xl px-5 m-auto mt-16 sm:px-12 md:px-20">
           {children}
         </main>
         <Footer />
-        <Analytics />
         <BackgroundNoise />
       </body>
     </html>

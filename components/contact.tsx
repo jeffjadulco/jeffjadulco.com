@@ -1,10 +1,8 @@
 'use client'
 
-import { useAnalyticsEvent } from '../hooks/useAnalytics'
 import { ExtLink, Button } from './atoms'
 
 export function Contact() {
-  const { trackCustomEvent } = useAnalyticsEvent()
   return (
     <div className="mt-32 full-width-container bg-back-secondary">
       <div className="container max-w-screen-xl pt-16 mx-auto">
@@ -23,12 +21,7 @@ export function Contact() {
           <ExtLink link="https://github.com/jeffjadulco">GitHub</ExtLink>
         </p>
         <div className="flex justify-center pt-10 pb-2 mx-auto">
-          <Button
-            link="mailto:hey@jeffjadulco.com"
-            onClick={() => {
-              trackCustomEvent({ eventName: 'click-contact' })
-            }}
-          >
+          <Button link="mailto:hey@jeffjadulco.com">
             <span className="text-2xl font-semibold text-back-secondary">
               Say hello
             </span>

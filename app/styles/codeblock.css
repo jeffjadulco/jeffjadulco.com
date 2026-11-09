@@ -17,7 +17,7 @@ code {
 
 @media (min-width: 1280px) {
   pre {
-    margin: 1em 0em 1em -1.5em;
+    margin: 1em 0 1em -1.5em;
   }
 }
 
@@ -137,7 +137,8 @@ code {
 
 .highlight-word {
   background-color: var(--color-code-word-highlight);
-  color: var(--color-text-on-accent);
+  /*TODO:*/
+  /*color: var(--color-text-on-accent);*/
   border-radius: 2px;
 }
 

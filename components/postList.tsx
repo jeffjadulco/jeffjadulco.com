@@ -1,10 +1,8 @@
 import { format, parseISO } from 'date-fns'
 import Link from 'next/link'
-import { Props } from 'next/script'
-import React from 'react'
 import { getAllFrontMatters } from '../lib/mdx'
 
-export async function PostList({
+export default async function PostList({
   showHeading = false,
 }: {
   showHeading?: boolean
@@ -40,6 +38,3 @@ export async function PostList({
     </section>
   )
 }
-
-// TODO: This is just a workaround. See https://github.com/vercel/next.js/issues/42292
-export default (PostList as unknown) as (props: Props) => JSX.Element

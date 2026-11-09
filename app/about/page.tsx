@@ -5,32 +5,15 @@ import { About24 } from '../../components/icons'
 import { components as mdx } from '../../components/mdxComponents'
 import { RichPresenceList } from '../../components/richPresenceList'
 import { getRecentMovies } from '../../lib/letterboxd'
-
-import { getDoingNow } from '../../lib/notion'
-import { getCurrentlyPlaying, getRecentlyPlayed } from '../../lib/spotify'
 import { getRecentGames } from '../../lib/steam'
-
-import {
-  SpotifyCurrentTrack,
-  SpotifyRecentTracks,
-} from '../../types/rich-presence'
 
 export const metadata: Metadata = {
   title: 'About',
 }
 
 export default async function About() {
-  // let spotify:
-  //   | SpotifyCurrentTrack
-  //   | SpotifyRecentTracks
-  //   | null = await getCurrentlyPlaying()
-  // if (spotify === null) {
-  //   spotify = await getRecentlyPlayed()
-  // }
-
   const letterboxd = await getRecentMovies(1)
   const steam = await getRecentGames()
-  // const notion = await getDoingNow()
 
   return (
     <Fragment>
@@ -62,11 +45,6 @@ export default async function About() {
             motivation for me to continue making projects because now I finally
             have a place to showcase them.
           </mdx.p>
-          {/*<mdx.h3>Why write a blog?</mdx.h3>*/}
-          {/*<mdx.p>*/}
-          {/*  My <mdx.a href="/blog/welcome">first blog post</mdx.a> explained it.*/}
-          {/*  I'd be happy if you read it 😀*/}
-          {/*</mdx.p>*/}
           <mdx.h3>What else?</mdx.h3>
           <mdx.p>
             When I’m not programming, I endlessly browse Reddit (

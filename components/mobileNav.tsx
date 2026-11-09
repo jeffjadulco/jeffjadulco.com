@@ -45,7 +45,7 @@ export function MobileNav() {
     <div className="text-xl sm:hidden" aria-hidden={!navShow}>
       <button
         type="button"
-        className="fixed right-0 z-50 px-5 py-12 md:hidden focus:outline-none"
+        className="fixed right-0 z-50 px-5 py-12 md:hidden focus:outline-hidden"
         onClick={_ => {
           setNavShow(!navShow)
         }}
@@ -116,7 +116,7 @@ export function MobileNav() {
 
 function MobileNavLink({ to, title, selected, hide }) {
   return (
-    <div className="flex-grow">
+    <div className="grow">
       <Link
         href={to}
         className={classNames({

@@ -60,7 +60,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.tags?.map(tag => (
             <span
               key={tag}
-              className="p-1 mb-2 mr-2 text-xs rounded-sm text-fore-subtle bg-back-subtle"
+              className="p-1 mb-2 mr-2 text-xs rounded-xs text-fore-subtle bg-back-subtle"
             >
               {tag}
             </span>

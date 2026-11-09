@@ -26,10 +26,10 @@ export async function getRecentGames() {
       url: API_URL,
       params: {
         key: API_KEY,
-        input_json: {
+        input_json: JSON.stringify({
           steamid: STEAM_ID,
           count: 0,
-        },
+        }),
       },
     })
 

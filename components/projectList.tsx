@@ -28,7 +28,11 @@ function ProjectCard({ project }: { project: Project }) {
   )
 }
 
-export async function ProjectList({ bOpenSourceOnly }) {
+interface Props {
+  bOpenSourceOnly?: boolean
+}
+
+export default async function ProjectList({ bOpenSourceOnly = false }: Props) {
   const projects = (await getProjects()) || []
   return (
     <section>
@@ -42,9 +46,3 @@ export async function ProjectList({ bOpenSourceOnly }) {
     </section>
   )
 }
-
-// TODO: This is just a workaround. See https://github.com/vercel/next.js/issues/42292
-interface Props {
-  bOpenSourceOnly: Boolean
-}
-export default (ProjectList as unknown) as (props: Props) => JSX.Element

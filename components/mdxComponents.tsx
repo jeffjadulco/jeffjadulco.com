@@ -53,7 +53,6 @@ export const components = {
         href={href}
         {...props}
         className="underline text-fore-subtle hover:text-accent  focus-visible:text-accent"
-        legacyBehavior={true}
       ></Link>
     )
   },

@@ -1,10 +1,8 @@
-import { useAnalyticsEvent } from '../hooks/useAnalytics'
 import { useDarkMode } from '../hooks/useDarkMode'
 import { Moon20, Sun20 } from './icons'
 
 export function ThemeToggle({ className }: { className?: string }) {
   const [isDark, setIsDark] = useDarkMode()
-  const { trackCustomEvent } = useAnalyticsEvent()
 
   return (
     <button
@@ -12,7 +10,6 @@ export function ThemeToggle({ className }: { className?: string }) {
       title={isDark ? 'Activate Light Mode' : 'Activate Dark Mode'}
       onClick={() => {
         setIsDark(!isDark)
-        trackCustomEvent({ eventName: 'toggle-theme' })
       }}
       className={className}
     >

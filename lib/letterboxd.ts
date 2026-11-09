@@ -22,8 +22,7 @@ const rating_star = new Map([
 
 function getImage(document) {
   const root = parse(document)
-  const img = root?.querySelector('p img')?.getAttribute('src')
-  return img
+  return root?.querySelector('p img')?.getAttribute('src')
 }
 
 function getRating(rating) {

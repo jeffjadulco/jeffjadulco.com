@@ -1,10 +1,8 @@
 import { Client, isFullPage } from '@notionhq/client'
 import type { Project } from '../types/project'
-import type { NotionDoingNow } from '../types/rich-presence'
 import * as helper from './notion-helper'
 
 const notion = new Client({ auth: process.env.NOTION_KEY })
-const dbid_now = process.env.NOTION_NOW_DB_ID || ''
 const dbid_projects = process.env.NOTION_PROJECTS_DB_ID || ''
 const dataSourceIds = new Map<string, Promise<string>>()
 
@@ -24,31 +22,6 @@ function getDataSourceId(databaseId: string) {
   }
 
   return dataSourceId
-}
-
-export async function getDoingNow() {
-  try {
-    const { results } = await notion.dataSources.query({
-      data_source_id: await getDataSourceId(dbid_now),
-      filter: {
-        property: 'Tags',
-        select: {
-          equals: 'Doing',
-        },
-      },
-    })
-    return {
-      type: 'notion',
-      verb: 'Now',
-      entries: results.filter(isFullPage).map(result => ({
-        id: result.id,
-        title:
-          helper.asTitle(result.properties.Name).title[0]?.plain_text || '',
-      })),
-    } as NotionDoingNow
-  } catch (error) {
-    return undefined
-  }
 }
 
 export async function getProjects() {

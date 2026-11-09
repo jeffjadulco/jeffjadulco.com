@@ -3,7 +3,6 @@ import { format, parseISO } from 'date-fns'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { Metadata } from 'next'
 import { Fragment } from 'react'
-import { Feedback } from '../../../components/feedback'
 import { components } from '../../../components/mdxComponents'
 import { QuickNav } from '../../../components/quickNav'
 import { getAllFrontMatters, getMdxBySlug } from '../../../lib/mdx'
@@ -15,8 +14,13 @@ export async function generateStaticParams() {
 
 export const dynamicParams = false
 
-export async function generateMetadata({ params }): Promise<Metadata> {
-  const { frontmatter } = await getMdxBySlug(params.slug)
+type Props = {
+  params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
+  const { frontmatter } = await getMdxBySlug(slug)
 
   return {
     title: frontmatter.title,
@@ -31,8 +35,9 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   }
 }
 
-export default async function BlogPost({ params }) {
-  const { code, frontmatter } = await getMdxBySlug(params.slug)
+export default async function BlogPost({ params }: Props) {
+  const { slug } = await params
+  const { code, frontmatter } = await getMdxBySlug(slug)
   const Component = getMDXComponent(code)
 
   // const Component = useMemo(() => getMDXComponent(code), [code])
@@ -84,7 +89,6 @@ export default async function BlogPost({ params }) {
           <Component components={components} />
         </article>
       </div>
-      {/*<Feedback post={frontmatter} />*/}
     </Fragment>
   )
 }
