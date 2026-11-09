@@ -1,13 +1,12 @@
-// @ts-ignore
-import {
-  FilesPropertyValue,
-  MultiSelectPropertyValue,
-  PropertyValue,
-  RichTextPropertyValue,
-  SelectPropertyValue,
-  TitlePropertyValue,
-  URLPropertyValue,
-} from '@notionhq/client/build/src/api-types'
+import type { PageObjectResponse } from '@notionhq/client'
+
+type PropertyValue = PageObjectResponse['properties'][string]
+type TitlePropertyValue = Extract<PropertyValue, { type: 'title' }>
+type RichTextPropertyValue = Extract<PropertyValue, { type: 'rich_text' }>
+type URLPropertyValue = Extract<PropertyValue, { type: 'url' }>
+type SelectPropertyValue = Extract<PropertyValue, { type: 'select' }>
+type MultiSelectPropertyValue = Extract<PropertyValue, { type: 'multi_select' }>
+type FilesPropertyValue = Extract<PropertyValue, { type: 'files' }>
 
 export const asTitle = (propertyValue: PropertyValue) =>
   propertyValue as TitlePropertyValue

@@ -62,18 +62,18 @@ export function Footer() {
                   <GitHub24 className="transition-transform ease-in-out hover:-translate-y-1 hover:text-accent" />
                 </a>
               </span>
-              <span>
-                <a
-                  href="https://twitter.com/jeffjadulco"
-                  aria-label="Visit Twitter profile"
-                  title="Visit Twitter profile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus:text-accent"
-                >
-                  <Twitter24 className="transition-transform ease-in-out hover:-translate-y-1 hover:text-accent" />
-                </a>
-              </span>
+              {/*<span>*/}
+              {/*  <a*/}
+              {/*    href="https://twitter.com/jeffjadulco"*/}
+              {/*    aria-label="Visit Twitter profile"*/}
+              {/*    title="Visit Twitter profile"*/}
+              {/*    target="_blank"*/}
+              {/*    rel="noopener noreferrer"*/}
+              {/*    className="focus:text-accent"*/}
+              {/*  >*/}
+              {/*    <Twitter24 className="transition-transform ease-in-out hover:-translate-y-1 hover:text-accent" />*/}
+              {/*  </a>*/}
+              {/*</span>*/}
             </div>
           </div>
         </div>

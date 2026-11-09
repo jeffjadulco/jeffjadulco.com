@@ -20,17 +20,17 @@ export const metadata: Metadata = {
 }
 
 export default async function About() {
-  let spotify:
-    | SpotifyCurrentTrack
-    | SpotifyRecentTracks
-    | null = await getCurrentlyPlaying()
-  if (spotify === null) {
-    spotify = await getRecentlyPlayed()
-  }
+  // let spotify:
+  //   | SpotifyCurrentTrack
+  //   | SpotifyRecentTracks
+  //   | null = await getCurrentlyPlaying()
+  // if (spotify === null) {
+  //   spotify = await getRecentlyPlayed()
+  // }
 
   const letterboxd = await getRecentMovies(1)
   const steam = await getRecentGames()
-  const notion = await getDoingNow()
+  // const notion = await getDoingNow()
 
   return (
     <Fragment>
@@ -82,7 +82,7 @@ export default async function About() {
         <h3 className="mb-4 text-2xl font-bold leading-tight mt-14 text-accent">
           Recents
         </h3>
-        <RichPresenceList presenceList={[notion, spotify, letterboxd, steam]} />
+        <RichPresenceList presenceList={[letterboxd, steam]} />
       </div>
       <Contact />
     </Fragment>
