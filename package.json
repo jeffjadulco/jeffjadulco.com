@@ -2,7 +2,7 @@
   "name": "jeffjadulco.com",
   "private": true,
   "description": "My personal website made using Next.js",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "author": "Jeff Jadulco <hey@jeffjadulco.com>",
   "dependencies": {
     "next": "^16.4.5",
