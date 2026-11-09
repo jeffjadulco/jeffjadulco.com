@@ -43,11 +43,15 @@ export default async function About() {
         </h1>
         <article className="max-w-2xl min-w-0 text-base lg:text-lg text-fore-subtle">
           <mdx.p>
-            I'm Jeff Jadulco, I work full-time as a game programmer at&nbsp;
-            <mdx.a href="https://secret6.com">Secret 6, Inc</mdx.a>. In my free
-            time, I study front-end development with React. My goal is to write
-            useful apps and contribute to open source projects while working a
-            full-time job.
+            I'm Jeff Jadulco, I work full-time as a game programmer{' '}
+            <mdx.Strikethrough>
+              {' '}
+              at&nbsp;
+              <mdx.a href="https://secret6.com">Secret 6, Inc</mdx.a>. In my
+              free time, I study front-end development with React.
+            </mdx.Strikethrough>{' '}
+            My goal is to write useful apps and contribute to open source
+            projects while working a full-time job.
           </mdx.p>
           <mdx.h3>Why make this website?</mdx.h3>
           <mdx.p>
@@ -58,11 +62,11 @@ export default async function About() {
             motivation for me to continue making projects because now I finally
             have a place to showcase them.
           </mdx.p>
-          <mdx.h3>Why write a blog?</mdx.h3>
-          <mdx.p>
-            My <mdx.a href="/blog/welcome">first blog post</mdx.a> explained it.
-            I'd be happy if you read it 😀
-          </mdx.p>
+          {/*<mdx.h3>Why write a blog?</mdx.h3>*/}
+          {/*<mdx.p>*/}
+          {/*  My <mdx.a href="/blog/welcome">first blog post</mdx.a> explained it.*/}
+          {/*  I'd be happy if you read it 😀*/}
+          {/*</mdx.p>*/}
           <mdx.h3>What else?</mdx.h3>
           <mdx.p>
             When I’m not programming, I endlessly browse Reddit (

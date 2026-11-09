@@ -4,8 +4,14 @@ import Link from 'next/link'
 import React from 'react'
 import { CodeLink } from './codeLink'
 
+const Strikethrough = (props: React.ComponentProps<'del'>) => (
+  <del {...props} className="line-through opacity-75" title="Outdated" />
+)
+
 export const components = {
   Image: (props: any) => <Image {...props} />,
+  del: Strikethrough,
+  Strikethrough,
   a: ({ href = '', ...props }) => {
     if (href.startsWith('http')) {
       return (

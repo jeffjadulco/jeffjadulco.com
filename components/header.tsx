@@ -40,22 +40,20 @@ export function Header() {
           aria-label="Website logo, go back to homepage."
           className="flex items-center border-white group "
         >
-          <div>
-            <div className="overflow-hidden transition-transform ease-in-out border-2 rounded-full w-9 h-9 group-hover:-translate-y-1">
-              <Image
-                src={avatar}
-                alt="My avatar"
-                width={36}
-                height={36}
-                priority={true}
-              />
-            </div>
-            <div className="inline ml-3 text-base font-semibold sm:hidden">
-              <span className="group-hover:text-accent text-fore-subtle">
-                jeffjadulco
-              </span>
-              <span className="text-accent">.com</span>
-            </div>
+          <div className="overflow-hidden transition-transform ease-in-out border-2 rounded-full w-9 h-9 group-hover:-translate-y-1">
+            <Image
+              src={avatar}
+              alt="My avatar"
+              width={36}
+              height={36}
+              priority={true}
+            />
+          </div>
+          <div className="inline ml-3 text-base font-semibold sm:hidden">
+            <span className="group-hover:text-accent text-fore-subtle">
+              jeffjadulco
+            </span>
+            <span className="text-accent">.com</span>
           </div>
         </Link>
         <div className="items-center flex-grow hidden space-x-6 sm:flex">

@@ -1,7 +1,6 @@
 # [jeffjadulco.com](https://jeffjadulco.com)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-![Twitter Follow](https://img.shields.io/twitter/follow/jeffjadulco?style=social)
 
 My personal website running on [Next.js](https://nextjs.org/)
 

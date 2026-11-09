@@ -37,7 +37,7 @@ export function Footer() {
               className="self-center text-xs tracking-wider md:self-end"
               aria-label="Copyright"
             >
-              © 2020 - 2023. Jeff Jadulco. All Rights Reserved.
+              © 2020 - 2026. Jeff Jadulco. All Rights Reserved.
             </span>
             <div className="flex flex-row items-center justify-center space-x-6 md:justify-end">
               <span>

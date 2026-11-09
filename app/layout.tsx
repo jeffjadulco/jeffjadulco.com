@@ -10,11 +10,13 @@ import './styles/globals.css'
 const FontInter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
 })
 
 const FontFiraCode = Fira_Code({
   subsets: ['latin'],
   variable: '--font-fira-code',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {

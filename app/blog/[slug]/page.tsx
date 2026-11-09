@@ -88,7 +88,7 @@ export default async function BlogPost({ params }) {
           <Component components={components} />
         </article>
       </div>
-      <Feedback post={frontmatter} />
+      {/*<Feedback post={frontmatter} />*/}
     </Fragment>
   )
 }
