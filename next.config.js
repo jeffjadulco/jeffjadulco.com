@@ -4,6 +4,7 @@ module.exports = {
       { hostname: 'a.ltrbxd.com' }, // letterboxd
       { hostname: 'steamcdn-a.akamaihd.net' }, // steam
     ],
+    qualities: [100, 75],
   },
   headers() {
     return [
